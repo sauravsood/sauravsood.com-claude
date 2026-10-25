@@ -8,10 +8,11 @@ Any slot without a file shows a dashed placeholder on the page, so you can add t
 | 01.jpg | Top: the two of us (landscape works best) |
 | 02.jpg | With our elder one    |
 | 03.jpg | With the baby         |
-| 04.jpg | With Bella & Cindy    |
-| 05.jpg | One of her dishes     |
-| 06.jpg | The home she keeps    |
-| 07.jpg | The trip she planned  |
+| 04.jpg | With Bella            |
+| 05.jpg | With Cindy            |
+| 06.jpg | One of her dishes     |
+| 07.jpg | The home she keeps    |
+| 08.jpg | The trip she planned  |
 
 To change a caption, edit the matching <figcaption> and alt text in ../index.html.
-To add an 08.jpg, copy one <figure class="photo"> block in ../index.html and change the number.
+To add a 09.jpg, copy one <figure class="photo"> block in ../index.html and change the number.
