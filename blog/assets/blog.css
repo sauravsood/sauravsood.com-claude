@@ -1,0 +1,147 @@
+/* Blog pages: builds on assets/css/site.css tokens; nothing here overrides site-wide rules. */
+.entry h2 a { text-decoration: none; }
+.entry h2 a:hover { text-decoration: underline; text-decoration-color: var(--crayon); text-decoration-thickness: 3px; text-underline-offset: 4px; }
+
+.hand { font-family: var(--hand); color: var(--ball); line-height: 1.2; }
+.post-head h1 { max-width: 14ch; }
+.post-prose { font-size: var(--step-1); line-height: 1.6; }
+.post-prose p { max-width: 60ch; }
+
+/* ---------- Photos ---------- */
+.photo { margin: 0; display: grid; gap: 10px; }
+.photo figcaption { font-family: var(--hand); font-size: var(--step-1); color: var(--chalk); text-align: center; }
+.photo .frame {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  padding: 10px 10px 10px;
+  background: var(--chalk);
+  border: 0;
+  border-radius: 3px;
+  box-shadow: 0 8px 0 rgba(0,0,0,.16);
+  cursor: zoom-in;
+  overflow: hidden;
+  transition: transform .25s cubic-bezier(.3,1.6,.5,1);
+}
+.photo .frame:hover { transform: translateY(-4px) rotate(-1deg); }
+.photo img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 2px; }
+.photo .empty-note { display: none; }
+/* No file yet: a dashed slot naming the file to drop in */
+.photo.empty .frame { cursor: default; }
+.photo.empty img { display: none; }
+.photo.empty .empty-note {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  border: 2px dashed var(--muted-on-chalk);
+  border-radius: 2px;
+  font-family: var(--mono);
+  font-size: var(--step--1);
+  color: var(--muted-on-chalk);
+  text-align: center;
+  padding: 12px;
+}
+.hero-photo { max-width: 520px; margin-top: 32px; }
+.hero-photo .frame { aspect-ratio: 3 / 2; transform: rotate(-1.5deg); }
+.photo-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px 24px; }
+.photo.tilt-l .frame { transform: rotate(-1.6deg); }
+.photo.tilt-r .frame { transform: rotate(1.4deg); }
+
+.lightbox { border: 0; padding: 0; background: transparent; max-width: min(92vw, 1000px); }
+.lightbox::backdrop { background: rgba(10, 20, 35, .82); }
+.lightbox img { display: block; max-width: 100%; max-height: 82vh; border: 10px solid var(--chalk); border-radius: 3px; }
+.lightbox form { display: flex; justify-content: center; margin-top: 12px; }
+.lightbox .toy, .her-rally .toy, .bouquet-box .toy {
+  font-family: var(--mono);
+  font-size: var(--step--1);
+  background: var(--ball);
+  color: var(--ink);
+  border: 0;
+  border-radius: 999px;
+  padding: 9px 18px;
+  cursor: pointer;
+  transition: transform .12s;
+}
+.toy:active { transform: scale(.94); }
+.toy.ghost { background: transparent; color: var(--chalk); border: 1px solid var(--chalk); }
+
+/* ---------- Her rally ---------- */
+.her-rally { display: grid; grid-template-columns: 11rem minmax(0, 1fr); gap: 16px 28px; align-items: start; }
+.rally-board {
+  grid-row: span 3;
+  background: #10261c;
+  border: 4px solid #2a4434;
+  border-radius: 6px;
+  padding: 14px;
+  display: grid;
+  gap: 4px;
+  text-align: center;
+  font-family: var(--mono);
+}
+.rally-label { font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: #a7b8a9; }
+.rally-num { font-size: 3.4rem; font-weight: 600; color: #e3fb4a; font-variant-numeric: tabular-nums; line-height: 1; }
+.shots { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; counter-reset: shot; }
+.shots li {
+  counter-increment: shot;
+  display: none;
+  background: var(--chalk);
+  color: var(--ink);
+  border-radius: 4px;
+  padding: 10px 14px 10px 44px;
+  position: relative;
+  font-size: var(--step-0);
+}
+.shots li::before {
+  content: "";
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  margin-top: -8px;
+  border-radius: 50%;
+  background: var(--ball);
+  box-shadow: inset -3px -3px 0 rgba(0,0,0,.14);
+}
+.shots li.on { display: block; animation: land .35s cubic-bezier(.3,1.6,.5,1); }
+.shots li.last { background: var(--ball); font-weight: 600; }
+.shots li.last::before { background: var(--crayon); }
+@keyframes land { from { opacity: 0; transform: translateX(28px) rotate(1deg); } to { opacity: 1; transform: none; } }
+.rally-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.rally-end { font-size: var(--step-2); transform: rotate(-2deg); }
+
+/* ---------- Her vs me ---------- */
+.versus { max-width: 640px; }
+.versus h2 .vs { color: #e3fb4a; }
+.versus table { width: 100%; border-collapse: collapse; }
+.versus th, .versus td { padding: 9px 14px; border-bottom: 1px solid #1f3a2b; text-align: left; font-weight: 400; }
+.versus thead th { color: #a7b8a9; text-transform: uppercase; letter-spacing: .08em; font-size: .72rem; }
+.versus tbody th { color: #a7b8a9; text-transform: uppercase; letter-spacing: .04em; }
+.versus td { color: #f2f4ea; }
+.versus td.lit { color: #e3fb4a; font-weight: 600; }
+.versus tbody tr:last-child > * { border-bottom: 0; }
+
+/* ---------- Bouquet ---------- */
+.bouquet-box { display: grid; grid-template-columns: minmax(0, 260px) minmax(0, 1fr); gap: 24px 36px; align-items: center; }
+.bouquet { width: 100%; height: auto; background: var(--chalk); border-radius: 4px; }
+.bouquet .bloom { transform-box: fill-box; transform-origin: center; animation: bloom .4s cubic-bezier(.3,1.8,.5,1); }
+@keyframes bloom { from { transform: scale(0); } to { transform: scale(1); } }
+.bouquet-side { display: grid; gap: 14px; justify-items: start; }
+.bouquet-count { font-family: var(--display); font-weight: 900; font-size: var(--step-3); text-transform: uppercase; line-height: 1; }
+.bouquet-msg { font-size: var(--step-2); min-height: 2.6em; }
+
+.post-sign { text-align: center; display: grid; gap: 10px; justify-items: center; }
+.post-sign .sign { font-size: clamp(1.8rem, 5vw, 2.8rem); transform: rotate(-2deg); max-width: 26ch; }
+
+@media (max-width: 860px) {
+  .photo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .photo-grid, .bouquet-box { grid-template-columns: minmax(0, 1fr); }
+  .her-rally { grid-template-columns: minmax(0, 1fr); }
+  .rally-board { grid-row: auto; }
+  .bouquet { max-width: 260px; }
+  .versus th, .versus td { padding: 7px 8px; font-size: .7rem; letter-spacing: 0; }
+  .versus tbody th { letter-spacing: 0; }
+}

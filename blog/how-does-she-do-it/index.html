@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>I don't know how she does it · Saurav Sood</title>
+<meta name="description" content="A thank-you to my wife: thirty-six, two kids, two dogs, six months without sleep, and still smiling.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Gochi+Hand&family=Instrument+Sans:wght@400;600&family=Martian+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="../../assets/css/site.css">
+<link rel="stylesheet" href="../assets/blog.css">
+</head>
+<!--
+  EDIT HERE
+  data-her-name: her name, shown wherever the page says "my wife" in a .her-name span.
+                 Leave empty to keep "my wife".
+  Photos: drop files into photos/ named 01.jpg ... 07.jpg (see photos/README.md).
+          Any slot without a file shows a dashed placeholder instead of a broken image.
+-->
+<body data-her-name="">
+<main class="court">
+  <header class="topbar">
+    <a class="wordmark" href="../../"><span class="dot" aria-hidden="true"></span>sauravsood.com</a>
+    <ul class="nav">
+      <li><a href="../../#life">Life</a></li>
+      <li><a href="../../blog/">Blog</a></li>
+      <li><a href="../../notes/">Notes</a></li>
+    </ul>
+    <button class="lights" id="lights" type="button" aria-pressed="false">Lights on</button>
+  </header>
+
+  <article>
+    <header class="zone page-head post-head">
+      <p class="eyebrow">Blog · October 2026 · Family</p>
+      <h1>I don't know how she does it</h1>
+      <p class="lede">A thank-you to <span class="her-name">my wife</span>, written by someone who gets a full night's sleep and still can't keep up.</p>
+      <figure class="photo hero-photo">
+        <button class="frame" type="button" data-src="photos/01.jpg" aria-label="Open photo: the two of us">
+          <img src="photos/01.jpg" alt="The two of us">
+          <span class="empty-note">photos/01.jpg<br>the two of us</span>
+        </button>
+        <figcaption>The two of us.</figcaption>
+      </figure>
+    </header>
+
+    <section class="zone prose post-prose">
+      <p>I genuinely don't know how she does it. We're both 36 now. Our baby is six months old, which means <span class="her-name">my wife</span> hasn't really slept in about six months. I've tried to keep up. I can't.</p>
+      <p>It started with the surgery. There was no gap after it, no stretch of recovery of any kind, just straight into sleepless nights and feeds around the clock. And somehow, through all of that, she's still managing everything with a smile.</p>
+    </section>
+
+    <!-- Interactive: tap through one of her days, rally style -->
+    <section class="zone rally-zone" aria-labelledby="rally-h">
+      <div class="side-label">
+        <h2 id="rally-h">Her rally</h2>
+        <p>Every one of these is a shot she gets back over the net. Tap to play the next one.</p>
+      </div>
+      <div class="her-rally">
+        <div class="rally-board" aria-live="polite">
+          <span class="rally-label">Shots returned</span>
+          <span class="rally-num" id="her-count">0</span>
+        </div>
+        <ol class="shots" id="shots">
+          <li>Night feeds, for six months and counting</li>
+          <li>Recovering from surgery, without ever really getting to rest</li>
+          <li>Keeping the house looking beautiful</li>
+          <li>Coming up with new dishes and passing them on to our cook</li>
+          <li>Keeping our meals interesting <em>and</em> healthy</li>
+          <li>Time, every day, for our four-year-old</li>
+          <li>Dental care and everything else for our two dogs</li>
+          <li>Getting fitter after a second C-section</li>
+          <li>Doing so well at work she's being recognised while on maternity leave</li>
+          <li>Planning a trip for all of us</li>
+          <li class="last">And doing all of it with a smile</li>
+        </ol>
+        <div class="rally-actions">
+          <button class="toy" id="next-shot" type="button">Next shot</button>
+          <button class="toy ghost" id="reset-shots" type="button" hidden>Replay</button>
+        </div>
+        <p class="rally-end hand" id="rally-end" hidden>Game, set and match. I'm still looking for the ball.</p>
+      </div>
+    </section>
+
+    <section class="zone prose post-prose">
+      <p>And that's not even the whole list. She's finding time for our elder one, now four, with patience I didn't know a person could have on that little sleep. She's on top of the dogs, right down to their dental care. She's figuring out what we eat, keeping it interesting and healthy, and routing new dishes to our cook. The house still looks the way she wants it to look.</p>
+      <p>On top of that she's getting fitter after a second C-section, and she's excelling at work, so much so that she's getting rewards while she's on maternity leave.</p>
+    </section>
+
+    <!-- Scoreboard: her vs me -->
+    <section class="zone" aria-labelledby="stats-h">
+      <div class="side-label">
+        <h2 id="stats-h">Match stats</h2>
+        <p>An honest comparison. It isn't close.</p>
+      </div>
+      <div class="scoreboard versus">
+        <h2>Her <span class="vs">vs</span> me</h2>
+        <table>
+          <thead><tr><th scope="col"></th><th scope="col">Her</th><th scope="col">Me</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Age</th><td>36</td><td>36</td></tr>
+            <tr><th scope="row">Last full night's sleep</th><td class="lit">Before the baby</td><td>Last night</td></tr>
+            <tr><th scope="row">Recovery time after surgery</th><td class="lit">None, really</td><td>n/a</td></tr>
+            <tr><th scope="row">Planned the trip</th><td class="lit">Yes</td><td>No</td></tr>
+            <tr><th scope="row">Birthday effort</th><td class="lit">Everything above</td><td>A bouquet</td></tr>
+            <tr><th scope="row">Overwhelmed</th><td>Hides it well</td><td class="lit">Regularly</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Photos: drop files into photos/ with these names -->
+    <section class="zone" aria-labelledby="photos-h">
+      <div class="side-label">
+        <h2 id="photos-h">The proof</h2>
+        <p>Tap a photo to see it bigger.</p>
+      </div>
+      <div class="photo-grid">
+        <figure class="photo">
+          <button class="frame" type="button" data-src="photos/02.jpg" aria-label="Open photo: with our elder one">
+            <img src="photos/02.jpg" alt="With our elder one">
+            <span class="empty-note">photos/02.jpg<br>with our elder one</span>
+          </button>
+          <figcaption>With our elder one.</figcaption>
+        </figure>
+        <figure class="photo tilt-r">
+          <button class="frame" type="button" data-src="photos/03.jpg" aria-label="Open photo: with the baby">
+            <img src="photos/03.jpg" alt="With the baby">
+            <span class="empty-note">photos/03.jpg<br>with the baby</span>
+          </button>
+          <figcaption>With the baby.</figcaption>
+        </figure>
+        <figure class="photo tilt-l">
+          <button class="frame" type="button" data-src="photos/04.jpg" aria-label="Open photo: with Bella and Cindy">
+            <img src="photos/04.jpg" alt="With Bella and Cindy">
+            <span class="empty-note">photos/04.jpg<br>with Bella &amp; Cindy</span>
+          </button>
+          <figcaption>With Bella &amp; Cindy.</figcaption>
+        </figure>
+        <figure class="photo">
+          <button class="frame" type="button" data-src="photos/05.jpg" aria-label="Open photo: one of her dishes">
+            <img src="photos/05.jpg" alt="One of her dishes">
+            <span class="empty-note">photos/05.jpg<br>one of her dishes</span>
+          </button>
+          <figcaption>One of her dishes.</figcaption>
+        </figure>
+        <figure class="photo tilt-r">
+          <button class="frame" type="button" data-src="photos/06.jpg" aria-label="Open photo: the home she keeps">
+            <img src="photos/06.jpg" alt="The home she keeps">
+            <span class="empty-note">photos/06.jpg<br>the home she keeps</span>
+          </button>
+          <figcaption>The home she keeps.</figcaption>
+        </figure>
+        <figure class="photo tilt-l">
+          <button class="frame" type="button" data-src="photos/07.jpg" aria-label="Open photo: the trip she planned">
+            <img src="photos/07.jpg" alt="The trip she planned">
+            <span class="empty-note">photos/07.jpg<br>the trip she planned</span>
+          </button>
+          <figcaption>The trip she planned.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="zone prose post-prose">
+      <p>It isn't all easy. There are hard days, and I won't pretend there aren't. But from somewhere, and I honestly don't know where, she finds the energy anyway. I'm the one getting a full night's sleep, and I'm the one who feels overwhelmed by how busy our life has become.</p>
+      <p>She still planned a trip. For her birthday, I barely managed a bouquet of flowers. So consider this page the rest of the present.</p>
+    </section>
+
+    <!-- Interactive: the bouquet I should have brought -->
+    <section class="zone bouquet-zone" aria-labelledby="bouquet-h">
+      <div class="side-label">
+        <h2 id="bouquet-h">The bouquet, upgraded</h2>
+        <p>One flower for every thing she carried this year. Keep tapping.</p>
+      </div>
+      <div class="bouquet-box">
+        <svg class="bouquet" id="bouquet" viewBox="0 0 240 240" role="img" aria-label="A bouquet that grows each time you add a flower">
+          <g id="stems" stroke="#3f6e52" stroke-width="3" stroke-linecap="round" fill="none"></g>
+          <g id="blooms"></g>
+          <path d="M92 168 L120 236 L148 168 Z" fill="#e2683f"/>
+          <path d="M98 176 Q120 186 142 176" stroke="#f6f7f1" stroke-width="3" fill="none" opacity=".7"/>
+        </svg>
+        <div class="bouquet-side">
+          <p class="bouquet-count"><span class="count" id="flower-count">1</span> <span id="flower-word">flower</span></p>
+          <p class="bouquet-msg hand" id="bouquet-msg" aria-live="polite">That was my birthday effort.</p>
+          <button class="toy" id="add-flower" type="button">Add a flower</button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="zone post-sign">
+      <p class="hand sign">Thank you, <span class="her-name">my wife</span>. I love you. I'll try to keep up.</p>
+      <p class="eyebrow">Saurav</p>
+    </footer>
+  </article>
+</main>
+
+<dialog class="lightbox" id="lightbox" aria-label="Photo">
+  <img id="lightbox-img" alt="">
+  <form method="dialog"><button class="toy" type="submit">Close</button></form>
+</dialog>
+
+<footer class="foot">
+  <span>© 2026 Saurav Sood</span>
+  <ul><li><a href="../../blog/">All posts</a></li><li><a href="../../">Back to centre court</a></li></ul>
+</footer>
+<script src="../../assets/js/site.js"></script>
+<script src="../assets/blog.js"></script>
+</body>
+</html>
