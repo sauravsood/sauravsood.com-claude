@@ -234,6 +234,26 @@ p { margin: 0; }
 .set .yrs { font-family: var(--mono); font-size: var(--step--1); color: var(--muted-on-court); font-variant-numeric: tabular-nums; }
 .set h3 { font-family: var(--body); font-size: var(--step-1); font-weight: 600; }
 .set h3 span { font-weight: 400; color: var(--muted-on-court); }
+.set h3 .logo {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  margin-right: 10px;
+  vertical-align: middle;
+  border-radius: 6px;
+  background: var(--chalk);
+  overflow: hidden;
+}
+.set h3 .logo::before {
+  content: attr(data-initials);
+  font-family: var(--mono);
+  font-size: .62rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+.set h3 .logo img { position: absolute; inset: 3px; width: calc(100% - 6px); height: calc(100% - 6px); object-fit: contain; background: var(--chalk); }
 .set p { color: var(--muted-on-court); grid-column: 2; }
 .set .tag {
   font-family: var(--mono);
