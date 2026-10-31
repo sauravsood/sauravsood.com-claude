@@ -11,5 +11,6 @@ notes/_template.html  copy to notes/<slug>/index.html for each post
 lab/index.html        interactive research projects index; each project in lab/<slug>/
 ```
 
-Design: the page is a hard court seen from above. The net splits work (above) from life (below).
+Design: the page is a hard court seen from above, kept light on words. Work is a "draw" of logos, newest first;
+the net leads to an off-court reel of picture cards. Add a portrait at assets/img/portrait.jpg to fill the hero frame.
 Light mode is a day match, dark mode is a night session under floodlights.
