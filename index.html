@@ -34,140 +34,119 @@
     <button class="lights" id="lights" type="button" aria-pressed="false">Lights on</button>
   </header>
 
-  <!-- Hero: the ball is live. Move over it (or tap) to hit it. -->
+  <!-- Hero: the ball is live. Move over it (or tap) to hit it.
+       To add a portrait, save it as assets/img/portrait.jpg (EXIF stripped); until then the frame removes itself. -->
   <section class="zone hero" id="top" aria-label="Introduction">
     <canvas id="rally" aria-hidden="true"></canvas>
-    <div>
-      <p class="eyebrow">Product manager · working from home in Gurugram</p>
+    <div class="hero-copy">
       <h1>Saurav <span class="surname">Sood</span></h1>
-      <p class="lede">I build products for a living. Chemical engineer by degree, tennis player by stubbornness, and at home I'm outranked by the kids and two dogs.</p>
-      <p class="hint" id="hint">psst, hit the ball</p>
+      <p class="lede">Builds products. Plays tennis. Outranked at home.</p>
+      <p class="score" aria-label="Rally score">
+        <span>Rally <b class="lit" id="rally-count">0</b></span>
+        <span>Best <b id="best-count">0</b></span>
+        <span class="hint" id="hint">psst, hit the ball</span>
+      </p>
     </div>
-    <aside class="scoreboard" aria-label="Scoreboard">
-      <h2>Centre court</h2>
-      <dl>
-        <dt>Rally</dt><dd class="lit" id="rally-count">0</dd>
-        <dt>Best rally</dt><dd id="best-count">0</dd>
-        <dt>Serving</dt><dd>Manager, PropStream</dd>
-        <dt>Off court</dt><dd>Books, reps, dogs, kids</dd>
-      </dl>
-    </aside>
+    <figure class="portrait">
+      <img src="assets/img/portrait.jpg" alt="Saurav Sood" onerror="this.closest('figure').remove()">
+    </figure>
   </section>
 
-  <!-- Far side of the net: work -->
+  <!-- Work, newest first. Each stop: logo, company, role and years. -->
   <section class="zone" id="work" aria-labelledby="work-h">
     <div class="side-label">
-      <h2 id="work-h">The work side</h2>
-      <p>A career played in sets: from chemical plants to code to running operations to product.</p>
+      <h2 id="work-h">Work</h2>
+      <span class="span-label">Now → 2009</span>
     </div>
-    <ol class="sets" reversed>
-      <li class="set serving">
-        <span class="yrs">Now</span>
-        <h3><span class="logo" data-initials="PS" aria-hidden="true"><img src="assets/logos/propstream.png" alt="" loading="lazy" onerror="this.remove()"></span>PropStream, Stewart Title <span>· Manager</span></h3>
-        <span class="tag">Serving</span>
-        <p>Product work on PropStream, Stewart Title's real estate data platform, from a home office in Gurugram.</p>
+    <ol class="draw">
+      <li class="stop now" title="Product work on PropStream, Stewart Title's real estate data platform.">
+        <span class="when">Now</span>
+        <span class="logo" data-initials="PS" aria-hidden="true"><img src="assets/logos/propstream.png" alt="" loading="lazy" onerror="this.remove()"></span>
+        <span class="co">PropStream</span>
+        <span class="role">Manager · Stewart Title</span>
       </li>
-      <li class="set">
-        <span class="yrs">2021 – 2026</span>
-        <h3><span class="logo" data-initials="BD" aria-hidden="true"><img src="assets/logos/batchdata.png" alt="" loading="lazy" onerror="this.remove()"></span>BatchData <span>· Program Manager → Product Manager → Senior PM</span></h3>
-        <span class="tag">Set 5</span>
-        <p>Built products on top of property data.</p>
+      <li class="stop" title="Built products on top of property data.">
+        <span class="when">2021 – 26</span>
+        <span class="logo" data-initials="BD" aria-hidden="true"><img src="assets/logos/batchdata.png" alt="" loading="lazy" onerror="this.remove()"></span>
+        <span class="co">BatchData</span>
+        <span class="role">Senior PM</span>
       </li>
-      <li class="set">
-        <span class="yrs">2017 – 2021</span>
-        <h3><span class="logo" data-initials="O4S" aria-hidden="true"><img src="assets/logos/o4s.png" alt="" loading="lazy" onerror="this.remove()"></span>O4S (Original4Sure) <span>· Chief Operating Officer</span></h3>
-        <span class="tag">Set 4</span>
-        <p>Ran operations at a supply-chain traceability startup.</p>
+      <li class="stop" title="Ran operations at a supply-chain traceability startup.">
+        <span class="when">2017 – 21</span>
+        <span class="logo" data-initials="O4S" aria-hidden="true"><img src="assets/logos/o4s.png" alt="" loading="lazy" onerror="this.remove()"></span>
+        <span class="co">O4S</span>
+        <span class="role">COO</span>
       </li>
-      <li class="set">
-        <span class="yrs">2015 – 2017</span>
-        <h3><span class="logo" data-initials="L" aria-hidden="true"><img src="assets/logos/lybrate.png" alt="" loading="lazy" onerror="this.remove()"></span>Lybrate <span>· Senior Software Engineer</span></h3>
-        <span class="tag">Set 3</span>
-        <p>Shipped code for a health-tech platform connecting patients and doctors.</p>
+      <li class="stop" title="Shipped code for a health-tech platform connecting patients and doctors.">
+        <span class="when">2015 – 17</span>
+        <span class="logo" data-initials="L" aria-hidden="true"><img src="assets/logos/lybrate.png" alt="" loading="lazy" onerror="this.remove()"></span>
+        <span class="co">Lybrate</span>
+        <span class="role">Senior Engineer</span>
       </li>
-      <li class="set">
-        <span class="yrs">2013 – 2015</span>
-        <h3><span class="logo" data-initials="TCS" aria-hidden="true"><img src="assets/logos/tcs.png" alt="" loading="lazy" onerror="this.remove()"></span>Tata Consultancy Services <span>· Assistant Software Engineer</span></h3>
-        <span class="tag">Set 2</span>
-        <p>First job, first production code.</p>
+      <li class="stop" title="First job, first production code.">
+        <span class="when">2013 – 15</span>
+        <span class="logo" data-initials="TCS" aria-hidden="true"><img src="assets/logos/tcs.png" alt="" loading="lazy" onerror="this.remove()"></span>
+        <span class="co">TCS</span>
+        <span class="role">Engineer</span>
       </li>
-      <li class="set">
-        <span class="yrs">2009 – 2013</span>
-        <h3><span class="logo" data-initials="T" aria-hidden="true"><img src="assets/logos/thapar.png" alt="" loading="lazy" onerror="this.remove()"></span>Thapar Institute <span>· B.E. Chemical Engineering</span></h3>
-        <span class="tag">Warm-up</span>
-        <p>Learned that every system has inputs, outputs and something leaking in between.</p>
+      <li class="stop" title="Learned that every system has inputs, outputs and something leaking in between.">
+        <span class="when">2009 – 13</span>
+        <span class="logo" data-initials="T" aria-hidden="true"><img src="assets/logos/thapar.png" alt="" loading="lazy" onerror="this.remove()"></span>
+        <span class="co">Thapar</span>
+        <span class="role">B.E. Chemical</span>
       </li>
     </ol>
   </section>
 
-  <div class="net" role="separator"><span>Net · work above, life below</span></div>
+  <div class="net" role="separator"></div>
 
-  <!-- Near side of the net: life -->
+  <!-- Off court: a swipeable reel. Captions stay at one or two words. -->
   <section class="zone" id="life" aria-labelledby="life-h">
     <div class="side-label">
-      <h2 id="life-h">The home side</h2>
-      <p>Five things that take up the rest of the day, in no particular order.</p>
+      <h2 id="life-h">Off court</h2>
+      <span class="span-label">swipe →</span>
     </div>
-    <div class="boxes">
+    <span class="woof" id="woof" aria-live="polite"></span>
+    <div class="reel" tabindex="0" aria-label="Off court highlights">
 
-      <article class="box wide">
-        <span class="kicker">Reading</span>
-        <h3>Books that stuck</h3>
-        <p>From Dostoevsky to Douglas Adams, by way of mushrooms and habits. Hover a spine to pull it off the shelf.</p>
-        <div class="shelf" aria-label="Bookshelf">
-          <span class="spine" style="--c:#2f5f93;--h:128px">Khaled Hosseini</span>
-          <span class="spine" style="--c:#c0563a;--h:164px">Not Without My Daughter</span>
-          <span class="spine" style="--c:#142238;--h:150px">Crime and Punishment</span>
-          <span class="spine" style="--c:#3f6e52;--h:120px">Entangled Life</span>
-          <span class="spine" style="--c:#b58a2a;--h:104px">Acts of God</span>
-          <span class="spine" style="--c:#1f3b5c;--h:146px">The Midnight Library</span>
-          <span class="spine" style="--c:#e2683f;--h:118px">Atomic Habits</span>
-          <span class="spine" style="--c:#7b4b8f;--h:136px">The Fountainhead</span>
-          <span class="spine" style="--c:#5d7d8f;--h:96px">The Giver</span>
-          <span class="spine" style="--c:#d8f03c;--h:130px" data-ink>Hitchhiker's Guide</span>
-          <span class="spine lean" style="--c:#8a5a3b;--h:168px">Before the Coffee Gets Cold</span>
-        </div>
-      </article>
+      <a class="card" href="https://www.itftennis.com/en/players/saurav-sood/800662920/ind/vt/s/overview/">
+        <span class="pic">
+          <svg viewBox="0 0 220 120" aria-hidden="true">
+            <rect x="1" y="1" width="218" height="118" rx="3" fill="#2f5f93"/>
+            <g fill="none" stroke="#f6f7f1" stroke-width="3">
+              <rect x="12" y="10" width="196" height="100"/>
+              <line x1="12" y1="22" x2="208" y2="22"/><line x1="12" y1="98" x2="208" y2="98"/>
+              <line x1="56" y1="22" x2="56" y2="98"/><line x1="164" y1="22" x2="164" y2="98"/>
+              <line x1="56" y1="60" x2="164" y2="60"/>
+            </g>
+            <line x1="110" y1="4" x2="110" y2="116" stroke="#142238" stroke-width="5"/>
+            <g fill="#d8f03c"><circle cx="190" cy="30" r="6"/><circle cx="196" cy="86" r="6"/><circle cx="178" cy="92" r="6"/></g>
+          </svg>
+        </span>
+        <span class="cap">Baseliner <small>Tennis</small></span>
+      </a>
 
-      <article class="box">
-        <span class="kicker">Tennis</span>
-        <h3>Weekend baseliner</h3>
-        <svg class="mini-court" viewBox="0 0 220 120" role="img" aria-label="A small tennis court with shots landing deep in the corners">
-          <rect x="1" y="1" width="218" height="118" rx="3" fill="#2f5f93"/>
-          <g fill="none" stroke="#f6f7f1" stroke-width="2">
-            <rect x="12" y="10" width="196" height="100"/>
-            <line x1="12" y1="22" x2="208" y2="22"/><line x1="12" y1="98" x2="208" y2="98"/>
-            <line x1="56" y1="22" x2="56" y2="98"/><line x1="164" y1="22" x2="164" y2="98"/>
-            <line x1="56" y1="60" x2="164" y2="60"/>
-          </g>
-          <line x1="110" y1="4" x2="110" y2="116" stroke="#142238" stroke-width="4"/>
-          <g fill="#d8f03c"><circle cx="190" cy="30" r="4"/><circle cx="196" cy="86" r="4"/><circle cx="182" cy="92" r="4"/><circle cx="174" cy="26" r="4"/></g>
-        </svg>
-        <p>Forehand: dependable. Backhand: a work in progress. Line calls: generous.</p>
-      </article>
+      <a class="card" href="https://www.goodreads.com/user/show/20971947-saurav-sood">
+        <span class="pic">
+          <span class="shelf" aria-hidden="true">
+            <i style="--c:#2f5f93;--h:62%" title="Khaled Hosseini"></i>
+            <i style="--c:#c0563a;--h:84%" title="Not Without My Daughter"></i>
+            <i style="--c:#142238;--h:76%" title="Crime and Punishment"></i>
+            <i style="--c:#3f6e52;--h:58%" title="Entangled Life"></i>
+            <i style="--c:#b58a2a;--h:50%" title="Acts of God"></i>
+            <i style="--c:#1f3b5c;--h:72%" title="The Midnight Library"></i>
+            <i style="--c:#e2683f;--h:60%" title="Atomic Habits"></i>
+            <i style="--c:#7b4b8f;--h:68%" title="The Fountainhead"></i>
+            <i style="--c:#5d7d8f;--h:46%" title="The Giver"></i>
+            <i style="--c:#d8f03c;--h:66%" title="Hitchhiker's Guide"></i>
+            <i style="--c:#8a5a3b;--h:88%" title="Before the Coffee Gets Cold"></i>
+          </span>
+        </span>
+        <span class="cap">11 books <small>Shelf</small></span>
+      </a>
 
-      <article class="box">
-        <span class="kicker">Fitness</span>
-        <h3>Reps over resolutions</h3>
-        <svg class="lifter" id="lifter" viewBox="0 0 100 110" aria-hidden="true">
-          <g class="body">
-            <rect x="8" y="16" width="84" height="6" rx="3" fill="#142238"/>
-            <rect x="2" y="6" width="10" height="26" rx="3" fill="#e2683f"/>
-            <rect x="88" y="6" width="10" height="26" rx="3" fill="#e2683f"/>
-            <circle cx="50" cy="38" r="10" fill="#142238"/>
-            <path d="M50 48 L50 78 M50 56 L30 22 M50 56 L70 22" stroke="#142238" stroke-width="7" stroke-linecap="round" fill="none"/>
-          </g>
-          <path d="M50 78 L36 104 M50 78 L64 104" stroke="#142238" stroke-width="7" stroke-linecap="round" fill="none"/>
-        </svg>
-        <p>Lifting, running, and the occasional plan that survives a week.</p>
-        <button class="toy" id="rep" type="button">Do a rep with me · <span class="count" id="rep-count">0</span></button>
-      </article>
-
-      <article class="box dogs">
-        <span class="kicker">Dogs</span>
-        <h3>Bella &amp; Cindy</h3>
-        <span class="woof" id="woof" aria-live="polite"></span>
-        <div class="pack">
+      <div class="card dogs">
+        <span class="pic">
           <svg class="dog" viewBox="0 0 130 80" role="button" tabindex="0" aria-label="Pet Bella" data-name="Bella">
             <path class="tail" d="M108 44 Q122 36 126 26" stroke="#4a2a18" stroke-width="5" stroke-linecap="round" fill="none"/>
             <rect x="34" y="34" width="78" height="24" rx="12" fill="#7a3f1e"/>
@@ -179,6 +158,12 @@
             <circle cx="5" cy="39" r="3" fill="#142238"/>
             <circle cx="24" cy="30" r="2.5" fill="#142238"/>
           </svg>
+        </span>
+        <span class="cap">Bella <small>Dachshund</small></span>
+      </div>
+
+      <div class="card dogs">
+        <span class="pic">
           <svg class="dog" viewBox="0 0 120 90" role="button" tabindex="0" aria-label="Pet Cindy" data-name="Cindy">
             <path class="tail" d="M92 46 Q114 40 106 22 Q98 16 96 28" stroke="#d9a066" stroke-width="7" stroke-linecap="round" fill="none"/>
             <ellipse cx="64" cy="50" rx="30" ry="15" fill="#d9a066"/>
@@ -190,120 +175,67 @@
             <circle cx="9" cy="37" r="3" fill="#142238"/>
             <circle cx="28" cy="29" r="2.5" fill="#142238"/>
           </svg>
-        </div>
-        <p>Bella the dachshund and Cindy the Indie run the house. Payment accepted in belly rubs and dropped toast.</p>
-        <button class="toy" id="treat" type="button">Give a treat · <span class="count" id="treat-count">0</span></button>
-      </article>
+        </span>
+        <span class="cap">Cindy <small>Indie</small></span>
+      </div>
 
-      <article class="box kids">
+      <div class="card kids">
         <span class="magnet" aria-hidden="true"></span>
-        <span class="kicker">Kids</span>
-        <h3>Chief question officers</h3>
-        <p>They ask "why?" more often than any stakeholder ever has, and their follow-ups are better.</p>
-        <svg class="scribble" viewBox="0 0 240 70" aria-hidden="true">
-          <path d="M10 55 Q30 10 50 50 T90 45" stroke="#e2683f"/>
-          <path d="M110 58 L130 18 L150 58 Z" stroke="#2f5f93"/>
-          <circle cx="190" cy="30" r="16" stroke="#d8a42a" fill="none" stroke-width="4"/>
-          <path d="M190 6 V0 M190 54 V60 M166 30 H160 M214 30 H220" stroke="#d8a42a"/>
-        </svg>
-        <p class="aside">art by the management</p>
-      </article>
+        <span class="pic">
+          <svg class="scribble" viewBox="0 0 240 70" aria-hidden="true">
+            <path d="M10 55 Q30 10 50 50 T90 45" stroke="#e2683f"/>
+            <path d="M110 58 L130 18 L150 58 Z" stroke="#2f5f93"/>
+            <circle cx="190" cy="30" r="16" stroke="#d8a42a"/>
+            <path d="M190 6 V0 M190 54 V60 M166 30 H160 M214 30 H220" stroke="#d8a42a"/>
+          </svg>
+        </span>
+        <span class="cap">Art dept. <small>Kids</small></span>
+      </div>
+
+      <button class="card" id="rep" type="button" aria-label="Do a rep">
+        <span class="pic">
+          <svg class="lifter" id="lifter" viewBox="0 0 100 110" aria-hidden="true">
+            <g class="body">
+              <rect x="8" y="16" width="84" height="6" rx="3" fill="#142238"/>
+              <rect x="2" y="6" width="10" height="26" rx="3" fill="#e2683f"/>
+              <rect x="88" y="6" width="10" height="26" rx="3" fill="#e2683f"/>
+              <circle cx="50" cy="38" r="10" fill="#142238"/>
+              <path d="M50 48 L50 78 M50 56 L30 22 M50 56 L70 22" stroke="#142238" stroke-width="7" stroke-linecap="round" fill="none"/>
+            </g>
+            <path d="M50 78 L36 104 M50 78 L64 104" stroke="#142238" stroke-width="7" stroke-linecap="round" fill="none"/>
+          </svg>
+        </span>
+        <span class="cap">Reps <span class="count" id="rep-count">0</span> <small>Tap</small></span>
+      </button>
 
     </div>
   </section>
 
-  <!-- Elsewhere: socials and stats. To add one, copy a card.
-       Live card:    <a class="profile" href="URL" style="--tint:#hex"> ... </a>
-       No link yet:  <div class="profile pending" style="--tint:#hex"> ... </div> -->
-  <section class="zone" id="elsewhere" aria-labelledby="elsewhere-h">
-    <div class="side-label">
-      <h2 id="elsewhere-h">Player profiles</h2>
-      <p>Where else to find me, and a few scores I keep.</p>
-    </div>
-    <div class="profiles">
-      <a class="profile" href="https://www.linkedin.com/in/saurav-sood" style="--tint:#2f6fb5">
-        <span class="badge">in</span>
-        <span class="platform">LinkedIn</span>
-        <span class="handle">saurav-sood</span>
-        <span class="stat">The résumé, officially</span>
-      </a>
-      <a class="profile" href="https://twitter.com/saurav_smiles" style="--tint:#142238">
-        <span class="badge">X</span>
-        <span class="platform">X / Twitter</span>
-        <span class="handle">@saurav_smiles</span>
-        <span class="stat">Occasional thoughts</span>
-      </a>
-      <a class="profile" href="https://www.instagram.com/sauravsood/" style="--tint:#c2417a">
-        <span class="badge">IG</span>
-        <span class="platform">Instagram</span>
-        <span class="handle">@sauravsood</span>
-        <span class="stat">Dogs, kids, courts</span>
-      </a>
-      <a class="profile" href="https://www.facebook.com/Sauravsood/" style="--tint:#3b5bb5">
-        <span class="badge">f</span>
-        <span class="platform">Facebook</span>
-        <span class="handle">Sauravsood</span>
-        <span class="stat">Family updates</span>
-      </a>
-      <a class="profile" href="https://www.duolingo.com/profile/sauravsood3" style="--tint:#4f9a1f">
-        <span class="badge">Duo</span>
-        <span class="platform">Duolingo</span>
-        <span class="handle">sauravsood3</span>
-        <span class="stat">Keeping the streak alive</span>
-      </a>
-      <a class="profile" href="https://www.itftennis.com/en/players/saurav-sood/800662920/ind/vt/s/overview/" style="--tint:#0e6f5c">
-        <span class="badge">ITF</span>
-        <span class="platform">ITF tennis</span>
-        <span class="handle">Saurav Sood (IND)</span>
-        <span class="stat">Results and rankings</span>
-      </a>
-      <a class="profile" href="https://github.com/sauravsood" style="--tint:#24292f">
-        <span class="badge">GH</span>
-        <span class="platform">GitHub</span>
-        <span class="handle">sauravsood</span>
-        <span class="stat">Side projects, including this site</span>
-      </a>
-      <a class="profile" href="https://www.goodreads.com/user/show/20971947-saurav-sood" style="--tint:#7a5230">
-        <span class="badge">gr</span>
-        <span class="platform">Goodreads</span>
-        <span class="handle">Saurav Sood</span>
-        <span class="stat">What's on the nightstand</span>
-      </a>
-      <a class="profile" href="mailto:sauravsood@me.com" style="--tint:#d2552f">
-        <span class="badge">@</span>
-        <span class="platform">Email</span>
-        <span class="handle">sauravsood@me.com</span>
-        <span class="stat">Say hello</span>
-      </a>
-    </div>
+  <!-- Writing: newest post first, then the other doors -->
+  <section class="zone writing" aria-label="Writing">
+    <a class="latest" href="blog/how-does-she-do-it/">
+      <span class="k">Latest post</span>
+      <strong>I don't know how she does it</strong>
+      <span class="arrow" aria-hidden="true">→</span>
+    </a>
+    <a class="door" href="notes/">Notes <small>soon</small></a>
+    <a class="door" href="lab/">Lab <small>soon</small></a>
   </section>
 
-  <!-- Past the baseline: what's coming -->
-  <section class="zone" id="next" aria-labelledby="next-h">
-    <div class="side-label">
-      <h2 id="next-h">Past the baseline</h2>
-      <p>Where the site is headed next.</p>
-    </div>
-    <div class="upcoming">
-      <a class="door" href="blog/">
-        <span class="path">/blog</span>
-        <h3>Blog</h3>
-        <p>The personal stuff: family, home, and the people who make it all work.</p>
-        <span class="status">First post up</span>
-      </a>
-      <a class="door" href="notes/">
-        <span class="path">/notes</span>
-        <h3>Notes</h3>
-        <p>Writing on product, books, and the occasional lesson learned on court.</p>
-        <span class="status">Warming up</span>
-      </a>
-      <a class="door" href="lab/">
-        <span class="path">/lab</span>
-        <h3>Lab</h3>
-        <p>Interactive research projects you can poke at in the browser.</p>
-        <span class="status">Under construction</span>
-      </a>
-    </div>
+  <!-- Find me. To add one, copy a link: <a href="URL" style="--tint:#hex" title="Platform" aria-label="Platform">XX</a> -->
+  <section class="zone find" aria-label="Find me elsewhere">
+    <p class="hand">say hi, I read everything</p>
+    <ul class="badges">
+      <li><a href="https://www.linkedin.com/in/saurav-sood" style="--tint:#2f6fb5" title="LinkedIn" aria-label="LinkedIn">in</a></li>
+      <li><a href="https://twitter.com/saurav_smiles" style="--tint:#142238" title="X / Twitter" aria-label="X / Twitter">X</a></li>
+      <li><a href="https://www.instagram.com/sauravsood/" style="--tint:#c2417a" title="Instagram" aria-label="Instagram">IG</a></li>
+      <li><a href="https://www.facebook.com/Sauravsood/" style="--tint:#3b5bb5" title="Facebook" aria-label="Facebook">f</a></li>
+      <li><a href="https://www.duolingo.com/profile/sauravsood3" style="--tint:#4f9a1f" title="Duolingo" aria-label="Duolingo">Duo</a></li>
+      <li><a href="https://www.itftennis.com/en/players/saurav-sood/800662920/ind/vt/s/overview/" style="--tint:#0e6f5c" title="ITF tennis" aria-label="ITF tennis">ITF</a></li>
+      <li><a href="https://github.com/sauravsood" style="--tint:#24292f" title="GitHub" aria-label="GitHub">GH</a></li>
+      <li><a href="https://www.goodreads.com/user/show/20971947-saurav-sood" style="--tint:#7a5230" title="Goodreads" aria-label="Goodreads">gr</a></li>
+      <li><a href="mailto:sauravsood@me.com" style="--tint:#d2552f" title="sauravsood@me.com" aria-label="Email sauravsood@me.com">@</a></li>
+    </ul>
   </section>
 </main>
 
