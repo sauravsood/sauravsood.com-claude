@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K71K5101R8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-K71K5101R8');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Trace: a tracing app for little hands · Saurav Sood</title>
+<meta name="description" content="Trace is a small web app where kids pick an animal and trace its dotted outline with an Apple Pencil. What it does, how it helps, and how it was built.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Gochi+Hand&family=Instrument+Sans:wght@400;600&family=Martian+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="../../assets/css/site.css">
+<link rel="stylesheet" href="../assets/blog.css">
+</head>
+<body>
+<main class="court">
+  <header class="topbar">
+    <a class="wordmark" href="../../"><span class="dot" aria-hidden="true"></span>sauravsood.com</a>
+    <ul class="nav">
+      <li><a href="../../#life">Life</a></li>
+      <li><a href="../../blog/">Blog</a></li>
+      <li><a href="../../lab/">Lab</a></li>
+    </ul>
+    <button class="lights" id="lights" type="button" aria-pressed="false">Lights on</button>
+  </header>
+
+  <article>
+    <header class="zone page-head post-head">
+      <p class="eyebrow">Blog · November 2026 · Lab</p>
+      <h1>Trace</h1>
+      <p class="lede">Pick an animal. Follow the dots. Colour it in. A tiny drawing app for kids, made for the iPad and Apple Pencil.</p>
+      <a class="try-it" href="https://kids.sauravsood.com">Try it at kids.sauravsood.com <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <section class="zone" aria-labelledby="look-h">
+      <div class="side-label">
+        <h2 id="look-h">Two screens</h2>
+        <p>Choose an animal, then draw. That&rsquo;s the whole app. Tap a picture to see it bigger.</p>
+      </div>
+      <div class="photo-grid two">
+        <figure class="photo screen tilt-l">
+          <button class="frame" type="button" data-src="photos/01.png" aria-label="Open screenshot: the animal picker">
+            <img src="photos/01.png" alt="Eight animal outlines on coloured tiles: cat, dog, fish, elephant, lion, bird, turtle and butterfly" loading="lazy">
+            <span class="empty-note">photos/01.png<br>animal picker</span>
+          </button>
+          <figcaption>Pick one.</figcaption>
+        </figure>
+        <figure class="photo screen tilt-r">
+          <button class="frame" type="button" data-src="photos/02.png" aria-label="Open screenshot: tracing the lion">
+            <img src="photos/02.png" alt="The lion as a dotted outline, partly traced in red and blue, with colour and crayon buttons below" loading="lazy">
+            <span class="empty-note">photos/02.png<br>tracing the lion</span>
+          </button>
+          <figcaption>Trace it.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="zone prose post-prose">
+      <p>Kids love drawing on an iPad, but most drawing apps are built for grown-ups. Too many buttons, menus that open by accident, and a palm resting on the glass that leaves a smudge every time. I wanted something a child could pick up and use on their own: big pictures, big colours, no reading.</p>
+      <p>So Trace is just that. Eight animals, each shown as a dotted outline. Draw over the dots in any colour you like. When you&rsquo;re done, tap the star.</p>
+    </section>
+
+    <section class="zone" aria-labelledby="helps-h">
+      <div class="side-label">
+        <h2 id="helps-h">How it helps</h2>
+        <p>Play first. The practice sneaks in.</p>
+      </div>
+      <ul class="facts">
+        <li><b>Grip</b><span>Holding a Pencil is holding a pencil. Same grip they&rsquo;ll use for writing.</span></li>
+        <li><b>Control</b><span>Following dots means slowing down, steering and stopping on purpose.</span></li>
+        <li><b>Shapes</b><span>Curves, loops and straight lines, the same strokes that later become letters.</span></li>
+        <li><b>Colours</b><span>Eleven to name, pick and mix. &ldquo;Can the lion be blue?&rdquo; Yes.</span></li>
+        <li><b>Calm</b><span>No ads, no timers, no scores. Nothing to buy. Nothing to lose.</span></li>
+      </ul>
+    </section>
+
+    <section class="zone" aria-labelledby="inside-h">
+      <div class="side-label">
+        <h2 id="inside-h">What&rsquo;s inside</h2>
+        <p>Small on purpose.</p>
+      </div>
+      <ul class="facts">
+        <li><b>8 animals</b><span>Cat, dog, fish, elephant, lion, bird, turtle, butterfly. All drawn from scratch, so there are no licence worries.</span></li>
+        <li><b>Pressure</b><span>Press harder, the line gets thicker, like a real crayon.</span></li>
+        <li><b>Palm-proof</b><span>Once the Pencil touches the screen, hands are ignored for a minute.</span></li>
+        <li><b>11 · 3</b><span>Eleven colours and three crayon sizes, plus an eraser and undo.</span></li>
+        <li><b>Saved</b><span>Each animal remembers its drawing on the iPad. Come back to it later.</span></li>
+        <li><b>Confetti</b><span>The star button. Every finished animal deserves a party.</span></li>
+      </ul>
+    </section>
+
+    <section class="zone prose post-prose">
+      <p>Clear needs two taps, so one stray tap can&rsquo;t wipe out a masterpiece. And if you add it to the iPad&rsquo;s home screen, it opens full screen like a real app, with no browser bars to poke at.</p>
+    </section>
+
+    <section class="zone" aria-labelledby="built-h">
+      <div class="side-label">
+        <h2 id="built-h">How it was built</h2>
+        <p>One morning, with Claude as the engineer.</p>
+      </div>
+      <div class="prose post-prose">
+        <p>I asked Claude to look at what already exists on GitHub for drawing with a Pencil in the browser. The pick was <a href="https://github.com/steveruizok/perfect-freehand">perfect-freehand</a>, a tiny open-source library that turns Pencil pressure into strokes that look hand-drawn. Bigger whiteboard toolkits were far more than a tracing page needs.</p>
+        <p>The rest is plain HTML, CSS and JavaScript, with no build step. The dotted animal sits under a see-through drawing layer, so scribbles never hide the lines. It&rsquo;s hosted on Cloudflare at its own address, <a href="https://kids.sauravsood.com">kids.sauravsood.com</a>, because more kids&rsquo; apps will live there.</p>
+        <p>From the first question to the app going up took about an hour. I made the calls; Claude wrote the code, drew the animals and fixed the one deploy hiccup along the way.</p>
+      </div>
+    </section>
+
+    <footer class="zone post-sign">
+      <p class="hand sign">More apps for small people are on the way.</p>
+      <a class="try-it" href="https://kids.sauravsood.com">Open Trace <span aria-hidden="true">↗</span></a>
+    </footer>
+  </article>
+</main>
+
+<dialog class="lightbox" id="lightbox" aria-label="Screenshot">
+  <img id="lightbox-img" alt="">
+  <form method="dialog"><button class="toy" type="submit">Close</button></form>
+</dialog>
+
+<footer class="foot">
+  <span>© 2026 Saurav Sood</span>
+  <ul><li><a href="../../blog/">All posts</a></li><li><a href="../../lab/">Lab</a></li><li><a href="../../">Back to centre court</a></li></ul>
+</footer>
+<script src="../../assets/js/site.js"></script>
+<script src="../assets/blog.js"></script>
+</body>
+</html>

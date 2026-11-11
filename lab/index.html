@@ -34,12 +34,36 @@
   <section class="zone page-head">
     <p class="eyebrow">/lab</p>
     <h1>Lab</h1>
-    <p class="lede">Interactive research projects: small, playable explorations you can poke at in the browser.</p>
+    <p class="lede">Small apps I&rsquo;ve built. Tap one to try it.</p>
   </section>
   <section class="zone">
     <ul class="entries">
-      <!-- Add one <li class="entry"> per project. Each project lives in lab/<slug>/ with its own index.html and any JS it needs. -->
-      <li class="entry"><span class="meta">Under construction</span><h2>First experiment loading</h2><p>Check back shortly.</p></li>
+      <!-- One <li class="entry app"> per app, newest first. The title link opens the app (the whole card is clickable); the story link goes to its blog post. -->
+      <li class="entry app" style="--tint:#fff4e8">
+        <img class="app-icon" src="img/trace.png" alt="" width="72" height="72">
+        <div class="app-body">
+          <span class="meta">November 2026 · For kids · iPad + Pencil</span>
+          <h2><a class="app-link" href="https://kids.sauravsood.com">Trace <span aria-hidden="true">↗</span></a></h2>
+          <p>Pick an animal, trace the dots, colour it in.</p>
+          <a class="app-story" href="../blog/trace/">The story →</a>
+        </div>
+      </li>
+      <li class="entry app" style="--tint:#e8f3ec">
+        <svg class="app-icon" viewBox="0 0 72 72" aria-hidden="true">
+          <rect width="72" height="72" rx="16" fill="#2f7d5b"/>
+          <rect x="12" y="14" width="22" height="20" rx="4" fill="#f6f7f1"/>
+          <rect x="38" y="14" width="22" height="20" rx="4" fill="#f6f7f1"/>
+          <rect x="12" y="38" width="22" height="20" rx="4" fill="#f6f7f1"/>
+          <rect x="38" y="38" width="22" height="20" rx="4" fill="#d8f03c"/>
+          <path d="M43 48 l4 4 l8 -9" fill="none" stroke="#142238" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="app-body">
+          <span class="meta">October 2026 · For the home · Phone</span>
+          <h2><a class="app-link" href="https://tasks.sauravsood.com">Handmaiden <span aria-hidden="true">↗</span></a></h2>
+          <p>Household chores as pictures and a big tick. No reading needed.</p>
+          <a class="app-story" href="../blog/handmaiden/">The story →</a>
+        </div>
+      </li>
     </ul>
   </section>
 </main>
