@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K71K5101R8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-K71K5101R8');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nutty Timer: software for the roasting room · Saurav Sood</title>
+<meta name="description" content="Nutty Timer times every almond roast and grinder run on the Butter Beings floor and logs each batch. How it started in Lovable and grew with Claude, one real annoyance at a time.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Gochi+Hand&family=Instrument+Sans:wght@400;600&family=Martian+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="../../assets/css/site.css?v=20261111">
+<link rel="stylesheet" href="../assets/blog.css?v=20261111b">
+</head>
+<body>
+<main class="court">
+  <header class="topbar">
+    <a class="wordmark" href="../../"><span class="dot" aria-hidden="true"></span>sauravsood.com</a>
+    <ul class="nav">
+      <li><a href="../../#life">Life</a></li>
+      <li><a href="../../blog/">Blog</a></li>
+      <li><a href="../../lab/">Lab</a></li>
+    </ul>
+    <button class="lights" id="lights" type="button" aria-pressed="false">Lights on</button>
+  </header>
+
+  <article>
+    <header class="zone page-head post-head">
+      <p class="eyebrow">Blog · November 2026 · Lab</p>
+      <h1>Nutty Timer</h1>
+      <p class="lede">Butter Beings makes nut butter from two ingredients. Getting it right every time takes a clock, a log and a very loud beep.</p>
+      <a class="try-it" href="https://nutty-timer.sauravsood.com">Open nutty-timer.sauravsood.com <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <section class="zone" aria-labelledby="recipe-h">
+      <div class="side-label">
+        <h2 id="recipe-h">One roast</h2>
+        <p>Every batch of almonds goes through the same five stages before it&rsquo;s stone-ground into butter.</p>
+      </div>
+      <ol class="recipe">
+        <li style="--min:6"><b>6′</b><span>Roast 160°C</span></li>
+        <li class="rest" style="--min:2"><b>2′</b><span>Rest</span></li>
+        <li style="--min:5"><b>5′</b><span>Roast 155°C</span></li>
+        <li class="rest" style="--min:2"><b>2′</b><span>Rest</span></li>
+        <li style="--min:5"><b>5′</b><span>Roast 155°C</span></li>
+      </ol>
+    </section>
+
+    <section class="zone prose post-prose">
+      <p>Now do that several times a day, with your hands full of hot trays. Which stage is this batch on? Was that the third batch or the fourth? A kitchen timer counts down once and forgets everything.</p>
+      <p>The brief I wrote at the start is still in the code&rsquo;s README: hit start and stop, always know which stage the batch is in, count the batches, and let me change the timings later. That&rsquo;s it.</p>
+    </section>
+
+    <section class="zone" aria-labelledby="does-h">
+      <div class="side-label">
+        <h2 id="does-h">What it does</h2>
+        <p>Three tabs, propped up on a phone or tablet next to the roaster.</p>
+      </div>
+      <ul class="facts">
+        <li><b>Roast</b><span>Stage name, temperature and a big countdown. A loud beep-beep when each stage ends.</span></li>
+        <li><b>Batch log</b><span>Weight, roaster, and how long each stage really ran: finished, ended early or skipped.</span></li>
+        <li><b>Today</b><span>Batches roasted today, and the changeover time between them.</span></li>
+        <li><b>Grind</b><span>A card per wet grinder, all running at once. First pour, last pour, salt, stop. Pauses don&rsquo;t count.</span></li>
+        <li><b>Analytics</b><span>Two weeks of roasting, and every stage compared with the recipe.</span></li>
+        <li><b>Awake</b><span>The screen never goes dark mid-roast.</span></li>
+      </ul>
+    </section>
+
+    <section class="zone" aria-labelledby="fixes-h">
+      <div class="side-label">
+        <h2 id="fixes-h">Built from the floor</h2>
+        <p>Almost every change started with something going wrong during a real roast.</p>
+      </div>
+      <ul class="facts">
+        <li><b>Out of step</b><span>The beep drifted from the clock on screen. Now they stay in sync.</span></li>
+        <li><b>Late beep</b><span>A missed alarm played when the next stage started. A browser audio quirk, fixed.</span></li>
+        <li><b>Sleepy</b><span>The screen kept dozing off. Keeping it awake got much sturdier.</span></li>
+        <li><b>Today, not ever</b><span>An all-time batch count was useless on the floor. It became &ldquo;batches today&rdquo;.</span></li>
+        <li><b>Late tap</b><span>Someone hits a step a minute late. Now the time can be corrected.</span></li>
+        <li><b>Bad Wi-Fi</b><span>A grinder run that can&rsquo;t save waits on the device and tries again.</span></li>
+      </ul>
+    </section>
+
+    <section class="zone" aria-labelledby="built-h">
+      <div class="side-label">
+        <h2 id="built-h">How it was built</h2>
+        <p>I&rsquo;m not a full-time developer. I didn&rsquo;t need to be.</p>
+      </div>
+      <ol class="timeline">
+        <li><time datetime="2026-10-03">3 Oct</time><span>A prototype in Lovable. A working roast timer within a few days.</span></li>
+        <li><time datetime="2026-10-08">8 Oct</time><span>Claude takes over the code. I describe the problem, often from the roasting room; Claude makes the change and I merge it.</span></li>
+        <li><time datetime="2026-10-17">17 Oct</time><span>Stage-timing analytics. Are the roasts actually following the recipe?</span></li>
+        <li><time datetime="2026-10-28">28 Oct</time><span>Off Lovable, onto my own Supabase and Cloudflare. All 73 batches logged so far came along.</span></li>
+        <li><time datetime="2026-11">Nov</time><span>Its own address: nutty-timer.sauravsood.com.</span></li>
+      </ol>
+    </section>
+
+    <section class="zone prose post-prose">
+      <p>Ten pull requests between 8 October and 9 November, each one small, each one fixing a single real annoyance. Moving off the no-code tool brought the running cost down to almost nothing, and now I own the whole thing.</p>
+      <p>Under the hood it&rsquo;s React and Tailwind, with Supabase for the roast and grinder logs, hosted on Cloudflare and deployed straight from GitHub. Tests cover the timing and analytics maths.</p>
+      <p>The best part isn&rsquo;t the timer. It&rsquo;s the log. When your product is just nuts and salt, consistency is everything, and now we can see whether every batch got the same roast.</p>
+    </section>
+
+    <footer class="zone post-sign">
+      <p class="hand sign">Two ingredients. One very loud beep.</p>
+      <a class="try-it" href="https://nutty-timer.sauravsood.com">Open Nutty Timer <span aria-hidden="true">↗</span></a>
+    </footer>
+  </article>
+</main>
+
+<footer class="foot">
+  <span>© 2026 Saurav Sood</span>
+  <ul><li><a href="../../blog/">All posts</a></li><li><a href="../../lab/">Lab</a></li><li><a href="../../">Back to centre court</a></li></ul>
+</footer>
+<script src="../../assets/js/site.js"></script>
+</body>
+</html>
