@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K71K5101R8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-K71K5101R8');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Handmaiden: chores without words · Saurav Sood</title>
+<meta name="description" content="Every task app is a list of words. Handmaiden is a picture-first household task app for people who don't read. Why I built it, how it works, and how it was made with Claude.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Gochi+Hand&family=Instrument+Sans:wght@400;600&family=Martian+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="../../assets/css/site.css">
+<link rel="stylesheet" href="../assets/blog.css">
+</head>
+<body>
+<main class="court">
+  <header class="topbar">
+    <a class="wordmark" href="../../"><span class="dot" aria-hidden="true"></span>sauravsood.com</a>
+    <ul class="nav">
+      <li><a href="../../#life">Life</a></li>
+      <li><a href="../../blog/">Blog</a></li>
+      <li><a href="../../lab/">Lab</a></li>
+    </ul>
+    <button class="lights" id="lights" type="button" aria-pressed="false">Lights on</button>
+  </header>
+
+  <article>
+    <header class="zone page-head post-head">
+      <p class="eyebrow">Blog · November 2026 · Lab</p>
+      <h1>Chores without words</h1>
+      <p class="lede">Every task app is a list of words. What if the person doing the work can&rsquo;t read? Meet Handmaiden.</p>
+      <a class="try-it" href="https://tasks.sauravsood.com">Open tasks.sauravsood.com <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <section class="zone prose post-prose">
+      <p>The plants were supposed to be watered on Monday and Thursday. The fridge gets cleaned on the last day of the month. The brass needs polishing before the festival. In most homes like ours, all of that lives in someone&rsquo;s head, in a phone call, or in a voice note that scrolls out of sight by Wednesday.</p>
+      <p>The person running the house knows <em>what</em> needs doing and <em>when</em>. The person doing it is often a domestic worker who doesn&rsquo;t read, or doesn&rsquo;t read the household&rsquo;s language. And almost every task app ever made is a list of words.</p>
+    </section>
+
+    <section class="zone" aria-labelledby="gap-h">
+      <div class="side-label">
+        <h2 id="gap-h">The gap</h2>
+        <p>Before building anything, we looked at what already exists. Two halves, and nothing that joins them.</p>
+      </div>
+      <div class="halves">
+        <div class="half">
+          <h3>Household &amp; to-do apps</h3>
+          <p>Great schedules, several users, reminders.</p>
+          <p class="verdict">All words.</p>
+        </div>
+        <div class="half">
+          <h3>Picture schedule apps</h3>
+          <p>Made for children and non-readers. A picture and a tick really works.</p>
+          <p class="verdict">One device. No one can assign from afar.</p>
+        </div>
+        <div class="half joined">
+          <h3>Handmaiden</h3>
+          <p>A proper admin side for the household, and a worker side made only of pictures.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="zone" aria-labelledby="worker-h">
+      <div class="side-label">
+        <h2 id="worker-h">For the worker</h2>
+        <p>Designed for someone most software leaves out. On a cheap Android phone.</p>
+      </div>
+      <ul class="facts">
+        <li><b>No typing</b><span>Scan a QR code, see your own face, tap a four-picture code. A PIN made of pictures.</span></li>
+        <li><b>Big photos</b><span>Today&rsquo;s jobs are a grid of photos. Tap one for picture steps.</span></li>
+        <li><b>One tick</b><span>Done? Tap the big tick. A photo as proof only when the task asks for it.</span></li>
+        <li><b>No clocks</b><span>Time of day is shown as a picture, not as numbers.</span></li>
+        <li><b>Words optional</b><span>A small toggle shows the written task, so it can be shown to someone who reads.</span></li>
+        <li><b>Offline</b><span>Installs to the home screen. Ticks are sent when the signal comes back.</span></li>
+      </ul>
+    </section>
+
+    <section class="zone" aria-labelledby="admin-h">
+      <div class="side-label">
+        <h2 id="admin-h">For the household</h2>
+        <p>The admin side can be as detailed as you like.</p>
+      </div>
+      <ul class="facts">
+        <li><b>Schedules</b><span>Once, or every few days, weeks, months or years. Chosen weekdays, &ldquo;last day of the month&rdquo;, or &ldquo;10 days after it was last done&rdquo;.</span></li>
+        <li><b>Photos</b><span>A cover photo, more pictures, picture steps, priority, labels and time of day.</span></li>
+        <li><b>One each</b><span>Assign a task to three people and each gets their own copy, so nobody&rsquo;s tick hides someone else&rsquo;s.</span></li>
+        <li><b>Review</b><span>Approve, flag, comment with a photo, or send it back. Every attempt is kept, like an issue tracker&rsquo;s history.</span></li>
+        <li><b>Day to day</b><span>Today board, overdue list, skip a day, leave, live updates. Several admins per home.</span></li>
+        <li><b>Trends</b><span>On-time rates, streaks, workload and a gallery of proof photos, with CSV export.</span></li>
+      </ul>
+    </section>
+
+    <section class="zone" aria-labelledby="built-h">
+      <div class="side-label">
+        <h2 id="built-h">How it was built</h2>
+        <p>Idea to live app in about a week, with Claude as the engineer and me making the product calls.</p>
+      </div>
+      <ol class="timeline">
+        <li><time datetime="2026-10-25">25 Oct</time><span>Research. Claude surveyed the existing apps and recommended a small custom build, borrowing a proven scheduling model instead of inventing one.</span></li>
+        <li><time datetime="2026-10-28">28 Oct</time><span>Decisions. Photo proof only when asked, one copy per worker, text behind a toggle, full review history.</span></li>
+        <li><time datetime="2026-10-30">30 Oct</time><span>Build. Database, security rules, schedules, both apps, sign-in, analytics, offline support and tests, in one day.</span></li>
+        <li><time datetime="2026-10-31">31 Oct</time><span>Live at tasks.sauravsood.com.</span></li>
+        <li><time datetime="2026-11-02">2 Nov</time><span>First polish fix.</span></li>
+      </ol>
+    </section>
+
+    <section class="zone prose post-prose">
+      <p>Under the hood it&rsquo;s React and TypeScript on Cloudflare, with Supabase for the database, sign-in, photos and live updates. Each household only ever sees its own data. Repeating tasks are worked out inside the database on a timer, and a test throws hundreds of random schedules at the app and the database to make sure they agree.</p>
+      <p>What I liked most was the split. I decided what mattered for the people using it. Claude did the research, wrote the code and set up the hosting.</p>
+    </section>
+
+    <section class="zone" aria-labelledby="next-h">
+      <div class="side-label">
+        <h2 id="next-h">What&rsquo;s next</h2>
+        <p>Even fewer words.</p>
+      </div>
+      <ul class="facts">
+        <li><b>Languages</b><span>The admin writes in their language; the worker reads in theirs. Translated automatically.</span></li>
+        <li><b>Voice</b><span>Record a spoken instruction. It plays from a speaker button on the photo.</span></li>
+      </ul>
+    </section>
+
+    <footer class="zone post-sign">
+      <p class="hand sign">Software that respects the person doing the work.</p>
+      <a class="try-it" href="https://tasks.sauravsood.com">Open Handmaiden <span aria-hidden="true">↗</span></a>
+    </footer>
+  </article>
+</main>
+
+<footer class="foot">
+  <span>© 2026 Saurav Sood</span>
+  <ul><li><a href="../../blog/">All posts</a></li><li><a href="../../lab/">Lab</a></li><li><a href="../../">Back to centre court</a></li></ul>
+</footer>
+<script src="../../assets/js/site.js"></script>
+</body>
+</html>
