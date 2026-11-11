@@ -181,3 +181,7 @@
   .recipe { flex-direction: column; }
   .recipe li { flex: none; grid-template-columns: 4rem 1fr; align-items: baseline; }
 }
+
+/* Blog pages: no court lines (centre line and section rules) */
+.court::before { display: none; }
+.zone + .zone { border-top: 0; }
