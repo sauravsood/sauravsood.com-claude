@@ -17,15 +17,35 @@
 <link rel="icon" href="/assets/icons/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<title>Print: shipping labels from an iPhone · Saurav Sood</title>
+<title>The printer that wouldn&rsquo;t listen · Saurav Sood</title>
 <meta name="description" content="Print sends courier labels from an iPhone to an Ethernet-only thermal printer, through a 2015 Raspberry Pi. The code took an hour. The hardware took the day.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Gochi+Hand&family=Instrument+Sans:wght@400;600&family=Martian+Mono:wght@400;600&display=swap">
 <link rel="stylesheet" href="../../assets/css/site.css?v=20261111">
 <link rel="stylesheet" href="../assets/blog.css?v=20261111c">
+<link rel="stylesheet" href="../assets/story.css?v=20261117">
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-printer" viewBox="0 0 24 24"><path d="M7 9V3h10v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M7 14h10v7H7z"/><path d="M9.5 17h5M9.5 19h3"/><circle cx="17.5" cy="11.5" r=".6" fill="currentColor"/></symbol>
+  <symbol id="i-nope" viewBox="0 0 24 24"><rect x="5" y="2" width="11" height="19" rx="2.5"/><path d="M9 18h3"/><path d="M15 9l6 6M21 9l-6 6"/></symbol>
+  <symbol id="i-berry" viewBox="0 0 24 24"><path d="M12 7c-2-3-5-3-6-2 1 2 3 3 6 2zM12 7c2-3 5-3 6-2-1 2-3 3-6 2z"/><circle cx="9" cy="11.5" r="2.5"/><circle cx="15" cy="11.5" r="2.5"/><circle cx="12" cy="15" r="2.5"/><circle cx="8.5" cy="17" r="2.2"/><circle cx="15.5" cy="17" r="2.2"/><circle cx="12" cy="20" r="1.8"/></symbol>
+  <symbol id="i-dead" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 21h8M12 16v5"/><path d="M7.5 8l2 2M9.5 8l-2 2M14.5 8l2 2M16.5 8l-2 2"/><path d="M9.5 13.5c1.5-1 3.5-1 5 0"/></symbol>
+  <symbol id="i-fossil" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/><path d="M8 17v-4l-1 1M12 13h3v2h-3v2h3"/><path d="M17 21l4-4"/></symbol>
+  <symbol id="i-loop" viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 13.6-5.7L20 8.5"/><path d="M20 3.5v5h-5"/><path d="M20 12a8 8 0 0 1-13.6 5.7L4 15.5"/><path d="M4 20.5v-5h5"/><rect x="9.5" y="9.5" width="5" height="5" rx="1"/></symbol>
+  <symbol id="i-sd" viewBox="0 0 24 24"><path d="M7 3h7l4 4v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M9 3v3M11.5 3v3M14 3.5V6"/><path d="M10 12.5a2 2 0 1 1 2.8 1.8c-.5.3-.8.7-.8 1.2"/><circle cx="12" cy="18" r=".6" fill="currentColor"/></symbol>
+  <symbol id="i-chunks" viewBox="0 0 24 24"><path d="M12 3v9M8.5 8.5L12 12l3.5-3.5"/><rect x="3" y="15" width="5" height="5" rx="1"/><rect x="9.5" y="15" width="5" height="5" rx="1"/><path d="M16 15h5v5h-5" stroke-dasharray="2 2"/></symbol>
+  <symbol id="i-key" viewBox="0 0 24 24"><circle cx="7.5" cy="12" r="4"/><path d="M11.5 12H21M17.5 12v3M20.5 12v2"/><circle cx="7.5" cy="12" r="1" fill="currentColor"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/><path d="M12 14.5V16.5"/><path d="M10 18.8h4"/></symbol>
+  <symbol id="i-map" viewBox="0 0 24 24"><path d="M3 6l6-3 6 3 6-3v15l-6 3-6-3-6 3z"/><path d="M9 3v15M15 6v15"/><path d="M5.5 10h1M11.5 12h1M17.5 9h1"/></symbol>
+  <symbol id="i-house" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M8.5 15.5a2.5 2.5 0 0 1 3 0M15.5 15.5a2.5 2.5 0 0 0-3 0" /><path d="M7 13a5 5 0 0 1 4.5 0M17 13a5 5 0 0 0-4.5 0"/><circle cx="10" cy="17.5" r=".6" fill="currentColor"/><circle cx="14" cy="17.5" r=".6" fill="currentColor"/></symbol>
+  <symbol id="i-camera" viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13.5" r="3.5"/></symbol>
+  <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.4.3.5.7.5 1.1v1h6v-1c0-.4.1-.8.5-1.1A6 6 0 0 0 12 3z"/></symbol>
+  <symbol id="i-old" viewBox="0 0 24 24"><rect x="6" y="5" width="12" height="15" rx="2"/><path d="M9 9h2M13 9h2M9 12h2M13 12h2"/><path d="M6 16h12"/><path d="M8 5V3M16 5V3M12 5V3"/></symbol>
+  <symbol id="i-web" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></symbol>
+  <symbol id="i-shot" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M6 8h6M6 11h9M6 14h4"/><path d="M15 15l3 3-3 3" /></symbol>
+</svg>
 <main class="court">
   <header class="topbar">
     <a class="wordmark" href="../../"><span class="dot" aria-hidden="true"></span>sauravsood.com</a>
@@ -40,65 +60,198 @@
   <article>
     <header class="zone page-head post-head">
       <p class="eyebrow">Blog · November 2026 · Lab</p>
-      <h1>Print</h1>
-      <p class="lede">Shipping labels from my iPhone to a printer that only has an Ethernet port. The code took an hour. The hardware took the rest of the day.</p>
+      <h1>The printer that wouldn&rsquo;t listen</h1>
+      <p class="lede">How I got my iPhone to print shipping labels. The code took an hour. The rest of the day was a Raspberry Pi from 2015.</p>
       <a class="try-it" href="https://print.sauravsood.com">print.sauravsood.com <span aria-hidden="true">↗</span></a>
     </header>
 
-    <section class="zone prose post-prose">
-      <p>I ship Butter Beings orders from home, on 4×6 inch courier labels. The label printer, a TSC TA220, only has an Ethernet port and speaks its own language. My work laptop can&rsquo;t install drivers. My iPhone can&rsquo;t talk to it at all.</p>
-      <p>So I asked Claude for a web app that could. Open a page, drop in a label PDF, tap Print.</p>
-    </section>
+    <section class="zone story">
+      <figure class="scene">
+        <svg viewBox="0 0 640 300" role="img" aria-label="Drawing: a phone sends a label through the cloud to a Raspberry Pi, which prints it on the label printer">
+          <g fill="none" stroke="#142238" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="40" y="70" width="80" height="150" rx="16" fill="#fff"/>
+            <path d="M68 205h24"/>
+            <rect x="56" y="96" width="48" height="66" rx="3" fill="#d8f03c"/>
+            <path d="M64 112h32M64 124h22M64 136h28"/>
+            <path d="M190 128c-26 0-26-38 2-36 6-26 46-28 54-4 28-6 40 30 14 40z" fill="#bcd6f4"/>
+            <rect x="330" y="104" width="100" height="70" rx="6" fill="#2f7d5b"/>
+            <rect x="348" y="122" width="26" height="26" rx="2" fill="#142238"/>
+            <path d="M392 122h22M392 132h22M392 142h14M340 174v10M356 174v10M372 174v10M388 174v10M404 174v10M420 174v10"/>
+            <rect x="500" y="90" width="110" height="70" rx="12" fill="#2f5f93"/>
+            <rect x="518" y="60" width="74" height="30" fill="#fff"/>
+            <rect x="520" y="146" width="70" height="96" rx="2" fill="#fff"/>
+            <path d="M532 166h46M532 180h30M532 222v10M538 222v10M545 222v10M550 222v10M558 222v10M563 222v10M570 222v10"/>
+            <circle cx="593" cy="108" r="5" fill="#d8f03c"/>
+            <path d="M134 140c20-6 30-10 44-10" stroke-dasharray="2 10"/>
+            <path d="M270 120c24 0 40 4 54 14" stroke-dasharray="2 10"/>
+            <path d="M436 136c22-4 40-8 58-8" stroke-dasharray="2 10"/>
+          </g>
+          <g font-family="Gochi Hand, cursive" font-size="22" fill="#142238" text-anchor="middle">
+            <text x="80" y="256">my iPhone</text>
+            <text x="220" y="168">Cloudflare</text>
+            <text x="380" y="214">old Pi</text>
+            <text x="555" y="270">TSC printer</text>
+          </g>
+        </svg>
+        <figcaption>The plan. Four hops from phone to paper.</figcaption>
+      </figure>
 
-    <section class="zone" aria-labelledby="how-h">
-      <div class="side-label">
-        <h2 id="how-h">How it works</h2>
-        <p>A website can&rsquo;t reach a printer at home. A small box next to it can.</p>
+      <div class="chapter">
+        <span class="chapter-no">Chapter 1</span>
+        <h2>The ask</h2>
+        <ul class="beats">
+          <li class="beat"><span class="sticker sun"><svg><use href="#i-printer"/></svg></span><p>I ship <b>Butter Beings</b> orders from home on 4&times;6 courier labels. My label printer only has an Ethernet port and speaks its own language.</p></li>
+          <li class="beat"><span class="sticker coral"><svg><use href="#i-nope"/></svg></span><p>My work laptop can&rsquo;t install drivers. My iPhone can&rsquo;t talk to it at all. So I asked Claude: <b>build me a web app</b> that can print over Wi-Fi.</p></li>
+          <li class="beat"><span class="sticker mint"><svg><use href="#i-berry"/></svg></span><p>A website can&rsquo;t reach a printer at home. A small box next to it can. &ldquo;Do I need a Raspberry Pi?&rdquo; Then I remembered <b>I already had one</b>, plugged in and &ldquo;online&rdquo;.</p></li>
+        </ul>
       </div>
-      <ul class="facts">
-        <li><b>1 · Phone</b><span>Open print.sauravsood.com and log in with a one-time code.</span></li>
-        <li><b>2 · Tunnel</b><span>Cloudflare carries it home. No ports opened on the router.</span></li>
-        <li><b>3 · Pi</b><span>Crops the A4 courier sheet to the label, rotates it, and shows a preview.</span></li>
-        <li><b>4 · Printer</b><span>Pick copies, tap Print. The Pi sends it straight to the printer.</span></li>
-      </ul>
-    </section>
 
-    <section class="zone" aria-labelledby="hurdles-h">
-      <div class="side-label">
-        <h2 id="hurdles-h">The day</h2>
-        <p>Every error pointed somewhere else.</p>
+      <div class="chapter">
+        <span class="chapter-no">Chapter 2</span>
+        <h2>The Pi</h2>
+        <ul class="beats">
+          <li class="beat"><span class="sticker coral"><svg><use href="#i-dead"/></svg></span><p>It wasn&rsquo;t online. I sent a phone photo of its screen: a <b>kernel panic</b>. The memory card was loose. I pushed it back in.</p></li>
+          <li class="beat"><span class="sticker chalk"><svg><use href="#i-fossil"/></svg></span><p>It booted, and it was a museum piece. A <b>Pi 2 running software from February 2015</b>, still on the default login.</p></li>
+        </ul>
       </div>
-      <ul class="facts">
-        <li><b>The Pi</b><span>&ldquo;Do I need one?&rdquo; Turns out I had one. From 2015. It wouldn&rsquo;t boot until I pushed the memory card back in.</span></li>
-        <li><b>No PC</b><span>No computer to reflash it, so Claude wrote a script that makes the old Pi install its own replacement.</span></li>
-        <li><b>64 GB = 1 GB</b><span>The new card read as 1 GB. The USB reader was too old for big cards.</span></li>
-        <li><b>19%</b><span>Downloads kept dying. Now they come in 8 MB pieces, retried until they land.</span></li>
-        <li><b>The token</b><span>&ldquo;Not valid base64.&rdquo; I&rsquo;d pasted Cloudflare&rsquo;s whole command, not just the key. The installer now picks it out.</span></li>
-        <li><b>Two networks</b><span>A mesh Wi-Fi behind the fibre router means two networks in one house. I moved the cables. The Pi kept its old address.</span></li>
-      </ul>
-    </section>
 
-    <section class="zone prose post-prose">
-      <p>The best debugging tool all day was a phone photo of the Pi&rsquo;s screen. Each hurdle became a fix in the installer or the instructions, so the next Pi won&rsquo;t hit it.</p>
-    </section>
+      <figure class="scene tilt-r">
+        <svg viewBox="0 0 640 300" role="img" aria-label="Drawing: an old monitor showing a kernel panic message">
+          <g fill="none" stroke="#142238" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="100" y="30" width="420" height="210" rx="14" fill="#142238"/>
+            <path d="M280 240l-12 34h104l-12-34M250 276h140"/>
+          </g>
+          <g font-family="Martian Mono, monospace" font-size="13" fill="#d8f03c" transform="translate(-20 0)">
+            <text x="150" y="70">[    3.412] VFS: Cannot open root device</text>
+            <text x="150" y="94">[    3.419] Please append a correct</text>
+            <text x="150" y="118">            "root=" boot option</text>
+            <text x="150" y="152" fill="#ffb59c">[    3.431] Kernel panic - not syncing:</text>
+            <text x="150" y="176" fill="#ffb59c">  VFS: Unable to mount root fs</text>
+            <text x="150" y="214">_</text>
+          </g>
+          <text x="582" y="110" font-family="Gochi Hand, cursive" font-size="32" fill="#e2683f" text-anchor="middle" transform="rotate(10 582 110)">uh oh</text>
+        </svg>
+        <figcaption>Roughly what the photo showed.</figcaption>
+      </figure>
 
-    <section class="zone" aria-labelledby="learned-h">
-      <div class="side-label">
-        <h2 id="learned-h">What I learned</h2>
+      <div class="chapter">
+        <span class="chapter-no">Chapter 3</span>
+        <h2>The card</h2>
+        <ul class="beats">
+          <li class="beat"><span class="sticker sky"><svg><use href="#i-loop"/></svg></span><p>The fix is a fresh OS, normally written from a PC. <b>I don&rsquo;t have one.</b> So Claude wrote a script that makes the old Pi install its own replacement on a new card.</p></li>
+          <li class="beat"><span class="sticker sun"><svg><use href="#i-sd"/></svg></span><p>The new 64 GB card showed up as <b>1 GB</b>. Claude found and fixed a real bug in its own size check. Still 1 GB. The real cause: the USB card reader was too old for big cards.</p></li>
+          <li class="beat"><span class="sticker mint"><svg><use href="#i-chunks"/></svg></span><p>Then the download kept dying at <b>19%</b>. Now it comes in 8 MB pieces, each retried up to 20 times, and checked at the end.</p></li>
+        </ul>
       </div>
-      <ul class="facts">
-        <li><b>Browser</b><span>Can&rsquo;t install anything? Put the smarts on a box you own and give yourself a web page.</span></li>
-        <li><b>Old is fine</b><span>A 2015 Pi is plenty, once it runs a current OS.</span></li>
-        <li><b>Screenshots</b><span>Dashboards change. Write steps for the screen in front of you.</span></li>
-      </ul>
-    </section>
 
-    <section class="zone prose post-prose">
-      <p>It runs on plain Python and one PDF tool, small enough for the old Pi. The code is open source at <a href="https://github.com/sauravsood/print-bridge">github.com/sauravsood/print-bridge</a>, with a one-line install.</p>
+      <figure class="scene">
+        <svg viewBox="0 0 640 270" role="img" aria-label="Drawing: an SD card labelled 64 GB next to a card reader that says 1 GB, and a progress bar stuck at 19 percent">
+          <g fill="none" stroke="#142238" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M60 40h70l26 26v120H60z" fill="#bcd6f4"/>
+            <path d="M76 40v22M92 40v22M108 40v22"/>
+            <rect x="200" y="70" width="110" height="90" rx="12" fill="#fff"/>
+            <path d="M226 70v-14h58v14"/>
+            <rect x="360" y="98" width="240" height="34" rx="17" fill="#fff"/>
+            <path d="M362 115h44" stroke="#2f7d5b" stroke-width="28" stroke-linecap="round"/>
+            <path d="M420 96l8 14-8 8 10 16" stroke="#e2683f"/>
+            <path d="M368 190h36v36h-36zM412 190h36v36h-36zM456 190h36v36h-36z" fill="#d8f03c"/>
+            <path d="M500 190h36v36h-36z" stroke-dasharray="5 6"/>
+          </g>
+          <g font-family="Big Shoulders Display, Impact, sans-serif" font-weight="900" fill="#142238" text-anchor="middle">
+            <text x="108" y="140" font-size="34">64GB</text>
+            <text x="255" y="128" font-size="34" fill="#e2683f">1 GB?</text>
+            <text x="480" y="84" font-size="30">19%</text>
+          </g>
+          <g font-family="Gochi Hand, cursive" font-size="20" fill="#142238" text-anchor="middle">
+            <text x="182" y="222">new card, ancient reader</text>
+            <text x="452" y="252">8 MB at a time</text>
+          </g>
+        </svg>
+        <figcaption>Two lies in a row.</figcaption>
+      </figure>
+
+      <div class="chapter">
+        <span class="chapter-no">Chapter 4</span>
+        <h2>The cloud</h2>
+        <ul class="beats">
+          <li class="beat"><span class="sticker sun"><svg><use href="#i-key"/></svg></span><p>Cloudflare needs a <b>200-character secret</b> typed into the Pi. Not by hand. I connected from the laptop so I could paste it.</p></li>
+          <li class="beat"><span class="sticker coral"><svg><use href="#i-lock"/></svg></span><p>&ldquo;<b>Could not get lock.</b>&rdquo; The brand-new OS was busy updating itself. The installer now waits its turn.</p></li>
+          <li class="beat"><span class="sticker chalk"><svg><use href="#i-key"/></svg></span><p>&ldquo;<b>Not valid base64.</b>&rdquo; Claude&rsquo;s first guess was wrong, and it said so. I&rsquo;d pasted Cloudflare&rsquo;s whole command, not just the key. The installer now picks the key out.</p></li>
+          <li class="beat"><span class="sticker sky"><svg><use href="#i-map"/></svg></span><p>Cloudflare&rsquo;s menus didn&rsquo;t match any guide. I told Claude the steps were skipping around. The instructions were rebuilt from <b>my own screenshots</b>, one numbered click at a time.</p></li>
+        </ul>
+      </div>
+
+      <div class="chapter">
+        <span class="chapter-no">Chapter 5</span>
+        <h2>The house</h2>
+        <ul class="beats">
+          <li class="beat"><span class="sticker mint"><svg><use href="#i-house"/></svg></span><p>My fibre router has a mesh Wi-Fi behind it. That&rsquo;s <b>two networks in one house</b>. I moved the Pi and printer to the main one, and the tunnel went dark.</p></li>
+          <li class="beat"><span class="sticker sun"><svg><use href="#i-loop"/></svg></span><p>The Pi had held on to its old address. The fix was the oldest one there is: <b>turn it off and on again</b>.</p></li>
+        </ul>
+      </div>
+
+      <figure class="scene tilt-r">
+        <svg viewBox="0 0 640 280" role="img" aria-label="Drawing: a house with two routers making two separate networks, and the Pi stuck on the wrong one">
+          <g fill="none" stroke="#142238" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M60 120l260-90 260 90" />
+            <path d="M90 110v150h460V110"/>
+            <rect x="140" y="190" width="90" height="40" rx="8" fill="#bcd6f4"/>
+            <path d="M160 190v-22M210 190v-22"/>
+            <path d="M162 150a20 20 0 0 1 46 0M150 138a36 36 0 0 1 70 0"/>
+            <circle cx="390" cy="212" r="22" fill="#bfe6cf"/>
+            <circle cx="390" cy="212" r="8"/>
+            <path d="M366 166a34 34 0 0 1 48 0M354 154a50 50 0 0 1 72 0"/>
+            <path d="M232 210h134" stroke-dasharray="3 9"/>
+            <rect x="470" y="200" width="56" height="40" rx="4" fill="#2f7d5b"/>
+          </g>
+          <g font-family="Gochi Hand, cursive" font-size="20" fill="#142238" text-anchor="middle">
+            <text x="185" y="254">fibre router</text>
+            <text x="390" y="254">mesh</text>
+            <text x="498" y="188">Pi?</text>
+          </g>
+        </svg>
+        <figcaption>One house, two networks.</figcaption>
+      </figure>
+
+      <div class="chapter">
+        <span class="chapter-no">The running joke</span>
+        <ul class="beats">
+          <li class="beat"><span class="sticker coral"><svg><use href="#i-camera"/></svg></span><p>The best debugging tool all day was a <b>phone photo of the Pi&rsquo;s screen</b>. Every hurdle became a permanent fix, so the next Pi won&rsquo;t hit it.</p></li>
+        </ul>
+      </div>
+
+      <div class="chapter">
+        <span class="chapter-no">What I took away</span>
+        <h2>Three lessons</h2>
+        <ul class="beats">
+          <li class="beat"><span class="sticker sky"><svg><use href="#i-web"/></svg></span><p><b>The browser is the universal app.</b> Can&rsquo;t install anything? Put the smarts on a box you own and give yourself a web page.</p></li>
+          <li class="beat"><span class="sticker mint"><svg><use href="#i-old"/></svg></span><p><b>Old hardware is fine. Old software isn&rsquo;t.</b> A 2015 Pi is plenty once it runs a current OS.</p></li>
+          <li class="beat"><span class="sticker sun"><svg><use href="#i-bulb"/></svg></span><p><b>Error messages lie by omission.</b> &ldquo;1 GB&rdquo;, &ldquo;base64&rdquo; and &ldquo;lock&rdquo; all pointed somewhere else.</p></li>
+        </ul>
+      </div>
+
+      <figure class="scene">
+        <svg viewBox="0 0 640 300" role="img" aria-label="Drawing: the label printer with a blank shipping label coming out">
+          <g fill="none" stroke="#142238" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="200" y="50" width="240" height="120" rx="20" fill="#2f5f93"/>
+            <path d="M240 150h160" stroke-width="8"/>
+            <circle cx="410" cy="80" r="8" fill="#d8f03c"/>
+            <path d="M250 150v130h140V150" fill="#fff"/>
+            <path d="M270 180h70M270 200h100M270 220h50"/>
+            <path d="M272 250v18M280 250v18M290 250v18M296 250v18M306 250v18M314 250v18M322 250v18M332 250v18"/>
+          </g>
+          <text x="530" y="140" font-family="Gochi Hand, cursive" font-size="34" fill="#e2683f" text-anchor="middle" transform="rotate(-8 530 140)">soon!</text>
+        </svg>
+        <figcaption>Next up: the first real label.</figcaption>
+      </figure>
+
+      <div class="prose post-prose">
+        <p>It runs on plain Python and one PDF tool, small enough for the old Pi. It crops A4 courier sheets down to the label, shows a preview, and prints. The code is open source at <a href="https://github.com/sauravsood/print-bridge">github.com/sauravsood/print-bridge</a>.</p>
+      </div>
     </section>
 
     <footer class="zone post-sign">
-      <p class="hand sign">Next up: the first real label.</p>
+      <p class="hand sign">Built in a day, with Claude.</p>
       <a class="try-it" href="https://github.com/sauravsood/print-bridge">See the code <span aria-hidden="true">↗</span></a>
     </footer>
   </article>
