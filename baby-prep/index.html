@@ -152,6 +152,23 @@ section{display:flex;flex-direction:column;gap:14px}
 .links .e{margin-right:.3em;font-size:.9rem}
 .empty{color:var(--muted);padding:12px 0;text-align:center}
 .empty .e{display:block;font-size:2.4rem;margin-bottom:6px}
+/* Whose list */
+.who{background:var(--surface);border:2px dashed var(--line);border-radius:18px;padding:14px;display:flex;flex-direction:column;gap:10px}
+.who[hidden],.who form[hidden],.who-me[hidden]{display:none}
+.who form{display:flex;flex-direction:column;gap:10px}
+.who label{font-family:var(--display);font-weight:600;font-size:1.15rem;line-height:1.2}
+.who label .e,.who-name .e{margin-right:.35em}
+.who-row{display:flex;gap:8px}
+.who input{flex:1;min-width:0;font:inherit;font-size:16px;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:999px;padding:9px 16px}
+.who-go{border:0;background:var(--accent);color:var(--accent-ink);border-radius:999px;padding:10px 18px;font-weight:700;white-space:nowrap}
+.who-hint{color:var(--muted);font-size:.9rem}
+.who-me{display:flex;flex-direction:column;gap:8px}
+.who-top{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;justify-content:space-between}
+.who-name{font-family:var(--display);font-weight:600;font-size:1.2rem;line-height:1.2;overflow-wrap:anywhere}
+.who-status{font-weight:700;font-size:.85rem;color:var(--muted);white-space:nowrap}
+.who-actions{display:flex;flex-wrap:wrap;gap:8px}
+.who-actions button{border:2px solid var(--line);background:var(--bg);border-radius:999px;padding:7px 14px;font-weight:700;font-size:.9rem}
+.who-actions button .e{margin-right:.35em}
 footer{color:var(--muted);font-size:.9rem;text-align:center;display:flex;flex-direction:column;gap:8px;align-items:center}
 footer .parade{font-size:1.5rem;margin:0}
 @media (prefers-reduced-motion: reduce){.card,.bar i,.crawler{transition:none}.card.flip{transform:none}.parade .e,.card.flip .card-pic,.item.done .yay{animation:none}}
@@ -187,6 +204,24 @@ footer .parade{font-size:1.5rem;margin:0}
   <section aria-labelledby="list-h">
     <h2 id="list-h"><span class="e" aria-hidden="true">🛒</span>The actual list</h2>
     <p class="sub">Tick things off as you get them. Your ticks stay on your phone. <span class="e" aria-hidden="true">📱</span></p>
+    <div class="who" id="who">
+      <form id="who-form">
+        <label for="who-input"><span class="e" aria-hidden="true">👋</span>Whose list is this?</label>
+        <div class="who-row">
+          <input id="who-input" type="text" maxlength="40" autocomplete="given-name" enterkeyhint="go" placeholder="Your name" required>
+          <button class="who-go" type="submit">Start my list <span class="e" aria-hidden="true">🧺</span></button>
+        </div>
+        <p class="who-hint">Add your name to get your very own list. Your ticks get saved, so they are waiting for you next time, on any phone. <span class="e" aria-hidden="true">☁️</span></p>
+      </form>
+      <div class="who-me" id="who-me" hidden>
+        <div class="who-top"><span class="who-name"><span class="e" aria-hidden="true">🧺</span><span id="who-name"></span></span><span class="who-status" id="who-status" aria-live="polite"></span></div>
+        <div class="who-actions">
+          <button type="button" id="who-copy"><span class="e" aria-hidden="true">🔗</span><span id="who-copy-t">Copy my link</span></button>
+          <button type="button" id="who-reset"><span class="e" aria-hidden="true">🙋</span><span id="who-reset-t">Not you?</span></button>
+        </div>
+        <p class="who-hint">Open your link on any phone and your ticks come along. Keep it to yourself: anyone with it can tick your list.</p>
+      </div>
+    </div>
     <div class="progress">
       <div class="progress-row"><span><span class="e" aria-hidden="true">✅</span><span id="prog-text"></span></span><span><span class="e" aria-hidden="true">⭐</span><span id="prog-must"></span></span></div>
       <div class="track"><span class="crawler e" id="crawler" aria-hidden="true">👶</span><div class="bar"><i id="bar"></i></div></div>
@@ -297,7 +332,7 @@ const LIST = [
 const KEY="babyprep-v1";
 let state={got:{},seen:{}};
 try{const s=JSON.parse(localStorage.getItem(KEY)||"null");if(s&&s.got&&s.seen)state=s;}catch(e){}
-function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}}
+function save(){state.t=Date.now();try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}if(typeof queuePush==="function")queuePush();}
 const $=id=>document.getElementById(id);
 function emo(ch,cls){const s=document.createElement("span");s.className="e"+(cls?" "+cls:"");s.setAttribute("aria-hidden","true");s.textContent=ch;return s;}
 
@@ -395,6 +430,90 @@ document.querySelectorAll(".filters button").forEach(b=>b.addEventListener("clic
   refresh();
 }));
 refresh();
+
+/* ---------- my own list, saved online ----------
+   Each person gets a long random id. It lives in this browser and in their
+   personal link (#me=...), and their ticks are saved under it. */
+const API=(/^(localhost|127\.0\.0\.1)$/.test(location.hostname)?"http://localhost:8787":"https://kids.sauravsood.com")+"/api/lists/";
+const ID_KEY="babyprep-id", NAME_KEY="babyprep-name", ID_RE=/^[a-z0-9]{16,40}$/;
+const store={get(k){try{return localStorage.getItem(k)||"";}catch(e){return"";}},set(k,v){try{v?localStorage.setItem(k,v):localStorage.removeItem(k);}catch(e){}}};
+let myId="", myName="", pushTimer=0, pushing=false, pushAgain=false;
+function setStatus(e,t){$("who-status").textContent=e+" "+t;}
+function showWho(){
+  $("who-form").hidden=!!myId; $("who-me").hidden=!myId;
+  if(myId)$("who-name").textContent=(myName||"My")+(myName?(/s$/i.test(myName)?"’ list":"’s list"):" list");
+}
+function redraw(){
+  document.querySelectorAll(".item input").forEach(cb=>{cb.checked=!!state.got[cb.id];});
+  refresh(); renderCard();
+}
+function persist(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}}
+function queuePush(){ if(!myId)return; setStatus("⏳","Saving…"); clearTimeout(pushTimer); pushTimer=setTimeout(push,700); }
+async function push(){
+  if(!myId)return;
+  if(pushing){pushAgain=true;return;}
+  pushing=true;
+  try{
+    const r=await fetch(API+myId,{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify({name:myName,data:state}),keepalive:true});
+    if(!r.ok)throw 0;
+    setStatus("☁️","Saved");
+  }catch(e){setStatus("📱","Saved on this phone, will retry");}
+  pushing=false;
+  if(pushAgain){pushAgain=false;push();}
+}
+async function pull(adopt){
+  if(!myId)return;
+  try{
+    const r=await fetch(API+myId,{cache:"no-store"});
+    if(r.status===404){ if(adopt)setStatus("🤷","Couldn’t find that list"); else push(); return; }
+    if(!r.ok)throw 0;
+    const j=await r.json(), d=j.data||{};
+    if(adopt||(d.t||0)>(state.t||0)){
+      state={got:d.got||{},seen:d.seen||{},t:d.t||0}; persist();
+      if(j.name){myName=j.name;store.set(NAME_KEY,myName);}
+      showWho(); redraw(); setStatus("☁️","Saved");
+    }else if((d.t||0)<(state.t||0))push();
+    else setStatus("☁️","Saved");
+  }catch(e){setStatus("📱","Offline, using this phone’s copy");}
+}
+function setHash(){try{history.replaceState(null,"",myId?"#me="+myId:location.pathname+location.search);}catch(e){}}
+(function start(){
+  const m=/[#&]me=([a-z0-9]+)/.exec(location.hash), hid=m&&ID_RE.test(m[1])?m[1]:"";
+  const lid=store.get(ID_KEY); myName=store.get(NAME_KEY);
+  if(hid&&hid!==lid){
+    /* opened a personal link on a new phone: take that list as it is */
+    myId=hid; myName=""; store.set(ID_KEY,myId); store.set(NAME_KEY,"");
+    state={got:{},seen:{},t:0}; persist(); redraw(); showWho(); pull(true);
+  }else if(ID_RE.test(lid)){ myId=lid; setHash(); showWho(); pull(false); }
+  else showWho();
+})();
+$("who-form").addEventListener("submit",ev=>{
+  ev.preventDefault();
+  const n=$("who-input").value.replace(/[<>]/g,"").trim().slice(0,40); if(!n)return;
+  const a=new Uint8Array(20); crypto.getRandomValues(a);
+  myId=[...a].map(b=>"abcdefghijklmnopqrstuvwxyz0123456789"[b%36]).join(""); myName=n;
+  store.set(ID_KEY,myId); store.set(NAME_KEY,myName);
+  if(!state.t)state.t=Date.now();
+  setHash(); showWho(); push();
+});
+$("who-copy").addEventListener("click",async()=>{
+  const link=location.origin+location.pathname+"#me="+myId, t=$("who-copy-t");
+  try{
+    if(navigator.share&&matchMedia("(pointer:coarse)").matches){await navigator.share({title:document.title,url:link});return;}
+    await navigator.clipboard.writeText(link); t.textContent="Copied!";
+  }catch(e){ if(e&&e.name==="AbortError")return; t.textContent="Copy it from the address bar"; }
+  setTimeout(()=>{t.textContent="Copy my link";},2500);
+});
+let resetArmed=0;
+$("who-reset").addEventListener("click",()=>{
+  const t=$("who-reset-t");
+  if(!resetArmed){ t.textContent="Tap again for a fresh list"; resetArmed=setTimeout(()=>{resetArmed=0;t.textContent="Not you?";},4000); return; }
+  clearTimeout(resetArmed); resetArmed=0; t.textContent="Not you?";
+  clearTimeout(pushTimer); myId=""; myName=""; store.set(ID_KEY,""); store.set(NAME_KEY,"");
+  state={got:{},seen:{},t:0}; persist(); setHash(); showWho(); redraw();
+  $("who-input").value=""; $("who-input").focus();
+});
+document.addEventListener("visibilitychange",()=>{ if(!document.hidden&&myId&&!pushing)pull(false); });
 </script>
 <script src="https://kids.sauravsood.com/feedback/bubble.js" data-color="#FFD44A" data-ink="#1D1B3A" data-accent="#3B3BD6" defer></script>
 </body>
