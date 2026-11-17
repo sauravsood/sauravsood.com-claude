@@ -14,11 +14,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Baby Prep Survival Kit</title>
 <meta name="description" content="Everything a mum learnt the messy way: 11 pieces of terrible advice to flip, and a tickable baby shopping list.">
-<meta property="og:title" content="Baby Prep Survival Kit 🍼">
+<meta property="og:title" content="Baby Prep Survival Kit">
 <meta property="og:description" content="Start with my worst advice, then raid my shopping list.">
 <meta property="og:url" content="https://sauravsood.com/baby-prep/">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8D%BC%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='11' fill='%23FFD44A'/%3E%3Cg transform='translate(4 4)' fill='none' stroke='%233A2A00' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 10h14'/%3E%3Cpath d='M12 2v2'/%3E%3Cpath d='M12 4a5 5 0 0 1 5 5v11a2 2 0 0 1 -2 2h-6a2 2 0 0 1 -2 -2v-11a5 5 0 0 1 5 -5'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,7 +41,6 @@
   --sun-ink:#3A2A00;
   --display:"Baloo 2","Trebuchet MS",system-ui,sans-serif;
   --body:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --emoji:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji","Twemoji Mozilla",sans-serif;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
@@ -73,20 +72,26 @@ button{font:inherit;color:inherit;cursor:pointer}
 :focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 
 /* Emoji pictures */
-.e{font-family:var(--emoji);font-style:normal;font-weight:400;line-height:1;display:inline-block;text-decoration:none}
-h2 .e,h3 .e{margin-right:.3em}
+.ic{display:inline-grid;place-items:center;width:1.55em;height:1.55em;flex:none;vertical-align:-.38em;border-radius:42% 58% 52% 48%/55% 45% 55% 45%;background:var(--sun);color:var(--sun-ink);transform:rotate(-5deg);text-decoration:none;line-height:1}
+.ic[data-t="coral"]{background:var(--trap);color:var(--trap-ink)}
+.ic[data-t="mint"]{background:var(--truth);color:var(--truth-ink)}
+.ic[data-t="indigo"]{background:var(--accent);color:var(--accent-ink)}
+.ic svg{width:64%;height:64%;display:block;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ic.plain,.chip .ic,.nav-btn .ic,.card-btn .ic,.card-top .ic,.links .ic,.who-go .ic,.who-status .ic,.who-actions .ic,.progress-row .ic,.filters .ic{background:none;color:inherit;transform:none;width:1.15em;height:1.15em;vertical-align:-.2em;border-radius:0}
+.ic.plain svg,.chip .ic svg,.nav-btn .ic svg,.card-btn .ic svg,.card-top .ic svg,.links .ic svg,.who-go .ic svg,.who-status .ic svg,.who-actions .ic svg,.progress-row .ic svg,.filters .ic svg{width:100%;height:100%;stroke-width:2.2}
+h2 .ic,h3 .ic{margin-right:.35em;font-size:.82em}
 
 header{display:flex;flex-direction:column;gap:10px}
-.parade{display:flex;gap:10px;font-size:1.9rem;margin-bottom:4px}
-.parade .e{animation:bob 2.8s ease-in-out infinite}
-.parade .e:nth-child(2){animation-delay:.25s}
-.parade .e:nth-child(3){animation-delay:.5s}
-.parade .e:nth-child(4){animation-delay:.75s}
-.parade .e:nth-child(5){animation-delay:1s}
-.parade .e:nth-child(6){animation-delay:1.25s}
+.parade{display:flex;gap:10px;font-size:1.7rem;margin-bottom:4px}
+.parade .ic{animation:bob 2.8s ease-in-out infinite}
+.parade .ic:nth-child(2){animation-delay:.25s}
+.parade .ic:nth-child(3){animation-delay:.5s}
+.parade .ic:nth-child(4){animation-delay:.75s}
+.parade .ic:nth-child(5){animation-delay:1s}
+.parade .ic:nth-child(6){animation-delay:1.25s}
 @keyframes bob{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-5px) rotate(-6deg)}}
 .kicker{font-weight:700;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.kicker .e{font-size:1.1rem;margin-right:.35em;vertical-align:-2px}
+.kicker .ic{font-size:1.1rem;margin-right:.35em;vertical-align:-2px}
 h1 mark{background:var(--sun);color:var(--sun-ink);padding:0 .15em;border-radius:6px;display:inline-block;margin-top:.12em}
 .lede{color:var(--muted);max-width:52ch}
 
@@ -98,36 +103,36 @@ section{display:flex;flex-direction:column;gap:14px}
 .card.real{background:var(--truth);color:var(--truth-ink)}
 .card.flip{transform:rotate(-1.2deg) scale(.98)}
 .card-top{display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;position:relative}
-.card-top .e{font-size:1.05rem;margin-right:.4em;vertical-align:-2px}
-.card-pic{font-size:3rem;align-self:flex-start;filter:drop-shadow(0 3px 0 rgba(0,0,0,.12))}
+.card-top .ic{font-size:1.05rem;margin-right:.4em;vertical-align:-2px}
+.card-pic.ic{font-size:2.5rem;align-self:flex-start;background:#fff;color:#1D1B3A;box-shadow:0 4px 0 rgba(0,0,0,.14)}
 .card.flip .card-pic{animation:pop .35s ease-out}
 @keyframes pop{0%{transform:scale(.6) rotate(-12deg)}70%{transform:scale(1.15) rotate(6deg)}100%{transform:scale(1)}}
-.card-bg{position:absolute;right:-14px;bottom:-18px;font-size:7.5rem;opacity:.16;transform:rotate(-14deg);pointer-events:none}
+.card-bg.ic.plain{position:absolute;right:-14px;bottom:-18px;font-size:7.5rem;opacity:.16;transform:rotate(-14deg);pointer-events:none}
 .card-text{font-family:var(--display);font-weight:600;font-size:1.45rem;line-height:1.2;position:relative}
 .card-btn{align-self:flex-start;border:2px solid currentColor;background:transparent;border-radius:999px;padding:9px 16px;font-weight:700;position:relative}
-.card-btn .e{margin-right:.4em}
+.card-btn .ic{margin-right:.4em}
 .deck-nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .nav-btn{border:0;background:var(--accent);color:var(--accent-ink);border-radius:999px;padding:10px 18px;font-weight:700;white-space:nowrap}
-.nav-btn .e{font-size:1rem}
+.nav-btn .ic{font-size:1rem}
 .nav-btn[disabled]{opacity:.35;cursor:default}
 .dots{display:flex;gap:5px;flex-wrap:wrap;justify-content:center}
 .dots span{width:9px;height:9px;border-radius:50%;background:var(--line)}
 .dots span.seen{background:var(--truth)}
 .dots span.on{outline:2px solid var(--ink);outline-offset:1px}
 .score{font-weight:700;color:var(--muted);font-size:.9rem}
-.score .e{margin-right:.4em;font-size:1.05rem;vertical-align:-2px}
+.score .ic{margin-right:.4em;font-size:1.05rem;vertical-align:-2px}
 
 /* List */
 .progress{display:flex;flex-direction:column;gap:6px;position:sticky;top:0;background:var(--bg);padding:10px 0;z-index:2}
 .progress-row{display:flex;justify-content:space-between;gap:8px;font-weight:700;font-size:.9rem;font-variant-numeric:tabular-nums}
-.progress-row .e{margin-right:.3em}
-.track{position:relative;padding-top:20px}
-.crawler{position:absolute;top:0;left:0;font-size:1.25rem;transform:translateX(-50%);transition:left .3s;margin-left:10px}
+.progress-row .ic{margin-right:.3em}
+.track{position:relative;padding-top:27px}
+.crawler.ic{position:absolute;top:0;left:0;font-size:1rem;transform:translateX(-50%);transition:left .3s;margin-left:10px}
 .bar{height:10px;border-radius:999px;background:var(--line);overflow:hidden}
 .bar i{display:block;height:100%;width:0;background:var(--accent);border-radius:999px;transition:width .3s}
 .filters{display:flex;gap:8px;flex-wrap:wrap}
 .filters button{border:2px solid var(--line);background:var(--surface);border-radius:999px;padding:7px 14px;font-weight:700;font-size:.9rem}
-.filters button .e{margin-right:.35em}
+.filters button .ic{margin-right:.35em}
 .filters button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 .group{display:flex;flex-direction:column;gap:10px;margin-top:10px}
 .group[hidden]{display:none}
@@ -137,27 +142,27 @@ section{display:flex;flex-direction:column;gap:14px}
 .item input{width:24px;height:24px;margin:2px 0 0;accent-color:var(--accent)}
 .item-head{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}
 .item-name{font-weight:700;font-size:1.05rem}
-.item-name .e{margin-right:.35em;font-size:1.15rem;vertical-align:-1px}
+.item-name .ic{margin-right:.35em;font-size:1.15rem;vertical-align:-1px}
 .item.done .item-name{text-decoration:line-through;color:var(--muted)}
-.item.done .item-name .e{filter:grayscale(.6);opacity:.7}
+.item.done .item-name .ic{filter:grayscale(.6);opacity:.7}
 .yay{display:none;font-size:1rem}
-.item.done .yay{display:inline-block;animation:pop .35s ease-out}
+.item.done .yay{display:inline-grid;animation:pop .35s ease-out}
 .chip{font-size:.72rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;border-radius:999px;padding:3px 9px;white-space:nowrap}
-.chip .e{margin-right:.3em;font-size:.85rem;vertical-align:-1px}
+.chip .ic{margin-right:.3em;font-size:.85rem;vertical-align:-1px}
 .chip.must{background:var(--sun);color:var(--sun-ink)}
 .chip.other{border:1.5px solid var(--line);color:var(--muted)}
 .item-body{grid-column:2;display:flex;flex-direction:column;gap:6px}
 .note{color:var(--muted);font-size:.95rem}
 .links{display:flex;flex-wrap:wrap;gap:6px 14px;font-weight:700;font-size:.9rem}
-.links .e{margin-right:.3em;font-size:.9rem}
+.links .ic{margin-right:.3em;font-size:.9rem}
 .empty{color:var(--muted);padding:12px 0;text-align:center}
-.empty .e{display:block;font-size:2.4rem;margin-bottom:6px}
+.empty .ic:first-child{display:grid;font-size:2.4rem;margin:0 auto 8px}
 /* Whose list */
 .who{background:var(--surface);border:2px dashed var(--line);border-radius:18px;padding:14px;display:flex;flex-direction:column;gap:10px}
 .who[hidden],.who form[hidden],.who-me[hidden]{display:none}
 .who form{display:flex;flex-direction:column;gap:10px}
 .who label{font-family:var(--display);font-weight:600;font-size:1.15rem;line-height:1.2}
-.who label .e,.who-name .e{margin-right:.35em}
+.who label .ic,.who-name .ic{margin-right:.35em}
 .who-row{display:flex;gap:8px}
 .who input{flex:1;min-width:0;font:inherit;font-size:16px;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:999px;padding:9px 16px}
 .who-go{border:0;background:var(--accent);color:var(--accent-ink);border-radius:999px;padding:10px 18px;font-weight:700;white-space:nowrap}
@@ -168,75 +173,75 @@ section{display:flex;flex-direction:column;gap:14px}
 .who-status{font-weight:700;font-size:.85rem;color:var(--muted);white-space:nowrap}
 .who-actions{display:flex;flex-wrap:wrap;gap:8px}
 .who-actions button{border:2px solid var(--line);background:var(--bg);border-radius:999px;padding:7px 14px;font-weight:700;font-size:.9rem}
-.who-actions button .e{margin-right:.35em}
+.who-actions button .ic{margin-right:.35em}
 footer{color:var(--muted);font-size:.9rem;text-align:center;display:flex;flex-direction:column;gap:8px;align-items:center}
 footer .parade{font-size:1.5rem;margin:0}
-@media (prefers-reduced-motion: reduce){.card,.bar i,.crawler{transition:none}.card.flip{transform:none}.parade .e,.card.flip .card-pic,.item.done .yay{animation:none}}
+@media (prefers-reduced-motion: reduce){.card,.bar i,.crawler{transition:none}.card.flip{transform:none}.parade .ic,.card.flip .card-pic,.item.done .yay{animation:none}}
 </style>
 </head>
 <body>
 <main>
   <header>
-    <div class="parade" aria-hidden="true"><span class="e">🍼</span><span class="e">🧸</span><span class="e">🧷</span><span class="e">👶</span><span class="e">🌙</span><span class="e">🧦</span></div>
-    <p class="kicker"><span class="e" aria-hidden="true">🤱</span>From a mum who has been there</p>
+    <div class="parade" aria-hidden="true"><span class="ic" data-i="baby-bottle" aria-hidden="true"></span><span class="ic" data-i="horse-toy" aria-hidden="true"></span><span class="ic" data-i="diaper" aria-hidden="true"></span><span class="ic" data-i="mood-kid" aria-hidden="true"></span><span class="ic" data-i="moon-stars" aria-hidden="true"></span><span class="ic" data-i="sock" aria-hidden="true"></span></div>
+    <p class="kicker"><span class="ic" data-i="user-heart" aria-hidden="true"></span>From a mum who has been there</p>
     <h1>Baby Prep <mark>Survival Kit</mark></h1>
-    <p class="lede">Everything I learnt the messy way, so you don't have to. Start with my worst advice, then raid my shopping list. <span class="e" aria-hidden="true">💛</span></p>
+    <p class="lede">Everything I learnt the messy way, so you don't have to. Start with my worst advice, then raid my shopping list. <span class="ic" data-i="heart" aria-hidden="true"></span></p>
   </header>
 
   <section aria-labelledby="deck-h">
-    <h2 id="deck-h"><span class="e" aria-hidden="true">😈</span>If I wanted to see you suffer</h2>
-    <p class="sub">11 pieces of terrible advice. Flip each card for what I really mean. <span class="e" aria-hidden="true">🃏</span></p>
+    <h2 id="deck-h"><span class="ic" data-i="mood-crazy-happy" aria-hidden="true"></span>If I wanted to see you suffer</h2>
+    <p class="sub">11 pieces of terrible advice. Flip each card for what I really mean. <span class="ic" data-i="cards" aria-hidden="true"></span></p>
     <div class="card" id="card" aria-live="polite">
-      <span class="card-bg e" id="card-bg" aria-hidden="true"></span>
-      <div class="card-top"><span><span class="e" id="card-label-e" aria-hidden="true"></span><span id="card-label"></span></span><span id="card-count"></span></div>
-      <span class="card-pic e" id="card-pic" aria-hidden="true"></span>
+      <span class="card-bg ic plain" id="card-bg" aria-hidden="true"></span>
+      <div class="card-top"><span><span class="ic" id="card-label-e" aria-hidden="true"></span><span id="card-label"></span></span><span id="card-count"></span></div>
+      <span class="card-pic ic" id="card-pic" aria-hidden="true"></span>
       <p class="card-text" id="card-text"></p>
-      <button class="card-btn" id="flip" type="button"><span class="e" id="flip-e" aria-hidden="true"></span><span id="flip-t"></span></button>
+      <button class="card-btn" id="flip" type="button"><span class="ic" id="flip-e" aria-hidden="true"></span><span id="flip-t"></span></button>
     </div>
     <div class="deck-nav">
-      <button class="nav-btn" id="prev" type="button"><span class="e" aria-hidden="true">👈</span> Back</button>
+      <button class="nav-btn" id="prev" type="button"><span class="ic" data-i="arrow-left" aria-hidden="true"></span> Back</button>
       <div class="dots" id="dots" aria-hidden="true"></div>
-      <button class="nav-btn" id="next" type="button">Next <span class="e" aria-hidden="true">👉</span></button>
+      <button class="nav-btn" id="next" type="button">Next <span class="ic" data-i="arrow-right" aria-hidden="true"></span></button>
     </div>
-    <p class="score"><span class="e" id="score-e" aria-hidden="true"></span><span id="score"></span></p>
+    <p class="score"><span class="ic" id="score-e" aria-hidden="true"></span><span id="score"></span></p>
   </section>
 
   <section aria-labelledby="list-h">
-    <h2 id="list-h"><span class="e" aria-hidden="true">🛒</span>The actual list</h2>
-    <p class="sub">Tick things off as you get them. Your ticks stay on your phone. <span class="e" aria-hidden="true">📱</span></p>
+    <h2 id="list-h"><span class="ic" data-i="shopping-cart" aria-hidden="true"></span>The actual list</h2>
+    <p class="sub">Tick things off as you get them. Your ticks stay on your phone. <span class="ic" data-i="device-mobile" aria-hidden="true"></span></p>
     <div class="who" id="who">
       <form id="who-form">
-        <label for="who-input"><span class="e" aria-hidden="true">👋</span>Whose list is this?</label>
+        <label for="who-input"><span class="ic" data-i="hand-stop" aria-hidden="true"></span>Whose list is this?</label>
         <div class="who-row">
           <input id="who-input" type="text" maxlength="40" autocomplete="given-name" enterkeyhint="go" placeholder="Your name" required>
-          <button class="who-go" type="submit">Start my list <span class="e" aria-hidden="true">🧺</span></button>
+          <button class="who-go" type="submit">Start my list <span class="ic" data-i="basket" aria-hidden="true"></span></button>
         </div>
-        <p class="who-hint">Add your name to get your very own list. Your ticks get saved, so they are waiting for you next time, on any phone. <span class="e" aria-hidden="true">☁️</span></p>
+        <p class="who-hint">Add your name to get your very own list. Your ticks get saved, so they are waiting for you next time, on any phone. <span class="ic" data-i="cloud" aria-hidden="true"></span></p>
       </form>
       <div class="who-me" id="who-me" hidden>
-        <div class="who-top"><span class="who-name"><span class="e" aria-hidden="true">🧺</span><span id="who-name"></span></span><span class="who-status" id="who-status" aria-live="polite"></span></div>
+        <div class="who-top"><span class="who-name"><span class="ic" data-i="basket" aria-hidden="true"></span><span id="who-name"></span></span><span class="who-status" id="who-status" aria-live="polite"></span></div>
         <div class="who-actions">
-          <button type="button" id="who-copy"><span class="e" aria-hidden="true">🔗</span><span id="who-copy-t">Copy my link</span></button>
-          <button type="button" id="who-reset"><span class="e" aria-hidden="true">🙋</span><span id="who-reset-t">Not you?</span></button>
+          <button type="button" id="who-copy"><span class="ic" data-i="link" aria-hidden="true"></span><span id="who-copy-t">Copy my link</span></button>
+          <button type="button" id="who-reset"><span class="ic" data-i="user-question" aria-hidden="true"></span><span id="who-reset-t">Not you?</span></button>
         </div>
         <p class="who-hint">Open your link on any phone and your ticks come along. Keep it to yourself: anyone with it can tick your list.</p>
       </div>
     </div>
     <div class="progress">
-      <div class="progress-row"><span><span class="e" aria-hidden="true">✅</span><span id="prog-text"></span></span><span><span class="e" aria-hidden="true">⭐</span><span id="prog-must"></span></span></div>
-      <div class="track"><span class="crawler e" id="crawler" aria-hidden="true">👶</span><div class="bar"><i id="bar"></i></div></div>
+      <div class="progress-row"><span><span class="ic" data-i="circle-check" aria-hidden="true"></span><span id="prog-text"></span></span><span><span class="ic" data-i="star" aria-hidden="true"></span><span id="prog-must"></span></span></div>
+      <div class="track"><span class="crawler ic" id="crawler" aria-hidden="true"></span><div class="bar"><i id="bar"></i></div></div>
     </div>
     <div class="filters" role="group" aria-label="Filter the list">
-      <button type="button" data-f="all" aria-pressed="true"><span class="e" aria-hidden="true">🌈</span>Everything</button>
-      <button type="button" data-f="must" aria-pressed="false"><span class="e" aria-hidden="true">⭐</span>Must haves</button>
-      <button type="button" data-f="todo" aria-pressed="false"><span class="e" aria-hidden="true">🛍️</span>Still to get</button>
+      <button type="button" data-f="all" aria-pressed="true"><span class="ic" data-i="rainbow" aria-hidden="true"></span>Everything</button>
+      <button type="button" data-f="must" aria-pressed="false"><span class="ic" data-i="star" aria-hidden="true"></span>Must haves</button>
+      <button type="button" data-f="todo" aria-pressed="false"><span class="ic" data-i="shopping-bag" aria-hidden="true"></span>Still to get</button>
     </div>
     <div id="groups"></div>
-    <p class="empty" id="empty" hidden><span class="e" aria-hidden="true">🛋️</span>Nothing left here. Go put your feet up. <span class="e" style="display:inline-block;font-size:1rem;margin:0" aria-hidden="true">🎉</span></p>
+    <p class="empty" id="empty" hidden><span class="ic" data-i="sofa" aria-hidden="true"></span>Nothing left here. Go put your feet up. <span class="ic" data-i="confetti" aria-hidden="true"></span></p>
   </section>
 
   <footer>
-    <div class="parade" aria-hidden="true"><span class="e">💪</span><span class="e">💩</span><span class="e">📞</span><span class="e">💛</span></div>
+    <div class="parade" aria-hidden="true"><span class="ic" data-i="barbell" aria-hidden="true"></span><span class="ic" data-i="poo" aria-hidden="true"></span><span class="ic" data-i="phone-call" aria-hidden="true"></span><span class="ic" data-i="heart" aria-hidden="true"></span></div>
     <p>You've got this. Call me when the first explosion happens.</p>
   </footer>
 </main>
@@ -268,63 +273,66 @@ const TRAPS = [
 ];
 /* One picture per card: [bad-advice side, real side] */
 const TRAP_PICS = [
-  ["💩","🛍️"],["🧂","💧"],["😎","🛏️"],["⛲","🙈"],["🌊","🛏️"],["💡","🌙"],
-  ["🏜️","🧻"],["🌊","🫧"],["🙅","🌯"],["😵‍💫","🤱"],["😬","👙"]
+  ["poo","shopping-bag"],["salt","droplet"],["sunglasses","bed"],["fountain","eye-off"],["ripple","bed"],["bulb","moon"],
+  ["cactus","toilet-paper"],["droplets","bubble"],["hand-stop","heart-handshake"],["mood-sick","armchair"],["mood-sad","thumb-up"]
 ];
+
+/* Icons: Tabler Icons (MIT licence), https://tabler.io/icons */
+const ICONS={"armchair":"<path d=\"M5 11a2 2 0 0 1 2 2v2h10v-2a2 2 0 1 1 4 0v4a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-4a2 2 0 0 1 2 -2\"/> <path d=\"M5 11v-5a3 3 0 0 1 3 -3h8a3 3 0 0 1 3 3v5\"/> <path d=\"M6 19v2\"/> <path d=\"M18 19v2\"/>","arrow-left":"<path d=\"M5 12l14 0\"/> <path d=\"M5 12l6 6\"/> <path d=\"M5 12l6 -6\"/>","arrow-right":"<path d=\"M5 12l14 0\"/> <path d=\"M13 18l6 -6\"/> <path d=\"M13 6l6 6\"/>","baby-bottle":"<path d=\"M5 10h14\"/> <path d=\"M12 2v2\"/> <path d=\"M12 4a5 5 0 0 1 5 5v11a2 2 0 0 1 -2 2h-6a2 2 0 0 1 -2 -2v-11a5 5 0 0 1 5 -5\"/>","baby-carriage":"<path d=\"M6 19a2 2 0 1 0 4 0a2 2 0 1 0 -4 0\"/> <path d=\"M16 19a2 2 0 1 0 4 0a2 2 0 1 0 -4 0\"/> <path d=\"M2 5h2.5l1.632 4.897a6 6 0 0 0 5.693 4.103h2.675a5.5 5.5 0 0 0 0 -11h-.5v6\"/> <path d=\"M6 9h14\"/> <path d=\"M9 17l1 -3\"/> <path d=\"M16 14l1 3\"/>","backpack":"<path d=\"M5 18v-6a6 6 0 0 1 6 -6h2a6 6 0 0 1 6 6v6a3 3 0 0 1 -3 3h-8a3 3 0 0 1 -3 -3\"/> <path d=\"M10 6v-1a2 2 0 1 1 4 0v1\"/> <path d=\"M9 21v-4a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v4\"/> <path d=\"M11 10h2\"/>","balloon":"<path d=\"M14 8a2 2 0 0 0 -2 -2\"/> <path d=\"M6 8a6 6 0 1 1 12 0c0 4.97 -2.686 9 -6 9s-6 -4.03 -6 -9\"/> <path d=\"M12 17v1a2 2 0 0 1 -2 2h-3a2 2 0 0 0 -2 2\"/>","ban":"<path d=\"M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0\"/> <path d=\"M5.7 5.7l12.6 12.6\"/>","bandage":"<path d=\"M14 12l0 .01\"/> <path d=\"M10 12l0 .01\"/> <path d=\"M12 10l0 .01\"/> <path d=\"M12 14l0 .01\"/> <path d=\"M4.5 12.5l8 -8a4.94 4.94 0 0 1 7 7l-8 8a4.94 4.94 0 0 1 -7 -7\"/>","barbell":"<path d=\"M2 12h1\"/> <path d=\"M6 8h-2a1 1 0 0 0 -1 1v6a1 1 0 0 0 1 1h2\"/> <path d=\"M6 7v10a1 1 0 0 0 1 1h1a1 1 0 0 0 1 -1v-10a1 1 0 0 0 -1 -1h-1a1 1 0 0 0 -1 1\"/> <path d=\"M9 12h6\"/> <path d=\"M15 7v10a1 1 0 0 0 1 1h1a1 1 0 0 0 1 -1v-10a1 1 0 0 0 -1 -1h-1a1 1 0 0 0 -1 1\"/> <path d=\"M18 8h2a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-2\"/> <path d=\"M22 12h-1\"/>","basket":"<path d=\"M10 14a2 2 0 1 0 4 0a2 2 0 0 0 -4 0\"/> <path d=\"M5.001 8h13.999a2 2 0 0 1 1.977 2.304l-1.255 7.152a3 3 0 0 1 -2.966 2.544h-9.512a3 3 0 0 1 -2.965 -2.544l-1.255 -7.152a2 2 0 0 1 1.977 -2.304\"/> <path d=\"M17 10l-2 -6\"/> <path d=\"M7 10l2 -6\"/>","bed":"<path d=\"M5 9a2 2 0 1 0 4 0a2 2 0 1 0 -4 0\"/> <path d=\"M22 17v-3h-20\"/> <path d=\"M2 8v9\"/> <path d=\"M12 14h10v-2a3 3 0 0 0 -3 -3h-7v5\"/>","bottle":"<path d=\"M10 5h4v-2a1 1 0 0 0 -1 -1h-2a1 1 0 0 0 -1 1v2\"/> <path d=\"M14 3.5c0 1.626 .507 3.212 1.45 4.537l.05 .07a8.093 8.093 0 0 1 1.5 4.694v6.199a2 2 0 0 1 -2 2h-6a2 2 0 0 1 -2 -2v-6.2c0 -1.682 .524 -3.322 1.5 -4.693l.05 -.07a7.823 7.823 0 0 0 1.45 -4.537\"/> <path d=\"M7 14.803a2.4 2.4 0 0 0 1 -.803a2.4 2.4 0 0 1 2 -1a2.4 2.4 0 0 1 2 1a2.4 2.4 0 0 0 2 1a2.4 2.4 0 0 0 2 -1a2.4 2.4 0 0 1 1 -.805\"/>","brush":"<path d=\"M3 21v-4a4 4 0 1 1 4 4h-4\"/> <path d=\"M21 3a16 16 0 0 0 -12.8 10.2\"/> <path d=\"M21 3a16 16 0 0 1 -10.2 12.8\"/> <path d=\"M10.6 9a9 9 0 0 1 4.4 4.4\"/>","bubble":"<path d=\"M12.4 3a5.34 5.34 0 0 1 4.906 3.239a5.333 5.333 0 0 1 -1.195 10.6a4.26 4.26 0 0 1 -5.28 1.863l-3.831 2.298v-3.134a2.668 2.668 0 0 1 -1.795 -3.773a4.8 4.8 0 0 1 2.908 -8.933a5.33 5.33 0 0 1 4.287 -2.16\"/>","bulb":"<path d=\"M3 12h1m8 -9v1m8 8h1m-15.4 -6.4l.7 .7m12.1 -.7l-.7 .7\"/> <path d=\"M9 16a5 5 0 1 1 6 0a3.5 3.5 0 0 0 -1 3a2 2 0 0 1 -4 0a3.5 3.5 0 0 0 -1 -3\"/> <path d=\"M9.7 17l4.6 0\"/>","cactus":"<path d=\"M6 9v1a3 3 0 0 0 3 3h1\"/> <path d=\"M18 8v5a3 3 0 0 1 -3 3h-1\"/> <path d=\"M10 21v-16a2 2 0 1 1 4 0v16\"/> <path d=\"M7 21h10\"/>","cards":"<path d=\"M3.604 7.197l7.138 -3.109a.96 .96 0 0 1 1.27 .527l4.924 11.902a1 1 0 0 1 -.514 1.304l-7.137 3.109a.96 .96 0 0 1 -1.271 -.527l-4.924 -11.903a1 1 0 0 1 .514 -1.304l0 .001\"/> <path d=\"M15 4h1a1 1 0 0 1 1 1v3.5\"/> <path d=\"M20 6c.264 .112 .52 .217 .768 .315a1 1 0 0 1 .53 1.311l-2.298 5.374\"/>","circle-check":"<path d=\"M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0\"/> <path d=\"M9 12l2 2l4 -4\"/>","cloud":"<path d=\"M6.657 18c-2.572 0 -4.657 -2.007 -4.657 -4.483c0 -2.475 2.085 -4.482 4.657 -4.482c.393 -1.762 1.794 -3.2 3.675 -3.773c1.88 -.572 3.956 -.193 5.444 1c1.488 1.19 2.162 3.007 1.77 4.769h.99c1.913 0 3.464 1.56 3.464 3.486c0 1.927 -1.551 3.487 -3.465 3.487h-11.878\"/>","cloud-check":"<path d=\"M11 18.004h-4.343c-2.572 -.004 -4.657 -2.011 -4.657 -4.487c0 -2.475 2.085 -4.482 4.657 -4.482c.393 -1.762 1.794 -3.2 3.675 -3.773c1.88 -.572 3.956 -.193 5.444 1c1.488 1.19 2.162 3.007 1.77 4.769h.99c1.388 0 2.585 .82 3.138 2.007\"/> <path d=\"M15 19l2 2l4 -4\"/>","confetti":"<path d=\"M4 5h2\"/> <path d=\"M5 4v2\"/> <path d=\"M11.5 4l-.5 2\"/> <path d=\"M18 5h2\"/> <path d=\"M19 4v2\"/> <path d=\"M15 9l-1 1\"/> <path d=\"M18 13l2 -.5\"/> <path d=\"M18 19h2\"/> <path d=\"M19 18v2\"/> <path d=\"M14 16.518l-6.518 -6.518l-4.39 9.58a1 1 0 0 0 1.329 1.329l9.579 -4.39\"/>","crown":"<path d=\"M12 6l4 6l5 -4l-2 10h-14l-2 -10l5 4l4 -6\"/>","device-mobile":"<path d=\"M6 5a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2v-14\"/> <path d=\"M11 4h2\"/> <path d=\"M12 17v.01\"/>","diaper":"<path d=\"M3 8.323c0 -.579 0 -.868 .044 -1.11a2.7 2.7 0 0 1 2.17 -2.169c.239 -.044 .529 -.044 1.109 -.044h11.353c.579 0 .868 0 1.11 .044a2.7 2.7 0 0 1 2.169 2.17c.044 .24 .044 .53 .044 1.11v2.676a9 9 0 0 1 -18 0l.001 -2.677\"/> <path d=\"M17 9h4\"/> <path d=\"M3 9h4\"/> <path d=\"M14.25 19.7v-1.4a6.3 6.3 0 0 1 6.3 -6.3\"/> <path d=\"M9.75 19.7v-1.4a6.3 6.3 0 0 0 -6.3 -6.3\"/>","droplet":"<path d=\"M7.502 19.423c2.602 2.105 6.395 2.105 8.996 0c2.602 -2.105 3.262 -5.708 1.566 -8.546l-4.89 -7.26c-.42 -.625 -1.287 -.803 -1.936 -.397a1.376 1.376 0 0 0 -.41 .397l-4.893 7.26c-1.695 2.838 -1.035 6.441 1.567 8.546\"/>","droplets":"<path d=\"M4.072 20.3a2.999 2.999 0 0 0 3.856 0a3.002 3.002 0 0 0 .67 -3.798l-2.095 -3.227a.6 .6 0 0 0 -1.005 0l-2.098 3.227a3.003 3.003 0 0 0 .671 3.798\"/> <path d=\"M16.072 20.3a2.999 2.999 0 0 0 3.856 0a3.002 3.002 0 0 0 .67 -3.798l-2.095 -3.227a.6 .6 0 0 0 -1.005 0l-2.098 3.227a3.003 3.003 0 0 0 .671 3.798\"/> <path d=\"M10.072 10.3a2.999 2.999 0 0 0 3.856 0a3.002 3.002 0 0 0 .67 -3.798l-2.095 -3.227a.6 .6 0 0 0 -1.005 0l-2.098 3.227a3.003 3.003 0 0 0 .671 3.798l.001 0\"/>","ear":"<path d=\"M6 10a7 7 0 1 1 13 3.6a10 10 0 0 1 -2 2a8 8 0 0 0 -2 3a4.5 4.5 0 0 1 -6.8 1.4\"/> <path d=\"M10 10a3 3 0 1 1 5 2.2\"/>","egg":"<path d=\"M19 14.083c0 4.154 -2.966 6.74 -7 6.917c-4.2 0 -7 -2.763 -7 -6.917c0 -5.538 3.5 -11.09 7 -11.083c3.5 .007 7 5.545 7 11.083\"/>","eye-off":"<path d=\"M10.585 10.587a2 2 0 0 0 2.829 2.828\"/> <path d=\"M16.681 16.673a8.717 8.717 0 0 1 -4.681 1.327c-3.6 0 -6.6 -2 -9 -6c1.272 -2.12 2.712 -3.678 4.32 -4.674m2.86 -1.146a9.055 9.055 0 0 1 1.82 -.18c3.6 0 6.6 2 9 6c-.666 1.11 -1.379 2.067 -2.138 2.87\"/> <path d=\"M3 3l18 18\"/>","feather":"<path d=\"M4 20l10 -10m0 -5v5h5m-9 -1v5h5m-9 -1v5h5m-5 -5l4 -4l4 -4\"/> <path d=\"M19 10c.638 -.636 1 -1.515 1 -2.486a3.515 3.515 0 0 0 -3.517 -3.514c-.97 0 -1.847 .367 -2.483 1m-3 13l4 -4l4 -4\"/>","flame":"<path d=\"M12 10.941c2.333 -3.308 .167 -7.823 -1 -8.941c0 3.395 -2.235 5.299 -3.667 6.706c-1.43 1.408 -2.333 3.294 -2.333 5.588c0 3.704 3.134 6.706 7 6.706c3.866 0 7 -3.002 7 -6.706c0 -1.712 -1.232 -4.403 -2.333 -5.588c-2.084 3.353 -3.257 3.353 -4.667 2.235\"/>","fountain":"<path d=\"M9 16v-5a2 2 0 1 0 -4 0\"/> <path d=\"M15 16v-5a2 2 0 1 1 4 0\"/> <path d=\"M12 16v-10a3 3 0 0 1 6 0\"/> <path d=\"M6 6a3 3 0 0 1 6 0\"/> <path d=\"M3 16h18v2a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3v-2\"/>","hand-sanitizer":"<path d=\"M7 21h10v-10a3 3 0 0 0 -3 -3h-4a3 3 0 0 0 -3 3v10\"/> <path d=\"M15 3h-6a2 2 0 0 0 -2 2\"/> <path d=\"M12 3v5\"/> <path d=\"M12 11v4\"/> <path d=\"M10 13h4\"/>","hand-stop":"<path d=\"M8 13v-7.5a1.5 1.5 0 0 1 3 0v6.5\"/> <path d=\"M11 5.5v-2a1.5 1.5 0 1 1 3 0v8.5\"/> <path d=\"M14 5.5a1.5 1.5 0 0 1 3 0v6.5\"/> <path d=\"M17 7.5a1.5 1.5 0 0 1 3 0v8.5a6 6 0 0 1 -6 6h-2h.208a6 6 0 0 1 -5.012 -2.7a69.74 69.74 0 0 1 -.196 -.3c-.312 -.479 -1.407 -2.388 -3.286 -5.728a1.5 1.5 0 0 1 .536 -2.022a1.867 1.867 0 0 1 2.28 .28l1.47 1.47\"/>","hanger":"<path d=\"M14 6a2 2 0 1 0 -4 0c0 1.667 .67 3 2 4h-.008l7.971 4.428a2 2 0 0 1 1.029 1.749v.823a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-.823a2 2 0 0 1 1.029 -1.749l7.971 -4.428\"/>","hanger-2":"<path d=\"M12 9l-7.971 4.428a2 2 0 0 0 -1.029 1.749v.823a2 2 0 0 0 2 2h1\"/> <path d=\"M18 18h1a2 2 0 0 0 2 -2v-.823a2 2 0 0 0 -1.029 -1.749l-7.971 -4.428c-1.457 -.81 -1.993 -2.333 -2 -4a2 2 0 1 1 4 0\"/> <path d=\"M6 18a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v1a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2l0 -1\"/>","heart":"<path d=\"M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572\"/>","heart-handshake":"<path d=\"M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572\"/> <path d=\"M12 6l-3.293 3.293a1 1 0 0 0 0 1.414l.543 .543c.69 .69 1.81 .69 2.5 0l1 -1a3.182 3.182 0 0 1 4.5 0l2.25 2.25\"/> <path d=\"M12.5 15.5l2 2\"/> <path d=\"M15 13l2 2\"/>","horse-toy":"<path d=\"M3.5 17.5c5.667 4.667 11.333 4.667 17 0\"/> <path d=\"M19 18.5l-2 -8.5l1 -2l2 1l1.5 -1.5l-2.5 -4.5c-5.052 .218 -5.99 3.133 -7 6h-6a3 3 0 0 0 -3 3\"/> <path d=\"M5 18.5l2 -9.5\"/> <path d=\"M8 20l2 -5h4l2 5\"/>","hourglass":"<path d=\"M6.5 7h11\"/> <path d=\"M6.5 17h11\"/> <path d=\"M6 20v-2a6 6 0 1 1 12 0v2a1 1 0 0 1 -1 1h-10a1 1 0 0 1 -1 -1\"/> <path d=\"M6 4v2a6 6 0 1 0 12 0v-2a1 1 0 0 0 -1 -1h-10a1 1 0 0 0 -1 1\"/>","lamp":"<path d=\"M9 20h6\"/> <path d=\"M12 20v-8\"/> <path d=\"M5 12h14l-4 -8h-6l-4 8\"/>","link":"<path d=\"M9 15l6 -6\"/> <path d=\"M11 6l.463 -.536a5 5 0 0 1 7.071 7.072l-.534 .464\"/> <path d=\"M13 18l-.397 .534a5.068 5.068 0 0 1 -7.127 0a4.972 4.972 0 0 1 0 -7.071l.524 -.463\"/>","luggage":"<path d=\"M6 8a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2l0 -10\"/> <path d=\"M9 6v-1a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v1\"/> <path d=\"M6 10h12\"/> <path d=\"M6 16h12\"/> <path d=\"M9 20v1\"/> <path d=\"M15 20v1\"/>","massage":"<path d=\"M3 17a1 1 0 1 0 2 0a1 1 0 1 0 -2 0\"/> <path d=\"M8 5a1 1 0 1 0 2 0a1 1 0 1 0 -2 0\"/> <path d=\"M4 22l4 -2v-3h12\"/> <path d=\"M11 20h9\"/> <path d=\"M8 14l3 -2l1 -4c3 1 3 4 3 6\"/>","milk":"<path d=\"M8 6h8v-2a1 1 0 0 0 -1 -1h-6a1 1 0 0 0 -1 1v2\"/> <path d=\"M16 6l1.094 1.759a6 6 0 0 1 .906 3.17v8.071a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2v-8.071a6 6 0 0 1 .906 -3.17l1.094 -1.759\"/> <path d=\"M10 16a2 2 0 1 0 4 0a2 2 0 1 0 -4 0\"/> <path d=\"M10 10h4\"/>","mood-crazy-happy":"<path d=\"M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0\"/> <path d=\"M7 8.5l3 3\"/> <path d=\"M7 11.5l3 -3\"/> <path d=\"M14 8.5l3 3\"/> <path d=\"M14 11.5l3 -3\"/> <path d=\"M9.5 15a3.5 3.5 0 0 0 5 0\"/>","mood-kid":"<path d=\"M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0\"/> <path d=\"M9 10l.01 0\"/> <path d=\"M15 10l.01 0\"/> <path d=\"M9.5 15a3.5 3.5 0 0 0 5 0\"/> <path d=\"M12 3a2 2 0 0 0 0 4\"/>","mood-sad":"<path d=\"M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0\"/> <path d=\"M9 10l.01 0\"/> <path d=\"M15 10l.01 0\"/> <path d=\"M9.5 15.25a3.5 3.5 0 0 1 5 0\"/>","mood-sick":"<path d=\"M12 21a9 9 0 1 1 0 -18a9 9 0 0 1 0 18\"/> <path d=\"M9 10h-.01\"/> <path d=\"M15 10h-.01\"/> <path d=\"M8 16l1 -1l1.5 1l1.5 -1l1.5 1l1.5 -1l1 1\"/>","moon":"<path d=\"M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454l0 .008\"/>","moon-stars":"<path d=\"M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454l0 .008\"/> <path d=\"M17 4a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2\"/> <path d=\"M19 11h2m-1 -1v2\"/>","needle-thread":"<path d=\"M3 21c-.667 -.667 3.262 -6.236 11.785 -16.709a3.5 3.5 0 1 1 5.078 4.791c-10.575 8.612 -16.196 12.585 -16.863 11.918\"/> <path d=\"M17.5 6.5l-1 1\"/> <path d=\"M17 7c-2.333 -2.667 -3.5 -4 -5 -4s-2 1 -2 2c0 4 8.161 8.406 6 11c-1.056 1.268 -3.363 1.285 -5.75 .808\"/> <path d=\"M5.739 15.425c-1.393 -.565 -3.739 -1.925 -3.739 -3.425\"/> <path d=\"M19.5 9.5l1.5 1.5\"/>","paw":"<path d=\"M14.7 13.5c-1.1 -2 -1.441 -2.5 -2.7 -2.5c-1.259 0 -1.736 .755 -2.836 2.747c-.942 1.703 -2.846 1.845 -3.321 3.291c-.097 .265 -.145 .677 -.143 .962c0 1.176 .787 2 1.8 2c1.259 0 3 -1 4.5 -1s3.241 1 4.5 1c1.013 0 1.8 -.823 1.8 -2c0 -.285 -.049 -.697 -.146 -.962c-.475 -1.451 -2.512 -1.835 -3.454 -3.538\"/> <path d=\"M20.188 8.082a1.039 1.039 0 0 0 -.406 -.082h-.015c-.735 .012 -1.56 .75 -1.993 1.866c-.519 1.335 -.28 2.7 .538 3.052c.129 .055 .267 .082 .406 .082c.739 0 1.575 -.742 2.011 -1.866c.516 -1.335 .273 -2.7 -.54 -3.052l-.001 0\"/> <path d=\"M9.474 9c.055 0 .109 0 .163 -.011c.944 -.128 1.533 -1.346 1.32 -2.722c-.203 -1.297 -1.047 -2.267 -1.932 -2.267c-.055 0 -.109 0 -.163 .011c-.944 .128 -1.533 1.346 -1.32 2.722c.204 1.293 1.048 2.267 1.933 2.267\"/> <path d=\"M16.456 6.733c.214 -1.376 -.375 -2.594 -1.32 -2.722a1.164 1.164 0 0 0 -.162 -.011c-.885 0 -1.728 .97 -1.93 2.267c-.214 1.376 .375 2.594 1.32 2.722c.054 .007 .108 .011 .162 .011c.885 0 1.73 -.974 1.93 -2.267\"/> <path d=\"M5.69 12.918c.816 -.352 1.054 -1.719 .536 -3.052c-.436 -1.124 -1.271 -1.866 -2.009 -1.866c-.14 0 -.277 .027 -.407 .082c-.816 .352 -1.054 1.719 -.536 3.052c.436 1.124 1.271 1.866 2.009 1.866c.14 0 .277 -.027 .407 -.082\"/>","perfume":"<path d=\"M10 6v3\"/> <path d=\"M14 6v3\"/> <path d=\"M5 11a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2l0 -8\"/> <path d=\"M10 15a2 2 0 1 0 4 0a2 2 0 1 0 -4 0\"/> <path d=\"M9 3h6v3h-6l0 -3\"/>","phone-call":"<path d=\"M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2\"/> <path d=\"M15 7a2 2 0 0 1 2 2\"/> <path d=\"M15 3a6 6 0 0 1 6 6\"/>","poo":"<path d=\"M10 12h.01\"/> <path d=\"M14 12h.01\"/> <path d=\"M10 16a3.5 3.5 0 0 0 4 0\"/> <path d=\"M11 4c2 0 3.5 1.5 3.5 4l.164 0a2.5 2.5 0 0 1 2.196 3.32a3 3 0 0 1 1.615 3.063a3 3 0 0 1 -1.299 5.607l-.176 0h-10a3 3 0 0 1 -1.474 -5.613a3 3 0 0 1 1.615 -3.062a2.5 2.5 0 0 1 2.195 -3.32l.164 0c1.5 0 2.5 -2 1.5 -4l0 .005\"/>","propeller":"<path d=\"M9 13a3 3 0 1 0 6 0a3 3 0 1 0 -6 0\"/> <path d=\"M14.167 10.5c.722 -1.538 1.156 -3.043 1.303 -4.514c.22 -1.63 -.762 -2.986 -3.47 -2.986s-3.69 1.357 -3.47 2.986c.147 1.471 .581 2.976 1.303 4.514\"/> <path d=\"M13.169 16.751c.97 1.395 2.057 2.523 3.257 3.386c1.3 1 2.967 .833 4.321 -1.512c1.354 -2.345 .67 -3.874 -.85 -4.498c-1.348 -.608 -2.868 -.985 -4.562 -1.128\"/> <path d=\"M8.664 13c-1.693 .143 -3.213 .52 -4.56 1.128c-1.522 .623 -2.206 2.153 -.852 4.498s3.02 2.517 4.321 1.512c1.2 -.863 2.287 -1.991 3.258 -3.386\"/>","puzzle":"<path d=\"M4 7h3a1 1 0 0 0 1 -1v-1a2 2 0 0 1 4 0v1a1 1 0 0 0 1 1h3a1 1 0 0 1 1 1v3a1 1 0 0 0 1 1h1a2 2 0 0 1 0 4h-1a1 1 0 0 0 -1 1v3a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-1a2 2 0 0 0 -4 0v1a1 1 0 0 1 -1 1h-3a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1h1a2 2 0 0 0 0 -4h-1a1 1 0 0 1 -1 -1v-3a1 1 0 0 1 1 -1\"/>","question-mark":"<path d=\"M8 8a3.5 3 0 0 1 3.5 -3h1a3.5 3 0 0 1 3.5 3a3 3 0 0 1 -2 3a3 4 0 0 0 -2 4\"/> <path d=\"M12 19l0 .01\"/>","rainbow":"<path d=\"M22 17c0 -5.523 -4.477 -10 -10 -10c-5.523 0 -10 4.477 -10 10\"/> <path d=\"M18 17a6 6 0 1 0 -12 0\"/> <path d=\"M14 17a2 2 0 1 0 -4 0\"/>","refresh":"<path d=\"M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4\"/> <path d=\"M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4\"/>","ripple":"<path d=\"M3 7c3 -2 6 -2 9 0s6 2 9 0\"/> <path d=\"M3 17c3 -2 6 -2 9 0s6 2 9 0\"/> <path d=\"M3 12c3 -2 6 -2 9 0s6 2 9 0\"/>","rotate":"<path d=\"M19.95 11a8 8 0 1 0 -.5 4m.5 5v-5h-5\"/>","salt":"<path d=\"M12 13v.01\"/> <path d=\"M10 16v.01\"/> <path d=\"M14 16v.01\"/> <path d=\"M7.5 8h9l-.281 -2.248a2 2 0 0 0 -1.985 -1.752h-4.468a2 2 0 0 0 -1.986 1.752l-.28 2.248\"/> <path d=\"M7.5 8l-1.612 9.671a2 2 0 0 0 1.973 2.329h8.278a2 2 0 0 0 1.973 -2.329l-1.612 -9.671\"/>","shield":"<path d=\"M12 3a12 12 0 0 0 8.5 3a12 12 0 0 1 -8.5 15a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3\"/>","shield-check":"<path d=\"M11.46 20.846a12 12 0 0 1 -7.96 -14.846a12 12 0 0 0 8.5 -3a12 12 0 0 0 8.5 3a12 12 0 0 1 -.09 7.06\"/> <path d=\"M15 19l2 2l4 -4\"/>","shirt":"<path d=\"M15 4l6 2v5h-3v8a1 1 0 0 1 -1 1h-10a1 1 0 0 1 -1 -1v-8h-3v-5l6 -2a3 3 0 0 0 6 0\"/>","shopping-bag":"<path d=\"M6.331 8h11.339a2 2 0 0 1 1.977 2.304l-1.255 8.152a3 3 0 0 1 -2.966 2.544h-6.852a3 3 0 0 1 -2.965 -2.544l-1.255 -8.152a2 2 0 0 1 1.977 -2.304\"/> <path d=\"M9 11v-5a3 3 0 0 1 6 0v5\"/>","shopping-cart":"<path d=\"M4 19a2 2 0 1 0 4 0a2 2 0 1 0 -4 0\"/> <path d=\"M15 19a2 2 0 1 0 4 0a2 2 0 1 0 -4 0\"/> <path d=\"M17 17h-11v-14h-2\"/> <path d=\"M6 5l14 1l-1 7h-13\"/>","sock":"<path d=\"M13 3v6l4.798 5.142a4 4 0 0 1 -5.441 5.86l-6.736 -6.41a2 2 0 0 1 -.621 -1.451v-9.141h8\"/> <path d=\"M7.895 15.768c.708 -.721 1.105 -1.677 1.105 -2.768a4 4 0 0 0 -4 -4\"/>","sofa":"<path d=\"M4 11a2 2 0 0 1 2 2v1h12v-1a2 2 0 1 1 4 0v5a1 1 0 0 1 -1 1h-18a1 1 0 0 1 -1 -1v-5a2 2 0 0 1 2 -2\"/> <path d=\"M4 11v-3a3 3 0 0 1 3 -3h10a3 3 0 0 1 3 3v3\"/> <path d=\"M12 5v9\"/>","sparkles":"<path d=\"M16 18a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2m0 -12a2 2 0 0 1 2 2a2 2 0 0 1 2 -2a2 2 0 0 1 -2 -2a2 2 0 0 1 -2 2m-7 12a6 6 0 0 1 6 -6a6 6 0 0 1 -6 -6a6 6 0 0 1 -6 6a6 6 0 0 1 6 6\"/>","star":"<path d=\"M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873l-6.158 -3.245\"/>","stars":"<path d=\"M17.8 19.817l-2.172 1.138a.392 .392 0 0 1 -.568 -.41l.415 -2.411l-1.757 -1.707a.389 .389 0 0 1 .217 -.665l2.428 -.352l1.086 -2.193a.392 .392 0 0 1 .702 0l1.086 2.193l2.428 .352a.39 .39 0 0 1 .217 .665l-1.757 1.707l.414 2.41a.39 .39 0 0 1 -.567 .411l-2.172 -1.138\"/> <path d=\"M6.2 19.817l-2.172 1.138a.392 .392 0 0 1 -.568 -.41l.415 -2.411l-1.757 -1.707a.389 .389 0 0 1 .217 -.665l2.428 -.352l1.086 -2.193a.392 .392 0 0 1 .702 0l1.086 2.193l2.428 .352a.39 .39 0 0 1 .217 .665l-1.757 1.707l.414 2.41a.39 .39 0 0 1 -.567 .411l-2.172 -1.138\"/> <path d=\"M12 9.817l-2.172 1.138a.392 .392 0 0 1 -.568 -.41l.415 -2.411l-1.757 -1.707a.389 .389 0 0 1 .217 -.665l2.428 -.352l1.086 -2.193a.392 .392 0 0 1 .702 0l1.086 2.193l2.428 .352a.39 .39 0 0 1 .217 .665l-1.757 1.707l.414 2.41a.39 .39 0 0 1 -.567 .411l-2.172 -1.138\"/>","steam":"<path d=\"M11 4a1 1 0 1 0 2 0a1 1 0 1 0 -2 0\"/> <path d=\"M3 12a1 1 0 1 0 2 0a1 1 0 1 0 -2 0\"/> <path d=\"M19 12a1 1 0 1 0 2 0a1 1 0 1 0 -2 0\"/> <path d=\"M11 20a1 1 0 1 0 2 0a1 1 0 1 0 -2 0\"/> <path d=\"M5.5 5.5l3 3\"/> <path d=\"M15.5 15.5l3 3\"/> <path d=\"M18.5 5.5l-3 3\"/> <path d=\"M8.5 15.5l-3 3\"/>","stethoscope":"<path d=\"M6 4h-1a2 2 0 0 0 -2 2v3.5a5.5 5.5 0 0 0 11 0v-3.5a2 2 0 0 0 -2 -2h-1\"/> <path d=\"M8 15a6 6 0 1 0 12 0v-3\"/> <path d=\"M11 3v2\"/> <path d=\"M6 3v2\"/> <path d=\"M18 10a2 2 0 1 0 4 0a2 2 0 1 0 -4 0\"/>","sunglasses":"<path d=\"M8 4h-2l-3 10\"/> <path d=\"M16 4h2l3 10\"/> <path d=\"M10 16h4\"/> <path d=\"M21 16.5a3.5 3.5 0 0 1 -7 0v-2.5h7v2.5\"/> <path d=\"M10 16.5a3.5 3.5 0 0 1 -7 0v-2.5h7v2.5\"/> <path d=\"M4 14l4.5 4.5\"/> <path d=\"M15 14l4.5 4.5\"/>","swimming":"<path d=\"M15 9a1 1 0 1 0 2 0a1 1 0 1 0 -2 0\"/> <path d=\"M6 11l4 -2l3.5 3l-1.5 2\"/> <path d=\"M3 16.75a2.4 2.4 0 0 0 1 .25a2.4 2.4 0 0 0 2 -1a2.4 2.4 0 0 1 2 -1a2.4 2.4 0 0 1 2 1a2.4 2.4 0 0 0 2 1a2.4 2.4 0 0 0 2 -1a2.4 2.4 0 0 1 2 -1a2.4 2.4 0 0 1 2 1a2.4 2.4 0 0 0 2 1a2.4 2.4 0 0 0 1 -.25\"/>","thumb-up":"<path d=\"M7 11v8a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1v-7a1 1 0 0 1 1 -1h3a4 4 0 0 0 4 -4v-1a2 2 0 0 1 4 0v5h3a2 2 0 0 1 2 2l-1 5a2 3 0 0 1 -2 2h-7a3 3 0 0 1 -3 -3\"/>","toilet-paper":"<path d=\"M3 10a3 7 0 1 0 6 0a3 7 0 1 0 -6 0\"/> <path d=\"M21 10c0 -3.866 -1.343 -7 -3 -7\"/> <path d=\"M6 3h12\"/> <path d=\"M21 10v10l-3 -1l-3 2l-3 -3l-3 2v-10\"/> <path d=\"M6 10h.01\"/>","trophy":"<path d=\"M8 21l8 0\"/> <path d=\"M12 17l0 4\"/> <path d=\"M7 4l10 0\"/> <path d=\"M17 4v8a5 5 0 0 1 -10 0v-8\"/> <path d=\"M3 9a2 2 0 1 0 4 0a2 2 0 1 0 -4 0\"/> <path d=\"M17 9a2 2 0 1 0 4 0a2 2 0 1 0 -4 0\"/>","umbrella":"<path d=\"M4 12a8 8 0 0 1 16 0l-16 0\"/> <path d=\"M12 12v6a2 2 0 0 0 4 0\"/>","user-heart":"<path d=\"M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0\"/> <path d=\"M6 21v-2a4 4 0 0 1 4 -4h.5\"/> <path d=\"M18 22l3.35 -3.284a2.143 2.143 0 0 0 .005 -3.071a2.242 2.242 0 0 0 -3.129 -.006l-.224 .22l-.223 -.22a2.242 2.242 0 0 0 -3.128 -.006a2.143 2.143 0 0 0 -.006 3.071l3.355 3.296\"/>","user-question":"<path d=\"M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0\"/> <path d=\"M6 21v-2a4 4 0 0 1 4 -4h3.5\"/> <path d=\"M19 22v.01\"/> <path d=\"M19 19a2.003 2.003 0 0 0 .914 -3.782a1.98 1.98 0 0 0 -2.414 .483\"/>","wind":"<path d=\"M5 8h8.5a2.5 2.5 0 1 0 -2.34 -3.24\"/> <path d=\"M3 12h15.5a2.5 2.5 0 1 1 -2.34 3.24\"/> <path d=\"M4 16h5.5a2.5 2.5 0 1 1 -2.34 3.24\"/>","zzz":"<path d=\"M4 12h6l-6 8h6\"/> <path d=\"M14 4h6l-6 8h6\"/>"};
 
 const A="Amazon", ATB="All Things Baby", HM="H&M", RFR="R for Rabbit";
 const LIST = [
- {g:"Diaper duty", e:"🧷", items:[
-  {n:"Diaper caddy", e:"🧺", v:"Yes", c:"I had a different one, but anything with external pockets and dividers inside works.", l:[[A,"https://amzn.in/d/0iTz2nhh"]]},
-  {n:"Diaper bag", e:"🎒", v:"Yes", c:"I have something like the second one. Pretty generic but does the job.", l:[["Mokobara","https://amzn.in/d/08Qn3pnB"],[RFR,"https://amzn.in/d/0a2hyYib"]]},
-  {n:"Disposal bags", e:"🛍️", v:"Yes", c:"Used them to contain explosions only. But very much needed during travel.", l:[[A,"https://amzn.in/d/02j3VbVa"]]},
-  {n:"Dry sheets", e:"💦", v:"Yes", c:"", l:[[RFR+" (small, pack of 2)","https://amzn.in/d/07NNvc0w"],["Zikku (medium)","https://amzn.in/d/0guxYbkk"]]},
-  {n:"Wet wipes", e:"🧻", v:"Yes", c:"I have mostly used these. Never saw rashes or problems. There are fancier ones in the market if you want.", l:[[A,"https://amzn.in/d/08V3RfNg"]]},
-  {n:"Nappies", e:"🩲", v:"Yes", c:"These look terrible, but I wasted the most money on nappies trying to find cute plus functional ones at a decent price. I stand by my horrid reco.", l:[["Khilkhilahat","https://khilkhilahat.com/collections/nappies"]]},
-  {n:"Swim diapers", e:"🏊", v:"", c:"", l:[]}
+ {g:"Diaper duty", e:"diaper", items:[
+  {n:"Diaper caddy", e:"basket", v:"Yes", c:"I had a different one, but anything with external pockets and dividers inside works.", l:[[A,"https://amzn.in/d/0iTz2nhh"]]},
+  {n:"Diaper bag", e:"backpack", v:"Yes", c:"I have something like the second one. Pretty generic but does the job.", l:[["Mokobara","https://amzn.in/d/08Qn3pnB"],[RFR,"https://amzn.in/d/0a2hyYib"]]},
+  {n:"Disposal bags", e:"shopping-bag", v:"Yes", c:"Used them to contain explosions only. But very much needed during travel.", l:[[A,"https://amzn.in/d/02j3VbVa"]]},
+  {n:"Dry sheets", e:"droplets", v:"Yes", c:"", l:[[RFR+" (small, pack of 2)","https://amzn.in/d/07NNvc0w"],["Zikku (medium)","https://amzn.in/d/0guxYbkk"]]},
+  {n:"Wet wipes", e:"toilet-paper", v:"Yes", c:"I have mostly used these. Never saw rashes or problems. There are fancier ones in the market if you want.", l:[[A,"https://amzn.in/d/08V3RfNg"]]},
+  {n:"Nappies", e:"diaper", v:"Yes", c:"These look terrible, but I wasted the most money on nappies trying to find cute plus functional ones at a decent price. I stand by my horrid reco.", l:[["Khilkhilahat","https://khilkhilahat.com/collections/nappies"]]},
+  {n:"Swim diapers", e:"swimming", v:"", c:"", l:[]}
  ]},
- {g:"Sleep, hopefully", e:"🌙", items:[
-  {n:"Night light", e:"💡", v:"Yes for first timers", c:"Mine was passed down to me, so this is a random link. Just get a dimmable one.", l:[[A,"https://amzn.in/d/0dqQdTB1"]]},
-  {n:"Cot mobile", e:"🎠", v:"Yes", c:"Get it along with the music box. Gives you 10-15 minute rest windows.", l:[["GWD Kids","https://gwdkids.com/collections/felt-cot-mobile-hangings/products/woodland-theme-baby-crib-mobile"]]},
-  {n:"Swaddles", e:"🌯", v:"Yes", c:"Can be used as top sheets during summers.", l:[[A,"https://amzn.in/d/05Z1ukMA"]]},
-  {n:"Bedding set", e:"🛏️", v:"Yes", c:"Also get something warmer. I don't have warm sheets for kids. Simply used their spare small blankets as sheets.", l:[["FirstCry","https://fclinks.firstcry.com/obZe/n885eqa8"]]},
-  {n:"Warm blankets", e:"🧶", v:"Yes", c:"", l:[[ATB,"https://allthingsbaby.com/products/pluchi-cable-knit-cotton-knitted-baby-blanket-with-embroidered-heart-faux-fur-back?variant=46762392387810"]]},
-  {n:"Sleep bags", e:"😴", v:"Maybe", c:"", l:[[HM,"https://www2.hm.com/en_in/productpage.1343708004.html"]]}
+ {g:"Sleep, hopefully", e:"moon-stars", items:[
+  {n:"Night light", e:"lamp", v:"Yes for first timers", c:"Mine was passed down to me, so this is a random link. Just get a dimmable one.", l:[[A,"https://amzn.in/d/0dqQdTB1"]]},
+  {n:"Cot mobile", e:"stars", v:"Yes", c:"Get it along with the music box. Gives you 10-15 minute rest windows.", l:[["GWD Kids","https://gwdkids.com/collections/felt-cot-mobile-hangings/products/woodland-theme-baby-crib-mobile"]]},
+  {n:"Swaddles", e:"feather", v:"Yes", c:"Can be used as top sheets during summers.", l:[[A,"https://amzn.in/d/05Z1ukMA"]]},
+  {n:"Bedding set", e:"bed", v:"Yes", c:"Also get something warmer. I don't have warm sheets for kids. Simply used their spare small blankets as sheets.", l:[["FirstCry","https://fclinks.firstcry.com/obZe/n885eqa8"]]},
+  {n:"Warm blankets", e:"needle-thread", v:"Yes", c:"", l:[[ATB,"https://allthingsbaby.com/products/pluchi-cable-knit-cotton-knitted-baby-blanket-with-embroidered-heart-faux-fur-back?variant=46762392387810"]]},
+  {n:"Sleep bags", e:"zzz", v:"Maybe", c:"", l:[[HM,"https://www2.hm.com/en_in/productpage.1343708004.html"]]}
  ]},
- {g:"Feeding", e:"🍼", items:[
-  {n:"Burp cloths", e:"🫧", v:"Yes", c:"Random link, but you get the idea. Most of them are almost identical. Just get anything muslin.", l:[[A,"https://amzn.in/d/06XHY4X5"]]},
-  {n:"Feeding pillow", e:"🥯", v:"Yes", c:"Look for a firm pillow. This one is firm and fits well around the waist.", l:[[ATB,"https://allthingsbaby.com/products/aariro-nursing-pillow?variant=44686325580002"]]},
-  {n:"Feeding cover", e:"🧣", v:"Yes", c:"If you choose to nurse.", l:[[A,"https://amzn.in/d/0io10zPt"]]},
-  {n:"Maternity bra", e:"👙", v:"Yes", c:"Get it from Myntra, exchanging is easier. I couldn't paste the Myntra link.", l:[["House of Zelena","https://houseofzelena.com/products/sculpt-lift-powermesh-nursing-bra-champagne?variant=48670549213429"]]},
-  {n:"Steriliser and dryer", e:"♨️", v:"Yes", c:"Get one which also dries the bottles.", l:[[A,"https://amzn.in/d/00u2uyVO"]]},
-  {n:"Bottle cleaning brushes", e:"🪥", v:"Yes", c:"I haven't used it much, but very convenient. This one is silicone. If you don't prefer that, there are sets with bristle brushes too.", l:[[A,"https://amzn.in/d/00A8qIRL"]]},
-  {n:"Bottle washing liquid", e:"🧼", v:"Yes", c:"Get any you like.", l:[[A,"https://amzn.in/d/0ibFDPFx"]]},
-  {n:"Breast milk storage bags", e:"🥛", v:"Yes", c:"In case you want to ensure supply in your absence too. But this may be for later.", l:[[A,"https://amzn.in/d/09Qzstlm"]]},
-  {n:"Bottles", e:"🍼", v:"Maybe", c:"", l:[[A,"https://amzn.in/d/0eWNIbhm"]]}
+ {g:"Feeding", e:"baby-bottle", items:[
+  {n:"Burp cloths", e:"bubble", v:"Yes", c:"Random link, but you get the idea. Most of them are almost identical. Just get anything muslin.", l:[[A,"https://amzn.in/d/06XHY4X5"]]},
+  {n:"Feeding pillow", e:"armchair", v:"Yes", c:"Look for a firm pillow. This one is firm and fits well around the waist.", l:[[ATB,"https://allthingsbaby.com/products/aariro-nursing-pillow?variant=44686325580002"]]},
+  {n:"Feeding cover", e:"umbrella", v:"Yes", c:"If you choose to nurse.", l:[[A,"https://amzn.in/d/0io10zPt"]]},
+  {n:"Maternity bra", e:"hanger-2", v:"Yes", c:"Get it from Myntra, exchanging is easier. I couldn't paste the Myntra link.", l:[["House of Zelena","https://houseofzelena.com/products/sculpt-lift-powermesh-nursing-bra-champagne?variant=48670549213429"]]},
+  {n:"Steriliser and dryer", e:"steam", v:"Yes", c:"Get one which also dries the bottles.", l:[[A,"https://amzn.in/d/00u2uyVO"]]},
+  {n:"Bottle cleaning brushes", e:"bottle", v:"Yes", c:"I haven't used it much, but very convenient. This one is silicone. If you don't prefer that, there are sets with bristle brushes too.", l:[[A,"https://amzn.in/d/00A8qIRL"]]},
+  {n:"Bottle washing liquid", e:"hand-sanitizer", v:"Yes", c:"Get any you like.", l:[[A,"https://amzn.in/d/0ibFDPFx"]]},
+  {n:"Breast milk storage bags", e:"milk", v:"Yes", c:"In case you want to ensure supply in your absence too. But this may be for later.", l:[[A,"https://amzn.in/d/09Qzstlm"]]},
+  {n:"Bottles", e:"baby-bottle", v:"Maybe", c:"", l:[[A,"https://amzn.in/d/0eWNIbhm"]]}
  ]},
- {g:"Tiny clothes", e:"👕", items:[
-  {n:"Base muslin layer", e:"👚", v:"Yes", c:"", l:[[ATB,"https://allthingsbaby.com/products/aariro-muslin-jhabla-set-of-3?variant=46901343879394"]]},
-  {n:"Fleece onesies", e:"🐻", v:"Yes", c:"H&M had good options. You don't need more than 3-5, depending on whether you have a washer dryer.", l:[[HM,"https://www2.hm.com/en_in/productpage.1357861001.html"]]},
-  {n:"Hangers", e:"🪝", v:"Yes", c:"These are expandable. Tiny clothes kind of get lost in the almirahs, so hanging them up helps.", l:[[A,"https://amzn.in/d/0iX8Lf0U"]]}
+ {g:"Tiny clothes", e:"shirt", items:[
+  {n:"Base muslin layer", e:"shirt", v:"Yes", c:"", l:[[ATB,"https://allthingsbaby.com/products/aariro-muslin-jhabla-set-of-3?variant=46901343879394"]]},
+  {n:"Fleece onesies", e:"paw", v:"Yes", c:"H&M had good options. You don't need more than 3-5, depending on whether you have a washer dryer.", l:[[HM,"https://www2.hm.com/en_in/productpage.1357861001.html"]]},
+  {n:"Hangers", e:"hanger", v:"Yes", c:"These are expandable. Tiny clothes kind of get lost in the almirahs, so hanging them up helps.", l:[[A,"https://amzn.in/d/0iX8Lf0U"]]}
  ]},
- {g:"Care and health", e:"🩺", items:[
-  {n:"Nasal drops", e:"👃", v:"Yes", c:"Nasoclear.", l:[]},
-  {n:"Portable nebuliser", e:"💨", v:"Yes", c:"Get any.", l:[[A,"https://amzn.in/d/0hbSRQDB"]]},
-  {n:"Ear buds", e:"👂", v:"Yes", c:"", l:[[A,"https://amzn.in/d/0b1JV3pw"]]},
-  {n:"Hair brush", e:"💇", v:"Yes", c:"In case your kid has hair to begin with.", l:[[A,"https://amzn.in/d/04DDDQik"]]},
-  {n:"Rash cream", e:"🍑", v:"", c:"Sebamed products.", l:[]},
-  {n:"Lotion", e:"🧴", v:"", c:"Sebamed products.", l:[]},
-  {n:"Massage oil", e:"💆", v:"", c:"Sebamed products.", l:[]}
+ {g:"Care and health", e:"stethoscope", items:[
+  {n:"Nasal drops", e:"droplet", v:"Yes", c:"Nasoclear.", l:[]},
+  {n:"Portable nebuliser", e:"wind", v:"Yes", c:"Get any.", l:[[A,"https://amzn.in/d/0hbSRQDB"]]},
+  {n:"Ear buds", e:"ear", v:"Yes", c:"", l:[[A,"https://amzn.in/d/0b1JV3pw"]]},
+  {n:"Hair brush", e:"brush", v:"Yes", c:"In case your kid has hair to begin with.", l:[[A,"https://amzn.in/d/04DDDQik"]]},
+  {n:"Rash cream", e:"bandage", v:"", c:"Sebamed products.", l:[]},
+  {n:"Lotion", e:"perfume", v:"", c:"Sebamed products.", l:[]},
+  {n:"Massage oil", e:"massage", v:"", c:"Sebamed products.", l:[]}
  ]},
- {g:"Play and outings", e:"🧸", items:[
-  {n:"Sensory mat plus contrast", e:"🧩", v:"", c:"", l:[[A,"https://amzn.in/d/0fTTgiMX"]]},
-  {n:"Contrast flash cards", e:"🦓", v:"", c:"", l:[[A,"https://amzn.in/d/06hHI1pW"]]},
-  {n:"Stroller toy", e:"🦒", v:"Yes", c:"For later.", l:[[A,"https://amzn.in/d/02B8Sy3E"]]},
-  {n:"Stroller fan", e:"🌀", v:"Yes", c:"For later.", l:[[A,"https://amzn.in/d/0g79Qs7L"]]}
+ {g:"Play and outings", e:"balloon", items:[
+  {n:"Sensory mat plus contrast", e:"puzzle", v:"", c:"", l:[[A,"https://amzn.in/d/0fTTgiMX"]]},
+  {n:"Contrast flash cards", e:"cards", v:"", c:"", l:[[A,"https://amzn.in/d/06hHI1pW"]]},
+  {n:"Stroller toy", e:"horse-toy", v:"Yes", c:"For later.", l:[[A,"https://amzn.in/d/02B8Sy3E"]]},
+  {n:"Stroller fan", e:"propeller", v:"Yes", c:"For later.", l:[[A,"https://amzn.in/d/0g79Qs7L"]]}
  ]},
- {g:"Potty training, much later", e:"🚽", items:[
-  {n:"Potty training seat", e:"👑", v:"", c:"", l:[[RFR,"https://rforrabbit.com/collections/baby-potty-seats/products/regal-potty-training-seat-for-baby"]]},
-  {n:"Travel potty seat", e:"🧳", v:"", c:"", l:[["Topinon foldable potty","https://amzn.in/d/02NdYwek"],["Zollyss seat cover","https://amzn.in/d/0iiqlrOS"]]}
+ {g:"Potty training, much later", e:"poo", items:[
+  {n:"Potty training seat", e:"crown", v:"", c:"", l:[[RFR,"https://rforrabbit.com/collections/baby-potty-seats/products/regal-potty-training-seat-for-baby"]]},
+  {n:"Travel potty seat", e:"luggage", v:"", c:"", l:[["Topinon foldable potty","https://amzn.in/d/02NdYwek"],["Zollyss seat cover","https://amzn.in/d/0iiqlrOS"]]}
  ]}
 ];
 
@@ -334,7 +342,17 @@ let state={got:{},seen:{}};
 try{const s=JSON.parse(localStorage.getItem(KEY)||"null");if(s&&s.got&&s.seen)state=s;}catch(e){}
 function save(){state.t=Date.now();try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}if(typeof queuePush==="function")queuePush();}
 const $=id=>document.getElementById(id);
-function emo(ch,cls){const s=document.createElement("span");s.className="e"+(cls?" "+cls:"");s.setAttribute("aria-hidden","true");s.textContent=ch;return s;}
+/* ---------- little icon stickers ---------- */
+const TONES=["sun","coral","mint","indigo"];
+function setIcon(el,name){
+  if(el.dataset.i===name&&el.firstChild)return;
+  el.dataset.i=name;
+  let h=0;for(const c of name)h=(h*31+c.charCodeAt(0))%997;
+  el.dataset.t=TONES[h%TONES.length];
+  el.innerHTML='<svg viewBox="0 0 24 24" focusable="false">'+(ICONS[name]||"")+'</svg>';
+}
+function emo(name,cls){const s=document.createElement("span");s.className="ic"+(cls?" "+cls:"");s.setAttribute("aria-hidden","true");setIcon(s,name);return s;}
+document.querySelectorAll(".ic[data-i]").forEach(el=>{const n=el.dataset.i;delete el.dataset.i;setIcon(el,n);});
 
 /* ---------- deck ---------- */
 let idx=0, real=false;
@@ -343,20 +361,20 @@ TRAPS.forEach(()=>dots.appendChild(document.createElement("span")));
 function renderCard(){
   const c=$("card");
   c.classList.toggle("real",real);
-  $("card-label-e").textContent=real?"✅":"🚫";
+  setIcon($("card-label-e"),real?"circle-check":"ban");
   $("card-label").textContent=real?"What I really mean":"Terrible advice";
   $("card-count").textContent=(idx+1)+" of "+TRAPS.length;
   const pic=TRAP_PICS[idx][real?1:0];
-  $("card-pic").textContent=pic;
-  $("card-bg").textContent=real?"💚":"🔥";
+  setIcon($("card-pic"),pic);
+  setIcon($("card-bg"),real?"heart":"flame");
   $("card-text").textContent=TRAPS[idx][real?1:0];
-  $("flip-e").textContent=real?"🙃":"🔄";
+  setIcon($("flip-e"),real?"rotate":"refresh");
   $("flip-t").textContent=real?"Show the bad advice again":"Flip for the truth";
   $("prev").disabled=idx===0;
   $("next").disabled=idx===TRAPS.length-1;
   [...dots.children].forEach((d,i)=>{d.classList.toggle("on",i===idx);d.classList.toggle("seen",!!state.seen[i]);});
   const n=Object.keys(state.seen).length;
-  $("score-e").textContent=n===TRAPS.length?"🏆":n===0?"🛡️":n>=6?"🦸":"🛡️";
+  setIcon($("score-e"),n===TRAPS.length?"trophy":n>=6?"shield-check":"shield");
   $("score").textContent=n===TRAPS.length?"All 11 traps dodged. You are officially harder to prank than a newborn.":n+" of "+TRAPS.length+" traps dodged";
 }
 $("flip").addEventListener("click",()=>{
@@ -384,17 +402,17 @@ LIST.forEach((grp,gi)=>{
     const head=document.createElement("label");head.className="item-head";head.htmlFor=id;
     const nm=document.createElement("span");nm.className="item-name";nm.appendChild(emo(it.e));nm.appendChild(document.createTextNode(it.n));head.appendChild(nm);
     if(it.v){const ch=document.createElement("span");
-      if(it.v==="Yes"){ch.className="chip must";ch.appendChild(emo("💖"));ch.appendChild(document.createTextNode("Must have"));}
-      else if(isMust(it.v)){ch.className="chip must";ch.appendChild(emo("🐣"));ch.appendChild(document.createTextNode("Must for first timers"));}
-      else{ch.className="chip other";ch.appendChild(emo("🤔"));ch.appendChild(document.createTextNode(it.v));}
+      if(it.v==="Yes"){ch.className="chip must";ch.appendChild(emo("heart"));ch.appendChild(document.createTextNode("Must have"));}
+      else if(isMust(it.v)){ch.className="chip must";ch.appendChild(emo("egg"));ch.appendChild(document.createTextNode("Must for first timers"));}
+      else{ch.className="chip other";ch.appendChild(emo("question-mark"));ch.appendChild(document.createTextNode(it.v));}
       head.appendChild(ch);}
-    head.appendChild(emo("✨","yay"));
+    head.appendChild(emo("sparkles","yay plain"));
     li.appendChild(cb);li.appendChild(head);
     if(it.c||it.l.length){
       const body=document.createElement("div");body.className="item-body";
       if(it.c){const p=document.createElement("p");p.className="note";p.textContent=it.c;body.appendChild(p);}
       if(it.l.length){const d=document.createElement("div");d.className="links";
-        it.l.forEach(([t,u])=>{const a=document.createElement("a");a.href=u;a.target="_blank";a.rel="noopener";a.appendChild(emo("🛒"));a.appendChild(document.createTextNode(t+" ↗"));d.appendChild(a);});
+        it.l.forEach(([t,u])=>{const a=document.createElement("a");a.href=u;a.target="_blank";a.rel="noopener";a.appendChild(emo("shopping-cart"));a.appendChild(document.createTextNode(t+" ↗"));d.appendChild(a);});
         body.appendChild(d);}
       li.appendChild(body);
     }
@@ -422,7 +440,7 @@ function refresh(){
   /* the baby crawls along the bar, and celebrates at the end */
   const cr=$("crawler");
   cr.style.left="calc("+pct+"% - "+(pct/100*20)+"px)";
-  cr.textContent=pct>=100?"🎉":pct>=50?"🚼":"👶";
+  setIcon(cr,pct>=100?"confetti":pct>=50?"baby-carriage":"mood-kid");
 }
 document.querySelectorAll(".filters button").forEach(b=>b.addEventListener("click",()=>{
   filter=b.dataset.f;
@@ -438,7 +456,7 @@ const API=(/^(localhost|127\.0\.0\.1)$/.test(location.hostname)?"http://localhos
 const ID_KEY="babyprep-id", NAME_KEY="babyprep-name", ID_RE=/^[a-z0-9]{16,40}$/;
 const store={get(k){try{return localStorage.getItem(k)||"";}catch(e){return"";}},set(k,v){try{v?localStorage.setItem(k,v):localStorage.removeItem(k);}catch(e){}}};
 let myId="", myName="", pushTimer=0, pushing=false, pushAgain=false;
-function setStatus(e,t){$("who-status").textContent=e+" "+t;}
+function setStatus(e,t){const el=$("who-status");el.textContent="";el.appendChild(emo(e));el.appendChild(document.createTextNode(t));}
 function showWho(){
   $("who-form").hidden=!!myId; $("who-me").hidden=!myId;
   if(myId)$("who-name").textContent=(myName||"My")+(myName?(/s$/i.test(myName)?"’ list":"’s list"):" list");
@@ -448,7 +466,7 @@ function redraw(){
   refresh(); renderCard();
 }
 function persist(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}}
-function queuePush(){ if(!myId)return; setStatus("⏳","Saving…"); clearTimeout(pushTimer); pushTimer=setTimeout(push,700); }
+function queuePush(){ if(!myId)return; setStatus("hourglass","Saving…"); clearTimeout(pushTimer); pushTimer=setTimeout(push,700); }
 async function push(){
   if(!myId)return;
   if(pushing){pushAgain=true;return;}
@@ -456,8 +474,8 @@ async function push(){
   try{
     const r=await fetch(API+myId,{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify({name:myName,data:state}),keepalive:true});
     if(!r.ok)throw 0;
-    setStatus("☁️","Saved");
-  }catch(e){setStatus("📱","Saved on this phone, will retry");}
+    setStatus("cloud-check","Saved");
+  }catch(e){setStatus("device-mobile","Saved on this phone, will retry");}
   pushing=false;
   if(pushAgain){pushAgain=false;push();}
 }
@@ -465,16 +483,16 @@ async function pull(adopt){
   if(!myId)return;
   try{
     const r=await fetch(API+myId,{cache:"no-store"});
-    if(r.status===404){ if(adopt)setStatus("🤷","Couldn’t find that list"); else push(); return; }
+    if(r.status===404){ if(adopt)setStatus("user-question","Couldn’t find that list"); else push(); return; }
     if(!r.ok)throw 0;
     const j=await r.json(), d=j.data||{};
     if(adopt||(d.t||0)>(state.t||0)){
       state={got:d.got||{},seen:d.seen||{},t:d.t||0}; persist();
       if(j.name){myName=j.name;store.set(NAME_KEY,myName);}
-      showWho(); redraw(); setStatus("☁️","Saved");
+      showWho(); redraw(); setStatus("cloud-check","Saved");
     }else if((d.t||0)<(state.t||0))push();
-    else setStatus("☁️","Saved");
-  }catch(e){setStatus("📱","Offline, using this phone’s copy");}
+    else setStatus("cloud-check","Saved");
+  }catch(e){setStatus("device-mobile","Offline, using this phone’s copy");}
 }
 function setHash(){try{history.replaceState(null,"",myId?"#me="+myId:location.pathname+location.search);}catch(e){}}
 (function start(){
