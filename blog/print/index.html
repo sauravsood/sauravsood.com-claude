@@ -18,7 +18,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <title>The printer that wouldn&rsquo;t listen · Saurav Sood</title>
-<meta name="description" content="Print sends courier labels from an iPhone to an Ethernet-only thermal printer, through a 2015 Raspberry Pi. The code took an hour. The hardware took the day.">
+<meta name="description" content="How I got my iPhone to print courier labels on an Ethernet-only thermal printer through a 2015 Raspberry Pi, and what went wrong along the way.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Gochi+Hand&family=Instrument+Sans:wght@400;600&family=Martian+Mono:wght@400;600&display=swap">
@@ -61,7 +61,7 @@
     <header class="zone page-head post-head">
       <p class="eyebrow">Blog · November 2026 · Lab</p>
       <h1>The printer that wouldn&rsquo;t listen</h1>
-      <p class="lede">How I got my iPhone to print shipping labels. The code took an hour. The rest of the day was a Raspberry Pi from 2015.</p>
+      <p class="lede">I wanted my iPhone to print shipping labels. Claude wrote the app in about an hour, and we spent the rest of the day reviving a Raspberry Pi from 2015.</p>
       <a class="try-it" href="https://print.sauravsood.com">print.sauravsood.com <span aria-hidden="true">↗</span></a>
     </header>
 
@@ -93,16 +93,16 @@
             <text x="555" y="270">TSC printer</text>
           </g>
         </svg>
-        <figcaption>The plan. Four hops from phone to paper.</figcaption>
+        <figcaption>The plan: phone, Cloudflare, the Pi, then the printer.</figcaption>
       </figure>
 
       <div class="chapter">
         <span class="chapter-no">Chapter 1</span>
         <h2>The ask</h2>
         <ul class="beats">
-          <li class="beat"><span class="sticker sun"><svg><use href="#i-printer"/></svg></span><p>I ship <b>Butter Beings</b> orders from home on 4&times;6 courier labels. My label printer only has an Ethernet port and speaks its own language.</p></li>
-          <li class="beat"><span class="sticker coral"><svg><use href="#i-nope"/></svg></span><p>My work laptop can&rsquo;t install drivers. My iPhone can&rsquo;t talk to it at all. So I asked Claude: <b>build me a web app</b> that can print over Wi-Fi.</p></li>
-          <li class="beat"><span class="sticker mint"><svg><use href="#i-berry"/></svg></span><p>A website can&rsquo;t reach a printer at home. A small box next to it can. &ldquo;Do I need a Raspberry Pi?&rdquo; Then I remembered <b>I already had one</b>, plugged in and &ldquo;online&rdquo;.</p></li>
+          <li class="beat"><span class="sticker sun"><svg><use href="#i-printer"/></svg></span><p>I ship Butter Beings orders from home on 4&times;6 courier labels. My label printer, a TSC TA220, has only an Ethernet port and its own printer language.</p></li>
+          <li class="beat"><span class="sticker coral"><svg><use href="#i-nope"/></svg></span><p>My work laptop is locked down, so I can&rsquo;t install a driver, and iOS has no way to send a job to a raw label printer. I asked Claude to build a web app that prints over Wi-Fi.</p></li>
+          <li class="beat"><span class="sticker mint"><svg><use href="#i-berry"/></svg></span><p>A website on the internet can&rsquo;t see a printer on my home network, so the app needs a small computer sitting next to the printer. When Claude suggested a Raspberry Pi, I remembered I already had one, cabled up and supposedly online.</p></li>
         </ul>
       </div>
 
@@ -110,8 +110,8 @@
         <span class="chapter-no">Chapter 2</span>
         <h2>The Pi</h2>
         <ul class="beats">
-          <li class="beat"><span class="sticker coral"><svg><use href="#i-dead"/></svg></span><p>It wasn&rsquo;t online. I sent a phone photo of its screen: a <b>kernel panic</b>. The memory card was loose. I pushed it back in.</p></li>
-          <li class="beat"><span class="sticker chalk"><svg><use href="#i-fossil"/></svg></span><p>It booted, and it was a museum piece. A <b>Pi 2 running software from February 2015</b>, still on the default login.</p></li>
+          <li class="beat"><span class="sticker coral"><svg><use href="#i-dead"/></svg></span><p>It wasn&rsquo;t online. I sent Claude a phone photo of its screen, which showed a kernel panic. The memory card had worked loose, and pushing it back in fixed that.</p></li>
+          <li class="beat"><span class="sticker chalk"><svg><use href="#i-fossil"/></svg></span><p>Once it booted, we found a Pi 2 running Raspbian from February 2015, still on the default login. That was far too old to run anything current.</p></li>
         </ul>
       </div>
 
@@ -131,16 +131,16 @@
           </g>
           <text x="582" y="110" font-family="Gochi Hand, cursive" font-size="32" fill="#e2683f" text-anchor="middle" transform="rotate(10 582 110)">uh oh</text>
         </svg>
-        <figcaption>Roughly what the photo showed.</figcaption>
+        <figcaption>Roughly what my photo showed</figcaption>
       </figure>
 
       <div class="chapter">
         <span class="chapter-no">Chapter 3</span>
         <h2>The card</h2>
         <ul class="beats">
-          <li class="beat"><span class="sticker sky"><svg><use href="#i-loop"/></svg></span><p>The fix is a fresh OS, normally written from a PC. <b>I don&rsquo;t have one.</b> So Claude wrote a script that makes the old Pi install its own replacement on a new card.</p></li>
-          <li class="beat"><span class="sticker sun"><svg><use href="#i-sd"/></svg></span><p>The new 64 GB card showed up as <b>1 GB</b>. Claude found and fixed a real bug in its own size check. Still 1 GB. The real cause: the USB card reader was too old for big cards.</p></li>
-          <li class="beat"><span class="sticker mint"><svg><use href="#i-chunks"/></svg></span><p>Then the download kept dying at <b>19%</b>. Now it comes in 8 MB pieces, each retried up to 20 times, and checked at the end.</p></li>
+          <li class="beat"><span class="sticker sky"><svg><use href="#i-loop"/></svg></span><p>Reinstalling the OS usually means writing a new card from a PC, and I don&rsquo;t have one. Claude wrote a script that turns the old Pi into its own installer: it downloads the current OS and writes it to a new card in a USB reader.</p></li>
+          <li class="beat"><span class="sticker sun"><svg><use href="#i-sd"/></svg></span><p>The new 64 GB card showed up as 1 GB. Claude found and fixed an overflow bug in its own size check, but the card still read as 1 GB. My USB card reader turned out to be too old to read cards over 32 GB.</p></li>
+          <li class="beat"><span class="sticker mint"><svg><use href="#i-chunks"/></svg></span><p>Then the download kept dying at 19%. Claude changed the script to fetch 8 MB pieces, retry each one up to 20 times, and check the whole file at the end.</p></li>
         </ul>
       </div>
 
@@ -167,17 +167,17 @@
             <text x="452" y="252">8 MB at a time</text>
           </g>
         </svg>
-        <figcaption>Two lies in a row.</figcaption>
+        <figcaption>The card, the reader and the download</figcaption>
       </figure>
 
       <div class="chapter">
         <span class="chapter-no">Chapter 4</span>
         <h2>The cloud</h2>
         <ul class="beats">
-          <li class="beat"><span class="sticker sun"><svg><use href="#i-key"/></svg></span><p>Cloudflare needs a <b>200-character secret</b> typed into the Pi. Not by hand. I connected from the laptop so I could paste it.</p></li>
-          <li class="beat"><span class="sticker coral"><svg><use href="#i-lock"/></svg></span><p>&ldquo;<b>Could not get lock.</b>&rdquo; The brand-new OS was busy updating itself. The installer now waits its turn.</p></li>
-          <li class="beat"><span class="sticker chalk"><svg><use href="#i-key"/></svg></span><p>&ldquo;<b>Not valid base64.</b>&rdquo; Claude&rsquo;s first guess was wrong, and it said so. I&rsquo;d pasted Cloudflare&rsquo;s whole command, not just the key. The installer now picks the key out.</p></li>
-          <li class="beat"><span class="sticker sky"><svg><use href="#i-map"/></svg></span><p>Cloudflare&rsquo;s menus didn&rsquo;t match any guide. I told Claude the steps were skipping around. The instructions were rebuilt from <b>my own screenshots</b>, one numbered click at a time.</p></li>
+          <li class="beat"><span class="sticker sun"><svg><use href="#i-key"/></svg></span><p>Cloudflare&rsquo;s install command carries a secret token about 200 characters long, and I wasn&rsquo;t going to type that on the Pi&rsquo;s keyboard. I logged in to the Pi from the laptop so I could paste it.</p></li>
+          <li class="beat"><span class="sticker coral"><svg><use href="#i-lock"/></svg></span><p>The install stopped with &quot;Could not get lock&quot; because the fresh OS was still installing its own updates. The installer now waits for them, up to 15 minutes.</p></li>
+          <li class="beat"><span class="sticker chalk"><svg><use href="#i-key"/></svg></span><p>Next, Cloudflare said the token &quot;wasn&rsquo;t valid base64&quot;. Claude&rsquo;s first guess was wrong, and it said so. I had pasted Cloudflare&rsquo;s whole suggested command instead of the token, so the installer now pulls the token out of whatever I paste.</p></li>
+          <li class="beat"><span class="sticker sky"><svg><use href="#i-map"/></svg></span><p>Cloudflare&rsquo;s menus no longer matched any guide, including Claude&rsquo;s first README. I complained that steps were getting skipped, and Claude rebuilt the instructions around my screenshots, grouped by where each step happens.</p></li>
         </ul>
       </div>
 
@@ -185,8 +185,8 @@
         <span class="chapter-no">Chapter 5</span>
         <h2>The house</h2>
         <ul class="beats">
-          <li class="beat"><span class="sticker mint"><svg><use href="#i-house"/></svg></span><p>My fibre router has a mesh Wi-Fi behind it. That&rsquo;s <b>two networks in one house</b>. I moved the Pi and printer to the main one, and the tunnel went dark.</p></li>
-          <li class="beat"><span class="sticker sun"><svg><use href="#i-loop"/></svg></span><p>The Pi had held on to its old address. The fix was the oldest one there is: <b>turn it off and on again</b>.</p></li>
+          <li class="beat"><span class="sticker mint"><svg><use href="#i-house"/></svg></span><p>My Airtel fibre router has a TP-Link Deco mesh behind it, and the mesh runs its own network. I moved the Pi and the printer onto the main router, and the tunnel went down.</p></li>
+          <li class="beat"><span class="sticker sun"><svg><use href="#i-loop"/></svg></span><p>The Pi had kept its address from the mesh network, so nothing could reach it. Claude&rsquo;s suggested fix was a reboot.</p></li>
         </ul>
       </div>
 
@@ -210,23 +210,22 @@
             <text x="498" y="188">Pi?</text>
           </g>
         </svg>
-        <figcaption>One house, two networks.</figcaption>
+        <figcaption>The router, the mesh and the Pi in between</figcaption>
       </figure>
 
       <div class="chapter">
         <span class="chapter-no">The running joke</span>
         <ul class="beats">
-          <li class="beat"><span class="sticker coral"><svg><use href="#i-camera"/></svg></span><p>The best debugging tool all day was a <b>phone photo of the Pi&rsquo;s screen</b>. Every hurdle became a permanent fix, so the next Pi won&rsquo;t hit it.</p></li>
+          <li class="beat"><span class="sticker coral"><svg><use href="#i-camera"/></svg></span><p>For most of the day, my best debugging tool was a phone photo of the Pi&rsquo;s screen. Each problem ended up as a fix in the installer or the README, so the next person setting up a Pi shouldn&rsquo;t run into it.</p></li>
         </ul>
       </div>
 
       <div class="chapter">
-        <span class="chapter-no">What I took away</span>
-        <h2>Three lessons</h2>
+                <h2>What I&rsquo;d tell someone else</h2>
         <ul class="beats">
-          <li class="beat"><span class="sticker sky"><svg><use href="#i-web"/></svg></span><p><b>The browser is the universal app.</b> Can&rsquo;t install anything? Put the smarts on a box you own and give yourself a web page.</p></li>
-          <li class="beat"><span class="sticker mint"><svg><use href="#i-old"/></svg></span><p><b>Old hardware is fine. Old software isn&rsquo;t.</b> A 2015 Pi is plenty once it runs a current OS.</p></li>
-          <li class="beat"><span class="sticker sun"><svg><use href="#i-bulb"/></svg></span><p><b>Error messages lie by omission.</b> &ldquo;1 GB&rdquo;, &ldquo;base64&rdquo; and &ldquo;lock&rdquo; all pointed somewhere else.</p></li>
+          <li class="beat"><span class="sticker sky"><svg><use href="#i-web"/></svg></span><p>If you can&rsquo;t install anything on your own devices, put the software on a box you control and use it from a web page.</p></li>
+          <li class="beat"><span class="sticker mint"><svg><use href="#i-old"/></svg></span><p>A 2015 Pi is plenty for a print server once it runs a current OS.</p></li>
+          <li class="beat"><span class="sticker sun"><svg><use href="#i-bulb"/></svg></span><p>The errors about a 1 GB card, bad base64 and a busy lock each pointed away from the real cause.</p></li>
         </ul>
       </div>
 
@@ -242,16 +241,16 @@
           </g>
           <text x="530" y="140" font-family="Gochi Hand, cursive" font-size="34" fill="#e2683f" text-anchor="middle" transform="rotate(-8 530 140)">soon!</text>
         </svg>
-        <figcaption>Next up: the first real label.</figcaption>
+        <figcaption>The first real label hasn&rsquo;t printed yet.</figcaption>
       </figure>
 
       <div class="prose post-prose">
-        <p>It runs on plain Python and one PDF tool, small enough for the old Pi. It crops A4 courier sheets down to the label, shows a preview, and prints. The code is open source at <a href="https://github.com/sauravsood/print-bridge">github.com/sauravsood/print-bridge</a>.</p>
+        <p>The app is plain Python plus poppler, a PDF tool, so it runs on the old Pi without extra packages. It crops A4 courier sheets down to the 4&times;6 label, shows a preview and sends the job to the printer. The code is open source at <a href="https://github.com/sauravsood/print-bridge">github.com/sauravsood/print-bridge</a>.</p>
       </div>
     </section>
 
     <footer class="zone post-sign">
-      <p class="hand sign">Built in a day, with Claude.</p>
+      <p class="hand sign">Built in a day with Claude</p>
       <a class="try-it" href="https://github.com/sauravsood/print-bridge">See the code <span aria-hidden="true">↗</span></a>
     </footer>
   </article>
