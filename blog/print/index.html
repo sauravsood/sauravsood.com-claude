@@ -24,7 +24,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Gochi+Hand&family=Instrument+Sans:wght@400;600&family=Martian+Mono:wght@400;600&display=swap">
 <link rel="stylesheet" href="../../assets/css/site.css?v=20261111">
 <link rel="stylesheet" href="../assets/blog.css?v=20261111c">
-<link rel="stylesheet" href="../assets/story.css?v=20261117">
+<link rel="stylesheet" href="../assets/story.css?v=20261117b">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -110,7 +110,7 @@
         <span class="chapter-no">Chapter 2</span>
         <h2>The Pi</h2>
         <ul class="beats">
-          <li class="beat"><span class="sticker coral"><svg><use href="#i-dead"/></svg></span><p>It wasn&rsquo;t online. I sent Claude a phone photo of its screen, which showed a kernel panic. The memory card had worked loose, and pushing it back in fixed that.</p></li>
+          <li class="beat"><span class="sticker coral"><svg><use href="#i-dead"/></svg></span><p>It wasn&rsquo;t online. I sent Claude a phone photo of its screen.<span class="err">Kernel panic - not syncing: VFS: Unable to mount root fs</span><span class="step"><span class="tag cause">Cause</span>The memory card had worked loose.</span><span class="step"><span class="tag fix">Fix</span>I pushed the card back in, and it booted.</span></p></li>
           <li class="beat"><span class="sticker chalk"><svg><use href="#i-fossil"/></svg></span><p>Once it booted, we found a Pi 2 running Raspbian from February 2015, still on the default login. That was far too old to run anything current.</p></li>
         </ul>
       </div>
@@ -139,8 +139,8 @@
         <h2>The card</h2>
         <ul class="beats">
           <li class="beat"><span class="sticker sky"><svg><use href="#i-loop"/></svg></span><p>Reinstalling the OS usually means writing a new card from a PC, and I don&rsquo;t have one. Claude wrote a script that turns the old Pi into its own installer: it downloads the current OS and writes it to a new card in a USB reader.</p></li>
-          <li class="beat"><span class="sticker sun"><svg><use href="#i-sd"/></svg></span><p>The new 64 GB card showed up as 1 GB. Claude found and fixed an overflow bug in its own size check, but the card still read as 1 GB. My USB card reader turned out to be too old to read cards over 32 GB.</p></li>
-          <li class="beat"><span class="sticker mint"><svg><use href="#i-chunks"/></svg></span><p>Then the download kept dying at 19%. Claude changed the script to fetch 8 MB pieces, retry each one up to 20 times, and check the whole file at the end.</p></li>
+          <li class="beat"><span class="sticker sun"><svg><use href="#i-sd"/></svg></span><p><span class="err">64 GB card detected as about 1 GB</span><span class="step"><span class="tag cause">Cause</span>Claude first found and fixed an overflow bug in its own size check, but the card still read 1 GB. The real problem was my USB card reader, which is too old for cards over 32 GB.</span><span class="step"><span class="tag fix">Fix</span>The script now explains this instead of just failing.</span></p></li>
+          <li class="beat"><span class="sticker mint"><svg><use href="#i-chunks"/></svg></span><p><span class="err">Download stopped at 19% (and once, a checksum mismatch)</span><span class="step"><span class="tag cause">Cause</span>The connection kept cutting the big OS download off partway.</span><span class="step"><span class="tag fix">Fix</span>The script now fetches 8 MB pieces, retries each one up to 20 times and checks the whole file at the end.</span></p></li>
         </ul>
       </div>
 
@@ -175,8 +175,8 @@
         <h2>The cloud</h2>
         <ul class="beats">
           <li class="beat"><span class="sticker sun"><svg><use href="#i-key"/></svg></span><p>Cloudflare&rsquo;s install command carries a secret token about 200 characters long, and I wasn&rsquo;t going to type that on the Pi&rsquo;s keyboard. I logged in to the Pi from the laptop so I could paste it.</p></li>
-          <li class="beat"><span class="sticker coral"><svg><use href="#i-lock"/></svg></span><p>The install stopped with &quot;Could not get lock&quot; because the fresh OS was still installing its own updates. The installer now waits for them, up to 15 minutes.</p></li>
-          <li class="beat"><span class="sticker chalk"><svg><use href="#i-key"/></svg></span><p>Next, Cloudflare said the token &quot;wasn&rsquo;t valid base64&quot;. Claude&rsquo;s first guess was wrong, and it said so. I had pasted Cloudflare&rsquo;s whole suggested command instead of the token, so the installer now pulls the token out of whatever I paste.</p></li>
+          <li class="beat"><span class="sticker coral"><svg><use href="#i-lock"/></svg></span><p><span class="err">Could not get lock</span><span class="step"><span class="tag cause">Cause</span>The fresh OS was still installing its own first-boot updates.</span><span class="step"><span class="tag fix">Fix</span>The installer now waits for them, up to 15 minutes.</span></p></li>
+          <li class="beat"><span class="sticker chalk"><svg><use href="#i-key"/></svg></span><p><span class="err">illegal base64 data</span><span class="step"><span class="tag cause">Cause</span>Claude&rsquo;s first guess was wrong, and it said so. I had pasted Cloudflare&rsquo;s whole suggested command, <code>cloudflared service install eyJ...</code>, instead of just the token.</span><span class="step"><span class="tag fix">Fix</span>The installer now picks the token out of whatever I paste.</span></p></li>
           <li class="beat"><span class="sticker sky"><svg><use href="#i-map"/></svg></span><p>Cloudflare&rsquo;s menus no longer matched any guide, including Claude&rsquo;s first README. I complained that steps were getting skipped, and Claude rebuilt the instructions around my screenshots, grouped by where each step happens.</p></li>
         </ul>
       </div>
@@ -185,8 +185,7 @@
         <span class="chapter-no">Chapter 5</span>
         <h2>The house</h2>
         <ul class="beats">
-          <li class="beat"><span class="sticker mint"><svg><use href="#i-house"/></svg></span><p>My Airtel fibre router has a TP-Link Deco mesh behind it, and the mesh runs its own network. I moved the Pi and the printer onto the main router, and the tunnel went down.</p></li>
-          <li class="beat"><span class="sticker sun"><svg><use href="#i-loop"/></svg></span><p>The Pi had kept its address from the mesh network, so nothing could reach it. Claude&rsquo;s suggested fix was a reboot.</p></li>
+          <li class="beat"><span class="sticker mint"><svg><use href="#i-house"/></svg></span><p>My Airtel fibre router has a TP-Link Deco mesh behind it, and the mesh runs its own network. I moved the Pi and the printer from the mesh onto the main router.<span class="err">ssh: connection timed out, and the tunnel went down</span><span class="step"><span class="tag cause">Cause</span>The Pi picked up a new IPv6 address from the router but kept its old IPv4 address from the mesh, so nothing could reach it.</span><span class="step"><span class="tag fix">Fix</span>A reboot, so it gets a fresh address on the main network.</span></p></li>
         </ul>
       </div>
 

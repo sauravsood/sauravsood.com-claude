@@ -30,3 +30,11 @@
   .sticker { width: 52px; height: 52px; border-radius: 16px; }
   .sticker svg { width: 30px; height: 30px; }
 }
+
+/* Error → cause → fix beats */
+.beat .err { display: block; font-family: var(--mono); font-size: .82rem; line-height: 1.5; color: #ffb59c; background: #142238; border-left: 4px solid var(--crayon); border-radius: 6px; padding: 8px 12px; margin-bottom: 8px; overflow-wrap: anywhere; }
+.beat .err::before { content: "ERROR"; display: inline-block; font-size: .66rem; letter-spacing: .12em; background: var(--crayon); color: #142238; border-radius: 3px; padding: 1px 6px; margin-right: 10px; vertical-align: 1px; }
+.beat .step { display: block; margin-top: 6px; }
+.beat .tag { display: inline-block; font-family: var(--mono); font-size: .66rem; letter-spacing: .12em; text-transform: uppercase; border-radius: 3px; padding: 1px 6px; margin-right: 8px; vertical-align: 2px; color: #142238; }
+.beat .tag.cause { background: #bcd6f4; }
+.beat .tag.fix { background: var(--ball); }
