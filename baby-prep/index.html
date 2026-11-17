@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K71K5101R8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-K71K5101R8');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Baby Prep Survival Kit</title>
+<meta name="description" content="Everything a mum learnt the messy way: 11 pieces of terrible advice to flip, and a tickable baby shopping list.">
+<meta property="og:title" content="Baby Prep Survival Kit 🍼">
+<meta property="og:description" content="Start with my worst advice, then raid my shopping list.">
+<meta property="og:url" content="https://sauravsood.com/baby-prep/">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8D%BC%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: one phone-width column. A flip-card deck of bad advice on top, a tickable shopping list below. */
+:root{
+  --bg:#EEF3FF;
+  --surface:#FFFFFF;
+  --ink:#1D1B3A;
+  --muted:#5C5A7A;
+  --line:#D5DCF2;
+  --accent:#3B3BD6;      /* links, buttons, progress */
+  --accent-ink:#FFFFFF;
+  --trap:#FF5A4E;        /* bad-advice side of a card */
+  --trap-ink:#2A0906;
+  --truth:#12A37B;       /* real-lesson side */
+  --truth-ink:#04251B;
+  --sun:#FFD44A;         /* must-have chip, highlights */
+  --sun-ink:#3A2A00;
+  --display:"Baloo 2","Trebuchet MS",system-ui,sans-serif;
+  --body:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --emoji:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji","Twemoji Mozilla",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#12122B;--surface:#1D1D40;--ink:#F1F0FF;--muted:#A9A8CC;--line:#34346A;
+    --accent:#9C9CFF;--accent-ink:#12122B;
+    --trap:#FF7A70;--trap-ink:#2A0906;--truth:#3FD3A8;--truth-ink:#04251B;
+    --sun:#FFD44A;--sun-ink:#3A2A00;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#12122B;--surface:#1D1D40;--ink:#F1F0FF;--muted:#A9A8CC;--line:#34346A;
+  --accent:#9C9CFF;--accent-ink:#12122B;
+  --trap:#FF7A70;--trap-ink:#2A0906;--truth:#3FD3A8;--truth-ink:#04251B;
+  --sun:#FFD44A;--sun-ink:#3A2A00;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5;overflow-x:hidden}
+main{max-width:640px;margin:0 auto;padding:28px 16px 64px;display:flex;flex-direction:column;gap:36px}
+h1,h2,h3{font-family:var(--display);line-height:1.1;margin:0;text-wrap:balance}
+h1{font-size:2.5rem;font-weight:800}
+h2{font-size:1.75rem;font-weight:800}
+h3{font-size:1.25rem;font-weight:600}
+p{margin:0}
+a{color:var(--accent)}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+
+/* Emoji pictures */
+.e{font-family:var(--emoji);font-style:normal;font-weight:400;line-height:1;display:inline-block;text-decoration:none}
+h2 .e,h3 .e{margin-right:.3em}
+
+header{display:flex;flex-direction:column;gap:10px}
+.parade{display:flex;gap:10px;font-size:1.9rem;margin-bottom:4px}
+.parade .e{animation:bob 2.8s ease-in-out infinite}
+.parade .e:nth-child(2){animation-delay:.25s}
+.parade .e:nth-child(3){animation-delay:.5s}
+.parade .e:nth-child(4){animation-delay:.75s}
+.parade .e:nth-child(5){animation-delay:1s}
+.parade .e:nth-child(6){animation-delay:1.25s}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-5px) rotate(-6deg)}}
+.kicker{font-weight:700;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.kicker .e{font-size:1.1rem;margin-right:.35em;vertical-align:-2px}
+h1 mark{background:var(--sun);color:var(--sun-ink);padding:0 .15em;border-radius:6px;display:inline-block;margin-top:.12em}
+.lede{color:var(--muted);max-width:52ch}
+
+section{display:flex;flex-direction:column;gap:14px}
+.sub{color:var(--muted)}
+
+/* Deck */
+.card{position:relative;overflow:hidden;border-radius:22px;padding:22px 20px;min-height:250px;display:flex;flex-direction:column;gap:14px;justify-content:space-between;background:var(--trap);color:var(--trap-ink);transition:background .25s,transform .25s}
+.card.real{background:var(--truth);color:var(--truth-ink)}
+.card.flip{transform:rotate(-1.2deg) scale(.98)}
+.card-top{display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;position:relative}
+.card-top .e{font-size:1.05rem;margin-right:.4em;vertical-align:-2px}
+.card-pic{font-size:3rem;align-self:flex-start;filter:drop-shadow(0 3px 0 rgba(0,0,0,.12))}
+.card.flip .card-pic{animation:pop .35s ease-out}
+@keyframes pop{0%{transform:scale(.6) rotate(-12deg)}70%{transform:scale(1.15) rotate(6deg)}100%{transform:scale(1)}}
+.card-bg{position:absolute;right:-14px;bottom:-18px;font-size:7.5rem;opacity:.16;transform:rotate(-14deg);pointer-events:none}
+.card-text{font-family:var(--display);font-weight:600;font-size:1.45rem;line-height:1.2;position:relative}
+.card-btn{align-self:flex-start;border:2px solid currentColor;background:transparent;border-radius:999px;padding:9px 16px;font-weight:700;position:relative}
+.card-btn .e{margin-right:.4em}
+.deck-nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.nav-btn{border:0;background:var(--accent);color:var(--accent-ink);border-radius:999px;padding:10px 18px;font-weight:700;white-space:nowrap}
+.nav-btn .e{font-size:1rem}
+.nav-btn[disabled]{opacity:.35;cursor:default}
+.dots{display:flex;gap:5px;flex-wrap:wrap;justify-content:center}
+.dots span{width:9px;height:9px;border-radius:50%;background:var(--line)}
+.dots span.seen{background:var(--truth)}
+.dots span.on{outline:2px solid var(--ink);outline-offset:1px}
+.score{font-weight:700;color:var(--muted);font-size:.9rem}
+.score .e{margin-right:.4em;font-size:1.05rem;vertical-align:-2px}
+
+/* List */
+.progress{display:flex;flex-direction:column;gap:6px;position:sticky;top:0;background:var(--bg);padding:10px 0;z-index:2}
+.progress-row{display:flex;justify-content:space-between;gap:8px;font-weight:700;font-size:.9rem;font-variant-numeric:tabular-nums}
+.progress-row .e{margin-right:.3em}
+.track{position:relative;padding-top:20px}
+.crawler{position:absolute;top:0;left:0;font-size:1.25rem;transform:translateX(-50%);transition:left .3s;margin-left:10px}
+.bar{height:10px;border-radius:999px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--accent);border-radius:999px;transition:width .3s}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.filters button{border:2px solid var(--line);background:var(--surface);border-radius:999px;padding:7px 14px;font-weight:700;font-size:.9rem}
+.filters button .e{margin-right:.35em}
+.filters button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.group{display:flex;flex-direction:column;gap:10px;margin-top:10px}
+.group[hidden]{display:none}
+.items{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.item{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px;display:grid;grid-template-columns:auto 1fr;gap:4px 12px;align-items:start}
+.item[hidden]{display:none}
+.item input{width:24px;height:24px;margin:2px 0 0;accent-color:var(--accent)}
+.item-head{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}
+.item-name{font-weight:700;font-size:1.05rem}
+.item-name .e{margin-right:.35em;font-size:1.15rem;vertical-align:-1px}
+.item.done .item-name{text-decoration:line-through;color:var(--muted)}
+.item.done .item-name .e{filter:grayscale(.6);opacity:.7}
+.yay{display:none;font-size:1rem}
+.item.done .yay{display:inline-block;animation:pop .35s ease-out}
+.chip{font-size:.72rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;border-radius:999px;padding:3px 9px;white-space:nowrap}
+.chip .e{margin-right:.3em;font-size:.85rem;vertical-align:-1px}
+.chip.must{background:var(--sun);color:var(--sun-ink)}
+.chip.other{border:1.5px solid var(--line);color:var(--muted)}
+.item-body{grid-column:2;display:flex;flex-direction:column;gap:6px}
+.note{color:var(--muted);font-size:.95rem}
+.links{display:flex;flex-wrap:wrap;gap:6px 14px;font-weight:700;font-size:.9rem}
+.links .e{margin-right:.3em;font-size:.9rem}
+.empty{color:var(--muted);padding:12px 0;text-align:center}
+.empty .e{display:block;font-size:2.4rem;margin-bottom:6px}
+footer{color:var(--muted);font-size:.9rem;text-align:center;display:flex;flex-direction:column;gap:8px;align-items:center}
+footer .parade{font-size:1.5rem;margin:0}
+@media (prefers-reduced-motion: reduce){.card,.bar i,.crawler{transition:none}.card.flip{transform:none}.parade .e,.card.flip .card-pic,.item.done .yay{animation:none}}
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="parade" aria-hidden="true"><span class="e">🍼</span><span class="e">🧸</span><span class="e">🧷</span><span class="e">👶</span><span class="e">🌙</span><span class="e">🧦</span></div>
+    <p class="kicker"><span class="e" aria-hidden="true">🤱</span>From a mum who has been there</p>
+    <h1>Baby Prep <mark>Survival Kit</mark></h1>
+    <p class="lede">Everything I learnt the messy way, so you don't have to. Start with my worst advice, then raid my shopping list. <span class="e" aria-hidden="true">💛</span></p>
+  </header>
+
+  <section aria-labelledby="deck-h">
+    <h2 id="deck-h"><span class="e" aria-hidden="true">😈</span>If I wanted to see you suffer</h2>
+    <p class="sub">11 pieces of terrible advice. Flip each card for what I really mean. <span class="e" aria-hidden="true">🃏</span></p>
+    <div class="card" id="card" aria-live="polite">
+      <span class="card-bg e" id="card-bg" aria-hidden="true"></span>
+      <div class="card-top"><span><span class="e" id="card-label-e" aria-hidden="true"></span><span id="card-label"></span></span><span id="card-count"></span></div>
+      <span class="card-pic e" id="card-pic" aria-hidden="true"></span>
+      <p class="card-text" id="card-text"></p>
+      <button class="card-btn" id="flip" type="button"><span class="e" id="flip-e" aria-hidden="true"></span><span id="flip-t"></span></button>
+    </div>
+    <div class="deck-nav">
+      <button class="nav-btn" id="prev" type="button"><span class="e" aria-hidden="true">👈</span> Back</button>
+      <div class="dots" id="dots" aria-hidden="true"></div>
+      <button class="nav-btn" id="next" type="button">Next <span class="e" aria-hidden="true">👉</span></button>
+    </div>
+    <p class="score"><span class="e" id="score-e" aria-hidden="true"></span><span id="score"></span></p>
+  </section>
+
+  <section aria-labelledby="list-h">
+    <h2 id="list-h"><span class="e" aria-hidden="true">🛒</span>The actual list</h2>
+    <p class="sub">Tick things off as you get them. Your ticks stay on your phone. <span class="e" aria-hidden="true">📱</span></p>
+    <div class="progress">
+      <div class="progress-row"><span><span class="e" aria-hidden="true">✅</span><span id="prog-text"></span></span><span><span class="e" aria-hidden="true">⭐</span><span id="prog-must"></span></span></div>
+      <div class="track"><span class="crawler e" id="crawler" aria-hidden="true">👶</span><div class="bar"><i id="bar"></i></div></div>
+    </div>
+    <div class="filters" role="group" aria-label="Filter the list">
+      <button type="button" data-f="all" aria-pressed="true"><span class="e" aria-hidden="true">🌈</span>Everything</button>
+      <button type="button" data-f="must" aria-pressed="false"><span class="e" aria-hidden="true">⭐</span>Must haves</button>
+      <button type="button" data-f="todo" aria-pressed="false"><span class="e" aria-hidden="true">🛍️</span>Still to get</button>
+    </div>
+    <div id="groups"></div>
+    <p class="empty" id="empty" hidden><span class="e" aria-hidden="true">🛋️</span>Nothing left here. Go put your feet up. <span class="e" style="display:inline-block;font-size:1rem;margin:0" aria-hidden="true">🎉</span></p>
+  </section>
+
+  <footer>
+    <div class="parade" aria-hidden="true"><span class="e">💪</span><span class="e">💩</span><span class="e">📞</span><span class="e">💛</span></div>
+    <p>You've got this. Call me when the first explosion happens.</p>
+  </footer>
+</main>
+
+<script>
+const TRAPS = [
+  ["Never carry a plastic bag for the clothes that sacrificed themselves in the line of duty and kept everything else safe from explosions.",
+   "Always keep a plastic bag in the diaper bag. Soiled clothes need somewhere to go."],
+  ["Never use RO water in the steriliser, nebuliser or steamer. How will you buy new ones if the old ones don't burn out from the salt scales of tap water?",
+   "Use RO water in every appliance. Tap water leaves scale and kills them."],
+  ["Be super confident: “fatafat change kar dungi/dunga, I don't need a dry sheet.”",
+   "Slide a dry sheet under the baby for every change, however quick you think you are."],
+  ["For boys: never cover their twinky while changing a diaper. It's not like they can spray upwards into your pretty face. They know they shouldn't.",
+   "Changing a boy? Keep him covered. He can spray upwards, and he will."],
+  ["Never keep a permanent dry sheet over the cot mattress.",
+   "Keep a dry sheet on the cot mattress at all times."],
+  ["Switch on the lights at night when the little one cries. They can always tell it's night time from their internal clock.",
+   "Keep the lights off for night wake-ups. A dimmable night light is all you need."],
+  ["Never buy a wet wipes pack with a hard plastic lid. It's not like your wipes will go dry when the stupid makeshift sticker falls off.",
+   "Buy wipes with a hard plastic lid. The sticker flap falls off and the wipes dry out."],
+  ["Tell yourself you only need hankies, and a burp cloth isn't needed. It's not like there'll be a white waterfall down the back of your shoulder that no bib can contain.",
+   "Hankies and bibs won't cut it. Get proper muslin burp cloths."],
+  ["Do not swaddle the baby. They had so, so, so much room inside us. Swaddling will feel like a hug, which they are not used to.",
+   "Swaddle. The baby was packed in tight for months, so a swaddle feels like home."],
+  ["Do not buy a feeding pillow. We are in our early twenties and our backs can take a gazillion feeding sessions a day. No biggie.",
+   "Buy the feeding pillow, and make it a firm one. Your back will thank you."],
+  ["Wired bras are absolutely lovely.",
+   "Skip the wires. Get proper maternity bras."]
+];
+/* One picture per card: [bad-advice side, real side] */
+const TRAP_PICS = [
+  ["💩","🛍️"],["🧂","💧"],["😎","🛏️"],["⛲","🙈"],["🌊","🛏️"],["💡","🌙"],
+  ["🏜️","🧻"],["🌊","🫧"],["🙅","🌯"],["😵‍💫","🤱"],["😬","👙"]
+];
+
+const A="Amazon", ATB="All Things Baby", HM="H&M", RFR="R for Rabbit";
+const LIST = [
+ {g:"Diaper duty", e:"🧷", items:[
+  {n:"Diaper caddy", e:"🧺", v:"Yes", c:"I had a different one, but anything with external pockets and dividers inside works.", l:[[A,"https://amzn.in/d/0iTz2nhh"]]},
+  {n:"Diaper bag", e:"🎒", v:"Yes", c:"I have something like the second one. Pretty generic but does the job.", l:[["Mokobara","https://amzn.in/d/08Qn3pnB"],[RFR,"https://amzn.in/d/0a2hyYib"]]},
+  {n:"Disposal bags", e:"🛍️", v:"Yes", c:"Used them to contain explosions only. But very much needed during travel.", l:[[A,"https://amzn.in/d/02j3VbVa"]]},
+  {n:"Dry sheets", e:"💦", v:"Yes", c:"", l:[[RFR+" (small, pack of 2)","https://amzn.in/d/07NNvc0w"],["Zikku (medium)","https://amzn.in/d/0guxYbkk"]]},
+  {n:"Wet wipes", e:"🧻", v:"Yes", c:"I have mostly used these. Never saw rashes or problems. There are fancier ones in the market if you want.", l:[[A,"https://amzn.in/d/08V3RfNg"]]},
+  {n:"Nappies", e:"🩲", v:"Yes", c:"These look terrible, but I wasted the most money on nappies trying to find cute plus functional ones at a decent price. I stand by my horrid reco.", l:[["Khilkhilahat","https://khilkhilahat.com/collections/nappies"]]},
+  {n:"Swim diapers", e:"🏊", v:"", c:"", l:[]}
+ ]},
+ {g:"Sleep, hopefully", e:"🌙", items:[
+  {n:"Night light", e:"💡", v:"Yes for first timers", c:"Mine was passed down to me, so this is a random link. Just get a dimmable one.", l:[[A,"https://amzn.in/d/0dqQdTB1"]]},
+  {n:"Cot mobile", e:"🎠", v:"Yes", c:"Get it along with the music box. Gives you 10-15 minute rest windows.", l:[["GWD Kids","https://gwdkids.com/collections/felt-cot-mobile-hangings/products/woodland-theme-baby-crib-mobile"]]},
+  {n:"Swaddles", e:"🌯", v:"Yes", c:"Can be used as top sheets during summers.", l:[[A,"https://amzn.in/d/05Z1ukMA"]]},
+  {n:"Bedding set", e:"🛏️", v:"Yes", c:"Also get something warmer. I don't have warm sheets for kids. Simply used their spare small blankets as sheets.", l:[["Link","https://www.google.com/aclk?sa=L&ai=DChsSEwiJufT8uImYAxXOyTwCHaJnATEYACICCAEQIxoCc2Y&co=1&gclid=CjwKCAiAquDXBhApEiwAoyNqBFtvK-YCIB_TLy_uV-g9myj1iSrQvpEX_Ec4jOe7L49gsljKxZ49nhoCcCEQAvD_BwE&sph=&ei=VF75arjeF9fhseMPxOrg4Qw&cid=CAAS3QHkaEKX5SPQ5zgcxZ9Ms_eAA8U9L2kufzL6HpaHTRLQ-HhUTaIKv98a_WQF2DeU7FHnQUCGfF_NrFVALKRKIPFI5hVZemZVdz--eTCTwoqAhfwPpnP8tCd6pdluAdk9d9x8BmhevFEjg0zmYqRZSQLFWy-u3Vc8ZcZDd02yQkLOgmQ8O6iCdf17-7gEjz2XDvhNIZ8JGu37THRH3itiV_odGsJRjK9E_-CpxsApDE1WfrHXTIlp3sDEQ6nvpgvdUKT_EpC7ym-JvDjnMv3c3gHAVQ9_cIT0-jI9g73Qdw&cce=2&sig=AOD64_2efSosLVEc1KNYf6ukCFDZ2Nn7Pw&ctype=70&q=&sqi=2&ved=2ahUKEwi42Oz8uImYAxXXcGwGHUQ1OMwQwg8oAHoECAkQJQ&adurl="]]},
+  {n:"Warm blankets", e:"🧶", v:"Yes", c:"", l:[[ATB,"https://allthingsbaby.com/products/pluchi-cable-knit-cotton-knitted-baby-blanket-with-embroidered-heart-faux-fur-back?variant=46762392387810"]]},
+  {n:"Sleep bags", e:"😴", v:"Maybe", c:"", l:[[HM,"https://www2.hm.com/en_in/productpage.1343708004.html"]]}
+ ]},
+ {g:"Feeding", e:"🍼", items:[
+  {n:"Burp cloths", e:"🫧", v:"Yes", c:"Random link, but you get the idea. Most of them are almost identical. Just get anything muslin.", l:[[A,"https://amzn.in/d/06XHY4X5"]]},
+  {n:"Feeding pillow", e:"🥯", v:"Yes", c:"Look for a firm pillow. This one is firm and fits well around the waist.", l:[[ATB,"https://allthingsbaby.com/products/aariro-nursing-pillow?variant=44686325580002"]]},
+  {n:"Feeding cover", e:"🧣", v:"Yes", c:"If you choose to nurse.", l:[[A,"https://amzn.in/d/0io10zPt"]]},
+  {n:"Maternity bra", e:"👙", v:"Yes", c:"Get it from Myntra, exchanging is easier. I couldn't paste the Myntra link.", l:[["House of Zelena","https://houseofzelena.com/products/sculpt-lift-powermesh-nursing-bra-champagne?variant=48670549213429"]]},
+  {n:"Steriliser and dryer", e:"♨️", v:"Yes", c:"Get one which also dries the bottles.", l:[[A,"https://amzn.in/d/00u2uyVO"]]},
+  {n:"Bottle cleaning brushes", e:"🪥", v:"Yes", c:"I haven't used it much, but very convenient. This one is silicone. If you don't prefer that, there are sets with bristle brushes too.", l:[[A,"https://amzn.in/d/00A8qIRL"]]},
+  {n:"Bottle washing liquid", e:"🧼", v:"Yes", c:"Get any you like.", l:[[A,"https://amzn.in/d/0ibFDPFx"]]},
+  {n:"Breast milk storage bags", e:"🥛", v:"Yes", c:"In case you want to ensure supply in your absence too. But this may be for later.", l:[[A,"https://amzn.in/d/09Qzstlm"]]},
+  {n:"Bottles", e:"🍼", v:"Maybe", c:"", l:[[A,"https://amzn.in/d/0eWNIbhm"]]}
+ ]},
+ {g:"Tiny clothes", e:"👕", items:[
+  {n:"Base muslin layer", e:"👚", v:"Yes", c:"", l:[[ATB,"https://allthingsbaby.com/products/aariro-muslin-jhabla-set-of-3?variant=46901343879394"]]},
+  {n:"Fleece onesies", e:"🐻", v:"Yes", c:"H&M had good options. You don't need more than 3-5, depending on whether you have a washer dryer.", l:[[HM,"https://www2.hm.com/en_in/productpage.1357861001.html"]]},
+  {n:"Hangers", e:"🪝", v:"Yes", c:"These are expandable. Tiny clothes kind of get lost in the almirahs, so hanging them up helps.", l:[[A,"https://amzn.in/d/0iX8Lf0U"]]}
+ ]},
+ {g:"Care and health", e:"🩺", items:[
+  {n:"Nasal drops", e:"👃", v:"Yes", c:"Nasoclear.", l:[]},
+  {n:"Portable nebuliser", e:"💨", v:"Yes", c:"Get any.", l:[[A,"https://amzn.in/d/0hbSRQDB"]]},
+  {n:"Ear buds", e:"👂", v:"Yes", c:"", l:[[A,"https://amzn.in/d/0b1JV3pw"]]},
+  {n:"Hair brush", e:"💇", v:"Yes", c:"In case your kid has hair to begin with.", l:[[A,"https://amzn.in/d/04DDDQik"]]},
+  {n:"Rash cream", e:"🍑", v:"", c:"Sebamed products.", l:[]},
+  {n:"Lotion", e:"🧴", v:"", c:"Sebamed products.", l:[]},
+  {n:"Massage oil", e:"💆", v:"", c:"Sebamed products.", l:[]}
+ ]},
+ {g:"Play and outings", e:"🧸", items:[
+  {n:"Sensory mat plus contrast", e:"🧩", v:"", c:"", l:[[A,"https://amzn.in/d/0fTTgiMX"]]},
+  {n:"Contrast flash cards", e:"🦓", v:"", c:"", l:[[A,"https://amzn.in/d/06hHI1pW"]]},
+  {n:"Stroller toy", e:"🦒", v:"Yes", c:"For later.", l:[[A,"https://amzn.in/d/02B8Sy3E"]]},
+  {n:"Stroller fan", e:"🌀", v:"Yes", c:"For later.", l:[[A,"https://amzn.in/d/0g79Qs7L"]]}
+ ]},
+ {g:"Potty training, much later", e:"🚽", items:[
+  {n:"Potty training seat", e:"👑", v:"", c:"", l:[[RFR,"https://rforrabbit.com/collections/baby-potty-seats/products/regal-potty-training-seat-for-baby"]]},
+  {n:"Travel potty seat", e:"🧳", v:"", c:"", l:[["Topinon foldable potty","https://amzn.in/d/02NdYwek"],["Zollyss seat cover","https://amzn.in/d/0iiqlrOS"]]}
+ ]}
+];
+
+/* ---------- storage (per phone, optional) ---------- */
+const KEY="babyprep-v1";
+let state={got:{},seen:{}};
+try{const s=JSON.parse(localStorage.getItem(KEY)||"null");if(s&&s.got&&s.seen)state=s;}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}}
+const $=id=>document.getElementById(id);
+function emo(ch,cls){const s=document.createElement("span");s.className="e"+(cls?" "+cls:"");s.setAttribute("aria-hidden","true");s.textContent=ch;return s;}
+
+/* ---------- deck ---------- */
+let idx=0, real=false;
+const dots=$("dots");
+TRAPS.forEach(()=>dots.appendChild(document.createElement("span")));
+function renderCard(){
+  const c=$("card");
+  c.classList.toggle("real",real);
+  $("card-label-e").textContent=real?"✅":"🚫";
+  $("card-label").textContent=real?"What I really mean":"Terrible advice";
+  $("card-count").textContent=(idx+1)+" of "+TRAPS.length;
+  const pic=TRAP_PICS[idx][real?1:0];
+  $("card-pic").textContent=pic;
+  $("card-bg").textContent=real?"💚":"🔥";
+  $("card-text").textContent=TRAPS[idx][real?1:0];
+  $("flip-e").textContent=real?"🙃":"🔄";
+  $("flip-t").textContent=real?"Show the bad advice again":"Flip for the truth";
+  $("prev").disabled=idx===0;
+  $("next").disabled=idx===TRAPS.length-1;
+  [...dots.children].forEach((d,i)=>{d.classList.toggle("on",i===idx);d.classList.toggle("seen",!!state.seen[i]);});
+  const n=Object.keys(state.seen).length;
+  $("score-e").textContent=n===TRAPS.length?"🏆":n===0?"🛡️":n>=6?"🦸":"🛡️";
+  $("score").textContent=n===TRAPS.length?"All 11 traps dodged. You are officially harder to prank than a newborn.":n+" of "+TRAPS.length+" traps dodged";
+}
+$("flip").addEventListener("click",()=>{
+  real=!real; if(real){state.seen[idx]=1;save();}
+  const c=$("card");c.classList.add("flip");setTimeout(()=>c.classList.remove("flip"),180);
+  renderCard();
+});
+$("prev").addEventListener("click",()=>{if(idx>0){idx--;real=false;renderCard();}});
+$("next").addEventListener("click",()=>{if(idx<TRAPS.length-1){idx++;real=false;renderCard();}});
+renderCard();
+
+/* ---------- list ---------- */
+let filter="all";
+const groups=$("groups");
+const isMust=v=>/^yes/i.test(v);
+LIST.forEach((grp,gi)=>{
+  const wrap=document.createElement("div");wrap.className="group";
+  const h=document.createElement("h3");h.appendChild(emo(grp.e));h.appendChild(document.createTextNode(grp.g));wrap.appendChild(h);
+  const ul=document.createElement("ul");ul.className="items";
+  grp.items.forEach((it,ii)=>{
+    const id="i"+gi+"-"+ii;
+    const li=document.createElement("li");li.className="item";li.dataset.id=id;li.dataset.must=isMust(it.v)?"1":"";
+    const cb=document.createElement("input");cb.type="checkbox";cb.id=id;cb.checked=!!state.got[id];
+    cb.addEventListener("change",()=>{if(cb.checked)state.got[id]=1;else delete state.got[id];save();refresh();});
+    const head=document.createElement("label");head.className="item-head";head.htmlFor=id;
+    const nm=document.createElement("span");nm.className="item-name";nm.appendChild(emo(it.e));nm.appendChild(document.createTextNode(it.n));head.appendChild(nm);
+    if(it.v){const ch=document.createElement("span");
+      if(it.v==="Yes"){ch.className="chip must";ch.appendChild(emo("💖"));ch.appendChild(document.createTextNode("Must have"));}
+      else if(isMust(it.v)){ch.className="chip must";ch.appendChild(emo("🐣"));ch.appendChild(document.createTextNode("Must for first timers"));}
+      else{ch.className="chip other";ch.appendChild(emo("🤔"));ch.appendChild(document.createTextNode(it.v));}
+      head.appendChild(ch);}
+    head.appendChild(emo("✨","yay"));
+    li.appendChild(cb);li.appendChild(head);
+    if(it.c||it.l.length){
+      const body=document.createElement("div");body.className="item-body";
+      if(it.c){const p=document.createElement("p");p.className="note";p.textContent=it.c;body.appendChild(p);}
+      if(it.l.length){const d=document.createElement("div");d.className="links";
+        it.l.forEach(([t,u])=>{const a=document.createElement("a");a.href=u;a.target="_blank";a.rel="noopener";a.appendChild(emo("🛒"));a.appendChild(document.createTextNode(t+" ↗"));d.appendChild(a);});
+        body.appendChild(d);}
+      li.appendChild(body);
+    }
+    ul.appendChild(li);
+  });
+  wrap.appendChild(ul);groups.appendChild(wrap);
+});
+function refresh(){
+  const all=[...document.querySelectorAll(".item")];
+  let got=0,must=0,mustGot=0,shown=0;
+  all.forEach(li=>{
+    const done=!!state.got[li.dataset.id];
+    li.classList.toggle("done",done);
+    if(done)got++;
+    if(li.dataset.must){must++;if(done)mustGot++;}
+    const show=filter==="all"||(filter==="must"&&li.dataset.must)||(filter==="todo"&&!done);
+    li.hidden=!show;if(show)shown++;
+  });
+  document.querySelectorAll(".group").forEach(g=>{g.hidden=!g.querySelector(".item:not([hidden])");});
+  $("empty").hidden=shown>0;
+  $("prog-text").textContent=got+" of "+all.length+" sorted";
+  $("prog-must").textContent=mustGot+" of "+must+" must haves";
+  const pct=all.length?got/all.length*100:0;
+  $("bar").style.width=pct+"%";
+  /* the baby crawls along the bar, and celebrates at the end */
+  const cr=$("crawler");
+  cr.style.left="calc("+pct+"% - "+(pct/100*20)+"px)";
+  cr.textContent=pct>=100?"🎉":pct>=50?"🚼":"👶";
+}
+document.querySelectorAll(".filters button").forEach(b=>b.addEventListener("click",()=>{
+  filter=b.dataset.f;
+  document.querySelectorAll(".filters button").forEach(x=>x.setAttribute("aria-pressed",x===b?"true":"false"));
+  refresh();
+}));
+refresh();
+</script>
+<script src="https://kids.sauravsood.com/feedback/bubble.js" data-color="#FFD44A" data-ink="#1D1B3A" data-accent="#3B3BD6" defer></script>
+</body>
+</html>
