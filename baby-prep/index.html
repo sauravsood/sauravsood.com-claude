@@ -157,6 +157,9 @@ section{display:flex;flex-direction:column;gap:14px}
 .links .ic{margin-right:.3em;font-size:.9rem}
 .empty{color:var(--muted);padding:12px 0;text-align:center}
 .empty .ic:first-child{display:grid;font-size:2.4rem;margin:0 auto 8px}
+.fine{display:flex;gap:10px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-left:5px solid var(--sun);border-radius:14px;padding:12px 14px;color:var(--muted);font-size:.95rem}
+.fine b{color:var(--ink)}
+.fine .ic{margin-top:1px}
 /* Whose list */
 .who{background:var(--surface);border:2px dashed var(--line);border-radius:18px;padding:14px;display:flex;flex-direction:column;gap:10px}
 .who[hidden],.who form[hidden],.who-me[hidden]{display:none}
@@ -276,6 +279,7 @@ footer .parade{font-size:1.5rem;margin:0}
   <section aria-labelledby="list-h">
     <h2 id="list-h"><span class="ic" data-i="shopping-cart" aria-hidden="true"></span>The actual list</h2>
     <p class="sub">Tick things off as you get them. Your ticks stay on your phone. <span class="ic" data-i="device-mobile" aria-hidden="true"></span></p>
+    <p class="fine"><span class="ic" data-i="bulb" aria-hidden="true"></span><span><b>Small print:</b> this is not everything you will ever need, just what worked for me. The links are only examples of the kind of thing I mean, so go hunt for your own favourites.</span></p>
     <div class="who" id="who">
       <form id="who-form">
         <label for="who-input"><span class="ic" data-i="hand-stop" aria-hidden="true"></span>Whose list is this?</label>
