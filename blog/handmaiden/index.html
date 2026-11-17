@@ -18,14 +18,35 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <title>Handmaiden: chores without words · Saurav Sood</title>
-<meta name="description" content="Every task app is a list of words. Handmaiden is a picture-first household task app for people who don't read. Why I built it, how it works, and how it was made with Claude.">
+<meta name="description" content="Handmaiden is a household task app where the worker's side is made of pictures, for people who don't read. Why I built it, how it works, and how Claude and I made it.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Gochi+Hand&family=Instrument+Sans:wght@400;600&family=Martian+Mono:wght@400;600&display=swap">
 <link rel="stylesheet" href="../../assets/css/site.css?v=20261111">
 <link rel="stylesheet" href="../assets/blog.css?v=20261111c">
+<link rel="stylesheet" href="../assets/story.css?v=20261117">
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-plant" viewBox="0 0 24 24"><path d="M7 14h10l-1.5 7h-7z"/><path d="M12 14V8"/><path d="M12 10c-3 0-5-2-5-5 3 0 5 2 5 5zM12 8c0-3 2-5 5-5 0 3-2 5-5 5z"/></symbol>
+  <symbol id="i-voice" viewBox="0 0 24 24"><path d="M4 5h16v10H9l-5 4z"/><path d="M8 9v2M11 8v4M14 9.5v1M17 8.5v3"/></symbol>
+  <symbol id="i-words" viewBox="0 0 24 24"><path d="M5 6h14M5 10h10M5 14h12M5 18h7"/></symbol>
+  <symbol id="i-pics" viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><path d="M14 17l2.5 2.5L21 15"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M10.5 18.5h3"/></symbol>
+  <symbol id="i-qr" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM20 14v.01M17 20h4v-3"/></symbol>
+  <symbol id="i-tick" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M7.5 12.5l3 3 6-6.5"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="i-offline" viewBox="0 0 24 24"><path d="M7 18h10a4 4 0 0 0 .5-8 6 6 0 0 0-11.4-1A4.5 4.5 0 0 0 7 18z"/><path d="M3 3l18 18"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/><path d="M7 14l1.5 1.5L11 13M14 15h3"/></symbol>
+  <symbol id="i-copies" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/><path d="M11 14l2 2 4-4"/></symbol>
+  <symbol id="i-review" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M15.5 15.5L20 20"/><path d="M8.5 11l2 2 3-3.5"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V4M4 20h16"/><path d="M8 16v-4M12 16V8M16 16v-6"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10" cy="10" r="6"/><path d="M14.5 14.5L20 20"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 3L5 13h6l-1 8 8-10h-6z"/></symbol>
+  <symbol id="i-rocket" viewBox="0 0 24 24"><path d="M14 4c4 0 6 2 6 6l-7 7-6-6z"/><path d="M7 11l-3 1 2-4 4-1M13 17l-1 3 4-2 1-4"/><circle cx="15" cy="9" r="1.5"/></symbol>
+  <symbol id="i-lang" viewBox="0 0 24 24"><path d="M4 5h8M8 3v2M6 5c0 4 3 7 6 8M10 5c0 4-3 7-6 8"/><path d="M13 21l4-9 4 9M14.5 18h5"/></symbol>
+  <symbol id="i-speaker" viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M16.5 9a4 4 0 0 1 0 6M19 6.5a8 8 0 0 1 0 11"/></symbol>
+</svg>
 <main class="court">
   <header class="topbar">
     <a class="wordmark" href="../../"><span class="dot" aria-hidden="true"></span>sauravsood.com</a>
@@ -41,100 +62,134 @@
     <header class="zone page-head post-head">
       <p class="eyebrow">Blog · November 2026 · Lab</p>
       <h1>Chores without words</h1>
-      <p class="lede">Every task app is a list of words. What if the person doing the work can&rsquo;t read? Meet Handmaiden.</p>
+      <p class="lede">Almost every task app is a list of words. Handmaiden is for homes where the person doing the chores may not read them.</p>
       <a class="try-it" href="https://tasks.sauravsood.com">Open tasks.sauravsood.com <span aria-hidden="true">↗</span></a>
     </header>
 
-    <section class="zone prose post-prose">
-      <p>The plants were supposed to be watered on Monday and Thursday. The fridge gets cleaned on the last day of the month. The brass needs polishing before the festival. In most homes like ours, all of that lives in someone&rsquo;s head, in a phone call, or in a voice note that scrolls out of sight by Wednesday.</p>
-      <p>The person running the house knows <em>what</em> needs doing and <em>when</em>. The person doing it is often a domestic worker who doesn&rsquo;t read, or doesn&rsquo;t read the household&rsquo;s language. And almost every task app ever made is a list of words.</p>
-    </section>
+    <section class="zone story">
+      <figure class="scene">
+        <svg viewBox="0 0 640 300" role="img" aria-label="Drawing: a phone full of chore voice notes and text messages scrolling away">
+          <g fill="none" stroke="#142238" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="210" y="20" width="220" height="270" rx="26" fill="#fff"/>
+            <path d="M300 272h40"/>
+            <path d="M232 60h150a8 8 0 0 1 8 8v22a8 8 0 0 1-8 8H246l-14 10z" fill="#bfe6cf"/>
+            <path d="M256 79h6M268 72v14M280 76v6M292 70v18M304 74v10M316 77v4M328 71v16M340 75v8M352 78v2"/>
+            <path d="M408 124H258a8 8 0 0 0-8 8v22a8 8 0 0 0 8 8h136l14 10z" fill="#d8f03c"/>
+            <path d="M266 143h120"/>
+            <path d="M232 186h150a8 8 0 0 1 8 8v22a8 8 0 0 1-8 8H246l-14 10z" fill="#bfe6cf"/>
+            <path d="M256 205h6M268 198v14M280 202v6M292 196v18M304 200v10M316 203v4M328 197v16"/>
+            <path d="M470 80v140M462 210l8 12 8-12"/>
+          </g>
+          <g font-family="Gochi Hand, cursive" font-size="21" fill="#142238">
+            <text x="30" y="70">water plants</text>
+            <text x="30" y="96">Mon + Thu</text>
+            <text x="30" y="150">clean the fridge</text>
+            <text x="30" y="176">at month end</text>
+            <text x="30" y="230">polish the brass</text>
+            <text x="30" y="256">before the festival</text>
+            <text x="490" y="150">gone by</text>
+            <text x="490" y="176">Wednesday</text>
+          </g>
+        </svg>
+        <figcaption>How chores usually get passed on</figcaption>
+      </figure>
 
-    <section class="zone" aria-labelledby="gap-h">
-      <div class="side-label">
-        <h2 id="gap-h">The gap</h2>
-        <p>Before building anything, we looked at what already exists. Two halves, and nothing that joins them.</p>
+      <div class="chapter">
+        <span class="chapter-no">Chapter 1</span>
+        <h2>The voice notes</h2>
+        <ul class="beats">
+          <li class="beat"><span class="sticker mint"><svg><use href="#i-plant"/></svg></span><p>The plants get watered on Monday and Thursday, the fridge gets cleaned on the last day of the month, and the brass needs polishing before the festival. In most homes like ours, that schedule lives in someone&rsquo;s head.</p></li>
+          <li class="beat"><span class="sticker sky"><svg><use href="#i-voice"/></svg></span><p>It gets passed on in a phone call or a voice note, and by Wednesday the note has scrolled out of sight.</p></li>
+          <li class="beat"><span class="sticker coral"><svg><use href="#i-words"/></svg></span><p>The person running the house knows what needs doing and when. The person doing it is often a domestic worker who doesn&rsquo;t read, or doesn&rsquo;t read the household&rsquo;s language, and almost every task app is a list of words.</p></li>
+        </ul>
       </div>
-      <div class="halves">
-        <div class="half">
-          <h3>Household &amp; to-do apps</h3>
-          <p>Great schedules, several users, reminders.</p>
-          <p class="verdict">All words.</p>
-        </div>
-        <div class="half">
-          <h3>Picture schedule apps</h3>
-          <p>Made for children and non-readers. A picture and a tick really works.</p>
-          <p class="verdict">One device. No one can assign from afar.</p>
-        </div>
-        <div class="half joined">
-          <h3>Handmaiden</h3>
-          <p>A proper admin side for the household, and a worker side made only of pictures.</p>
-        </div>
+      <div class="chapter">
+        <span class="chapter-no">Chapter 2</span>
+        <h2>The gap</h2>
+        <ul class="beats">
+          <li class="beat"><span class="sticker sun"><svg><use href="#i-search"/></svg></span><p>Before building anything, Claude and I looked at what exists. Household and to-do apps have good schedules, several users and reminders, but everything in them is written.</p></li>
+          <li class="beat"><span class="sticker chalk"><svg><use href="#i-pics"/></svg></span><p>Picture schedule apps, made for children and people who don&rsquo;t read, show that a picture and a tick works. They run on one device, though, so nobody can assign a job from elsewhere.</p></li>
+          <li class="beat"><span class="sticker mint"><svg><use href="#i-tick"/></svg></span><p>Handmaiden joins the two: a detailed admin side for the household, and a worker side made of pictures.</p></li>
+        </ul>
       </div>
-    </section>
+      <figure class="scene tilt-r">
+        <svg viewBox="0 0 640 320" role="img" aria-label="Drawing: a phone showing four chore photos in a grid and a big tick button, next to a picture code of sun, flower, cup and star">
+          <g fill="none" stroke="#142238" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="60" y="14" width="200" height="292" rx="24" fill="#fff"/>
+            <rect x="80" y="44" width="76" height="76" rx="10" fill="#bfe6cf"/>
+            <path d="M104 96h28l-4 16h-20zM118 96V76M118 82c-8 0-12-6-12-12 8 0 12 6 12 12zM118 78c0-8 6-12 12-12 0 8-6 12-12 12z"/>
+            <rect x="164" y="44" width="76" height="76" rx="10" fill="#bcd6f4"/>
+            <path d="M186 58h32v52h-32zM186 78h32M192 66v6M192 86v10"/>
+            <rect x="80" y="128" width="76" height="76" rx="10" fill="#ffd44a"/>
+            <path d="M100 186h36M104 186c-6-24 2-34 14-34s20 10 14 34M112 152c0-6 12-6 12 0"/>
+            <rect x="164" y="128" width="76" height="76" rx="10" fill="#ffb59c"/>
+            <path d="M200 140v40M188 180h24l4 14h-32zM196 180v14M204 180v14"/>
+            <circle cx="160" cy="250" r="30" fill="#2f7d5b"/>
+            <path d="M146 250l10 10 18-20" stroke="#fff" stroke-width="6"/>
+            <rect x="330" y="110" width="66" height="66" rx="12" fill="#ffd44a"/>
+            <circle cx="363" cy="143" r="12"/><path d="M363 120v4M363 162v4M340 143h4M382 143h4"/>
+            <rect x="404" y="110" width="66" height="66" rx="12" fill="#ffb59c"/>
+            <circle cx="437" cy="143" r="6"/><path d="M437 137c-10-14 10-14 0 0M443 143c14-10 14 10 0 0M437 149c10 14-10 14 0 0M431 143c-14 10-14-10 0 0"/>
+            <rect x="478" y="110" width="66" height="66" rx="12" fill="#bcd6f4"/>
+            <path d="M496 132h28v18a10 10 0 0 1-10 10h-8a10 10 0 0 1-10-10zM524 136h6a5 5 0 0 1 0 10h-6"/>
+            <rect x="552" y="110" width="66" height="66" rx="12" fill="#bfe6cf"/>
+            <path d="M585 124l5 11 12 1-9 8 3 12-11-6-11 6 3-12-9-8 12-1z"/>
+          </g>
+          <g font-family="Gochi Hand, cursive" font-size="22" fill="#142238" text-anchor="middle">
+            <text x="474" y="216">a PIN made of pictures</text>
+            <text x="474" y="84">today&rsquo;s jobs, one tick each</text>
+          </g>
+        </svg>
+        <figcaption>The worker&rsquo;s side</figcaption>
+      </figure>
 
-    <section class="zone" aria-labelledby="worker-h">
-      <div class="side-label">
-        <h2 id="worker-h">For the worker</h2>
-        <p>Designed for someone most software leaves out. On a cheap Android phone.</p>
+      <div class="chapter">
+        <span class="chapter-no">Chapter 3</span>
+        <h2>For the worker</h2>
+        <ul class="beats">
+          <li class="beat"><span class="sticker sky"><svg><use href="#i-qr"/></svg></span><p>Signing in takes no typing. The worker scans a QR code, sees their own face and taps a four-picture code, which works like a PIN made of pictures.</p></li>
+          <li class="beat"><span class="sticker sun"><svg><use href="#i-phone"/></svg></span><p>Today&rsquo;s jobs show up as a grid of big photos on a cheap Android phone. Tapping one opens its steps as pictures.</p></li>
+          <li class="beat"><span class="sticker mint"><svg><use href="#i-tick"/></svg></span><p>When a job is done, the worker taps a big tick. The app asks for a photo as proof only when the task needs one.</p></li>
+          <li class="beat"><span class="sticker coral"><svg><use href="#i-sun"/></svg></span><p>Time of day is shown as a picture instead of a clock. A small toggle shows the written task, so the worker can hand the phone to someone who reads.</p></li>
+          <li class="beat"><span class="sticker chalk"><svg><use href="#i-offline"/></svg></span><p>The app installs to the home screen and keeps the ticks until the signal comes back.</p></li>
+        </ul>
       </div>
-      <ul class="facts">
-        <li><b>No typing</b><span>Scan a QR code, see your own face, tap a four-picture code. A PIN made of pictures.</span></li>
-        <li><b>Big photos</b><span>Today&rsquo;s jobs are a grid of photos. Tap one for picture steps.</span></li>
-        <li><b>One tick</b><span>Done? Tap the big tick. A photo as proof only when the task asks for it.</span></li>
-        <li><b>No clocks</b><span>Time of day is shown as a picture, not as numbers.</span></li>
-        <li><b>Words optional</b><span>A small toggle shows the written task, so it can be shown to someone who reads.</span></li>
-        <li><b>Offline</b><span>Installs to the home screen. Ticks are sent when the signal comes back.</span></li>
-      </ul>
-    </section>
-
-    <section class="zone" aria-labelledby="admin-h">
-      <div class="side-label">
-        <h2 id="admin-h">For the household</h2>
-        <p>The admin side can be as detailed as you like.</p>
+      <div class="chapter">
+        <span class="chapter-no">Chapter 4</span>
+        <h2>For the household</h2>
+        <ul class="beats">
+          <li class="beat"><span class="sticker sun"><svg><use href="#i-calendar"/></svg></span><p>The admin side can be as detailed as you like. A task can repeat every few days, weeks, months or years, on chosen weekdays, on the last day of the month, or 10 days after it was last done.</p></li>
+          <li class="beat"><span class="sticker sky"><svg><use href="#i-copies"/></svg></span><p>A task assigned to three people gives each of them their own copy, so one person&rsquo;s tick can&rsquo;t hide someone else&rsquo;s work.</p></li>
+          <li class="beat"><span class="sticker coral"><svg><use href="#i-review"/></svg></span><p>The household can approve, flag, comment with a photo or send a task back. Every attempt stays in the history, the way an issue tracker keeps it.</p></li>
+          <li class="beat"><span class="sticker mint"><svg><use href="#i-chart"/></svg></span><p>There&rsquo;s a today board, an overdue list, days off and leave, several admins per home, and on-time rates and streaks that export to CSV.</p></li>
+        </ul>
       </div>
-      <ul class="facts">
-        <li><b>Schedules</b><span>Once, or every few days, weeks, months or years. Chosen weekdays, &ldquo;last day of the month&rdquo;, or &ldquo;10 days after it was last done&rdquo;.</span></li>
-        <li><b>Photos</b><span>A cover photo, more pictures, picture steps, priority, labels and time of day.</span></li>
-        <li><b>One each</b><span>Assign a task to three people and each gets their own copy, so nobody&rsquo;s tick hides someone else&rsquo;s.</span></li>
-        <li><b>Review</b><span>Approve, flag, comment with a photo, or send it back. Every attempt is kept, like an issue tracker&rsquo;s history.</span></li>
-        <li><b>Day to day</b><span>Today board, overdue list, skip a day, leave, live updates. Several admins per home.</span></li>
-        <li><b>Trends</b><span>On-time rates, streaks, workload and a gallery of proof photos, with CSV export.</span></li>
-      </ul>
-    </section>
-
-    <section class="zone" aria-labelledby="built-h">
-      <div class="side-label">
-        <h2 id="built-h">How it was built</h2>
-        <p>Idea to live app in about a week, with Claude as the engineer and me making the product calls.</p>
+      <div class="chapter">
+        <span class="chapter-no">Chapter 5</span>
+        <h2>About a week</h2>
+        <ul class="beats">
+          <li class="beat"><span class="sticker chalk"><svg><use href="#i-search"/></svg></span><p>25 Oct: Claude surveyed existing apps and recommended a small custom build that borrows a proven scheduling model.</p></li>
+          <li class="beat"><span class="sticker sun"><svg><use href="#i-tick"/></svg></span><p>28 Oct: we settled the rules. Photo proof only when asked, one copy per worker, text behind a toggle and a full review history.</p></li>
+          <li class="beat"><span class="sticker coral"><svg><use href="#i-bolt"/></svg></span><p>30 Oct: Claude built the database, security rules, schedules, both apps, sign-in, analytics, offline support and tests in one day.</p></li>
+          <li class="beat"><span class="sticker mint"><svg><use href="#i-rocket"/></svg></span><p>31 Oct: it went live at tasks.sauravsood.com. The first polish fix followed on 2 Nov.</p></li>
+        </ul>
       </div>
-      <ol class="timeline">
-        <li><time datetime="2026-10-25">25 Oct</time><span>Research. Claude surveyed the existing apps and recommended a small custom build, borrowing a proven scheduling model instead of inventing one.</span></li>
-        <li><time datetime="2026-10-28">28 Oct</time><span>Decisions. Photo proof only when asked, one copy per worker, text behind a toggle, full review history.</span></li>
-        <li><time datetime="2026-10-30">30 Oct</time><span>Build. Database, security rules, schedules, both apps, sign-in, analytics, offline support and tests, in one day.</span></li>
-        <li><time datetime="2026-10-31">31 Oct</time><span>Live at tasks.sauravsood.com.</span></li>
-        <li><time datetime="2026-11-02">2 Nov</time><span>First polish fix.</span></li>
-      </ol>
-    </section>
-
-    <section class="zone prose post-prose">
-      <p>Under the hood it&rsquo;s React and TypeScript on Cloudflare, with Supabase for the database, sign-in, photos and live updates. Each household only ever sees its own data. Repeating tasks are worked out inside the database on a timer, and a test throws hundreds of random schedules at the app and the database to make sure they agree.</p>
-      <p>What I liked most was the split. I decided what mattered for the people using it. Claude did the research, wrote the code and set up the hosting.</p>
-    </section>
-
-    <section class="zone" aria-labelledby="next-h">
-      <div class="side-label">
-        <h2 id="next-h">What&rsquo;s next</h2>
-        <p>Even fewer words.</p>
+      <div class="prose post-prose">
+        <p>It runs on React and TypeScript on Cloudflare, with Supabase for the database, sign-in, photos and live updates. Each household sees only its own data. The database works out repeating tasks on a timer, and a test throws hundreds of random schedules at both the app and the database to check that they agree.</p>
+        <p>I decided what mattered for the people using it. Claude did the research, wrote the code and set up the hosting.</p>
       </div>
-      <ul class="facts">
-        <li><b>Languages</b><span>The admin writes in their language; the worker reads in theirs. Translated automatically.</span></li>
-        <li><b>Voice</b><span>Record a spoken instruction. It plays from a speaker button on the photo.</span></li>
-      </ul>
+
+      <div class="chapter">
+        <span class="chapter-no">Up next</span>
+        <ul class="beats">
+          <li class="beat"><span class="sticker sky"><svg><use href="#i-lang"/></svg></span><p>The admin will write in their language and the worker will read in theirs, translated automatically.</p></li>
+          <li class="beat"><span class="sticker sun"><svg><use href="#i-speaker"/></svg></span><p>The admin will be able to record a spoken instruction that plays from a speaker button on the photo.</p></li>
+        </ul>
+      </div>
     </section>
 
     <footer class="zone post-sign">
-      <p class="hand sign">Software that respects the person doing the work.</p>
+      <p class="hand sign">Made for the person doing the work</p>
       <a class="try-it" href="https://tasks.sauravsood.com">Open Handmaiden <span aria-hidden="true">↗</span></a>
     </footer>
   </article>

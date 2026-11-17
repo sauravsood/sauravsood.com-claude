@@ -24,8 +24,28 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Gochi+Hand&family=Instrument+Sans:wght@400;600&family=Martian+Mono:wght@400;600&display=swap">
 <link rel="stylesheet" href="../../assets/css/site.css?v=20261111">
 <link rel="stylesheet" href="../assets/blog.css?v=20261111c">
+<link rel="stylesheet" href="../assets/story.css?v=20261117">
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-palm" viewBox="0 0 24 24"><path d="M8 13V5.5a1.5 1.5 0 0 1 3 0V12M11 11V4a1.5 1.5 0 0 1 3 0v7M14 11V5.5a1.5 1.5 0 0 1 3 0V13"/><path d="M17 9.5a1.5 1.5 0 0 1 3 0V14a7 7 0 0 1-7 7h-1a6 6 0 0 1-5-2.7L4.3 15a1.6 1.6 0 0 1 2.6-1.8L8 14.5"/></symbol>
+  <symbol id="i-buttons" viewBox="0 0 24 24"><rect x="3" y="3" width="5" height="5" rx="1"/><rect x="10" y="3" width="5" height="5" rx="1"/><rect x="17" y="3" width="4" height="5" rx="1"/><rect x="3" y="10" width="5" height="5" rx="1"/><rect x="10" y="10" width="5" height="5" rx="1"/><path d="M15 15l6 6M21 15l-6 6"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10" cy="10" r="6"/><path d="M14.5 14.5L20 20"/><path d="M7.5 10.5c1-2 2.5-2.5 4-1.5"/></symbol>
+  <symbol id="i-crayon" viewBox="0 0 24 24"><path d="M4 20l2-6L16 4l4 4-10 10z"/><path d="M13 7l4 4M6 14l4 4"/><path d="M3 21c4 0 5-2 8-1"/></symbol>
+  <symbol id="i-timer" viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M10 2h4"/></symbol>
+  <symbol id="i-grip" viewBox="0 0 24 24"><path d="M14 3l7 7-9 9-4 1 1-4z"/><path d="M12 5l7 7"/><path d="M3 21l5-1"/></symbol>
+  <symbol id="i-dots" viewBox="0 0 24 24"><path d="M4 18c3-10 7 2 9-6s5-6 7-8" stroke-dasharray=".1 4"/><circle cx="4" cy="18" r="1.5"/><path d="M18 3l2 1-1 2"/></symbol>
+  <symbol id="i-shapes" viewBox="0 0 24 24"><circle cx="7" cy="7" r="4"/><rect x="13" y="13" width="8" height="8" rx="1"/><path d="M17 3l4 7h-8z"/><path d="M3 20c2-4 4-4 6 0"/></symbol>
+  <symbol id="i-palette" viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0 0 18c1.5 0 2-1 1.5-2s0-2 1.5-2H18a3 3 0 0 0 3-3c0-6-4-11-9-11z"/><circle cx="7.5" cy="11" r="1.2"/><circle cx="10" cy="7" r="1.2"/><circle cx="15" cy="7.5" r="1.2"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 19c0-8 5-14 15-14 0 10-6 15-14 15"/><path d="M5 19c3-4 6-7 10-9"/></symbol>
+  <symbol id="i-dino" viewBox="0 0 24 24"><path d="M3 19c2-4 5-6 8-6l2-5c1-3 5-3 6-1 1 1 0 3-2 3l-2 3c2 1 3 3 3 6"/><path d="M8 19v-3M15 19v-3"/><circle cx="17" cy="7.5" r=".6" fill="currentColor"/></symbol>
+  <symbol id="i-camera" viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13.5" r="3.5"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M3 5c3-1 6-1 9 1v14c-3-2-6-2-9-1z"/><path d="M21 5c-3-1-6-1-9 1v14c3-2 6-2 9-1z"/></symbol>
+  <symbol id="i-speaker" viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M16.5 9a4 4 0 0 1 0 6M19 6.5a8 8 0 0 1 0 11"/></symbol>
+  <symbol id="i-kids" viewBox="0 0 24 24"><circle cx="8" cy="7" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-4 2.5-6 5-6s5 2 5 6M13.5 20c.5-3 2-5 3.5-5s3.5 2 3.5 5"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3l2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.4 6.7 19.4l1.2-6L3.4 9.3l6-.7z"/></symbol>
+  <symbol id="i-offline" viewBox="0 0 24 24"><path d="M7 18h10a4 4 0 0 0 .5-8 6 6 0 0 0-11.4-1A4.5 4.5 0 0 0 7 18z"/><path d="M3 3l18 18"/></symbol>
+</svg>
 <main class="court">
   <header class="topbar">
     <a class="wordmark" href="../../"><span class="dot" aria-hidden="true"></span>sauravsood.com</a>
@@ -41,86 +61,148 @@
     <header class="zone page-head post-head">
       <p class="eyebrow">Blog · November 2026 · Lab</p>
       <h1>Trace</h1>
-      <p class="lede">Pick an animal. Follow the dots. Colour it in. A tiny drawing app for kids, made for the iPad and Apple Pencil.</p>
-      <a class="try-it" href="https://kids.sauravsood.com">Try it at kids.sauravsood.com <span aria-hidden="true">↗</span></a>
+      <p class="lede">Kids pick an animal, trace its dotted outline with an Apple Pencil and colour it in. I built the first version in a morning, and it has grown since.</p>
+      <a class="try-it" href="https://kids.sauravsood.com/trace/">Try it at kids.sauravsood.com <span aria-hidden="true">↗</span></a>
     </header>
 
-    <section class="zone" aria-labelledby="look-h">
-      <div class="side-label">
-        <h2 id="look-h">Two screens</h2>
-        <p>Choose an animal, then draw. That&rsquo;s the whole app. Tap a picture to see it bigger.</p>
+    <section class="zone story">
+      <figure class="scene">
+        <svg viewBox="0 0 640 300" role="img" aria-label="Drawing: an iPad crowded with buttons and a palm smudge, next to a calm iPad with one dotted cat">
+          <g fill="none" stroke="#142238" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="40" y="40" width="250" height="200" rx="18" fill="#fff"/>
+            <path d="M60 62h18M86 62h18M112 62h18M138 62h18M164 62h18M190 62h18M216 62h18M242 62h18M60 82h200" />
+            <rect x="248" y="96" width="30" height="120" rx="4" fill="#bcd6f4"/>
+            <path d="M80 150c20-30 60-20 70 10" />
+            <path d="M150 190c10-12 50-14 70 4 10 10-10 30-40 30-26 0-40-20-30-34z" fill="#ffb59c" stroke="none" opacity=".7"/>
+            <rect x="350" y="40" width="250" height="200" rx="18" fill="#fff"/>
+            <g stroke-dasharray=".1 11">
+              <path d="M430 190c-14-40 0-80 40-80s54 40 40 80z"/>
+              <path d="M440 120l-8-28 26 18M500 120l8-28-26 18"/>
+            </g>
+            <path d="M430 190c-10-30-2-56 20-70" stroke="#e2683f" stroke-width="6"/>
+            <path d="M560 216l8 6M572 208l8-2M566 196l4-8" stroke="#d8f03c" stroke-width="5"/>
+          </g>
+          <g font-family="Gochi Hand, cursive" font-size="22" fill="#142238" text-anchor="middle">
+            <text x="165" y="272">most drawing apps</text>
+            <text x="475" y="272">Trace</text>
+          </g>
+          <text x="320" y="150" font-family="Big Shoulders Display, Impact, sans-serif" font-weight="900" font-size="40" fill="#e2683f" text-anchor="middle">VS</text>
+        </svg>
+        <figcaption>Most drawing apps, and Trace</figcaption>
+      </figure>
+
+      <div class="chapter">
+        <span class="chapter-no">Chapter 1</span>
+        <h2>The smudge</h2>
+        <ul class="beats">
+          <li class="beat"><span class="sticker coral"><svg><use href="#i-buttons"/></svg></span><p>Kids love drawing on an iPad, but most drawing apps are made for adults, with rows of buttons and menus that open by accident.</p></li>
+          <li class="beat"><span class="sticker sun"><svg><use href="#i-palm"/></svg></span><p>A palm resting on the glass leaves a stray mark every time it touches.</p></li>
+          <li class="beat"><span class="sticker mint"><svg><use href="#i-star"/></svg></span><p>I wanted an app a child could use alone, with big pictures, big colours and nothing to read.</p></li>
+        </ul>
       </div>
+
+      <div class="chapter">
+        <span class="chapter-no">Chapter 2</span>
+        <h2>One morning</h2>
+        <ul class="beats">
+          <li class="beat"><span class="sticker sky"><svg><use href="#i-search"/></svg></span><p>I asked Claude to see what already exists on GitHub. It picked <a href="https://github.com/steveruizok/perfect-freehand">perfect-freehand</a>, a small library that turns Pencil pressure into strokes that look hand-drawn.</p></li>
+          <li class="beat"><span class="sticker sun"><svg><use href="#i-crayon"/></svg></span><p>The rest is plain HTML with no build step. The dotted animal sits under a see-through drawing layer, so scribbles never cover the dots.</p></li>
+          <li class="beat"><span class="sticker chalk"><svg><use href="#i-timer"/></svg></span><p>It took about an hour from my first question to the app going live. I made the calls, and Claude wrote the code and drew the animals.</p></li>
+        </ul>
+      </div>
+
       <div class="photo-grid two">
         <figure class="photo screen tilt-l">
-          <button class="frame" type="button" data-src="photos/01.png" aria-label="Open screenshot: the animal picker">
-            <img src="photos/01.png" alt="Eight animal outlines on coloured tiles: cat, dog, fish, elephant, lion, bird, turtle and butterfly" loading="lazy">
-            <span class="empty-note">photos/01.png<br>animal picker</span>
+          <button class="frame" type="button" data-src="photos/01.png" aria-label="Open screenshot: Pick one.">
+            <img src="photos/01.png" alt="Animal outlines on coloured tiles" loading="lazy">
+            <span class="empty-note">photos/01.png</span>
           </button>
-          <figcaption>Pick one.</figcaption>
+          <figcaption>Pick an animal</figcaption>
         </figure>
         <figure class="photo screen tilt-r">
-          <button class="frame" type="button" data-src="photos/02.png" aria-label="Open screenshot: tracing the lion">
-            <img src="photos/02.png" alt="The lion as a dotted outline, partly traced in red and blue, with colour and crayon buttons below" loading="lazy">
-            <span class="empty-note">photos/02.png<br>tracing the lion</span>
+          <button class="frame" type="button" data-src="photos/02.png" aria-label="Open screenshot: Trace it.">
+            <img src="photos/02.png" alt="The lion as a dotted outline, partly traced in red and blue" loading="lazy">
+            <span class="empty-note">photos/02.png</span>
           </button>
-          <figcaption>Trace it.</figcaption>
+          <figcaption>Then trace it</figcaption>
         </figure>
       </div>
-    </section>
 
-    <section class="zone prose post-prose">
-      <p>Kids love drawing on an iPad, but most drawing apps are built for grown-ups. Too many buttons, menus that open by accident, and a palm resting on the glass that leaves a smudge every time. I wanted something a child could pick up and use on their own: big pictures, big colours, no reading.</p>
-      <p>So Trace is just that. Eight animals, each shown as a dotted outline. Draw over the dots in any colour you like. When you&rsquo;re done, tap the star.</p>
-    </section>
-
-    <section class="zone" aria-labelledby="helps-h">
-      <div class="side-label">
-        <h2 id="helps-h">How it helps</h2>
-        <p>Play first. The practice sneaks in.</p>
+      <div class="chapter">
+        <span class="chapter-no">Chapter 3</span>
+        <h2>What kids practise</h2>
+        <ul class="beats">
+          <li class="beat"><span class="sticker sun"><svg><use href="#i-grip"/></svg></span><p>A child holds the Pencil the same way they&rsquo;ll later hold a pencil to write.</p></li>
+          <li class="beat"><span class="sticker coral"><svg><use href="#i-dots"/></svg></span><p>Following dots makes them slow down, steer and stop on purpose.</p></li>
+          <li class="beat"><span class="sticker sky"><svg><use href="#i-shapes"/></svg></span><p>The curves, loops and straight lines in the animals are the same strokes that later turn into letters.</p></li>
+          <li class="beat"><span class="sticker mint"><svg><use href="#i-palette"/></svg></span><p>There are eleven colours to name and pick, and yes, the lion can be blue.</p></li>
+          <li class="beat"><span class="sticker chalk"><svg><use href="#i-leaf"/></svg></span><p>There are no ads, timers or scores, and nothing to buy.</p></li>
+        </ul>
       </div>
-      <ul class="facts">
-        <li><b>Grip</b><span>Holding a Pencil is holding a pencil. Same grip they&rsquo;ll use for writing.</span></li>
-        <li><b>Control</b><span>Following dots means slowing down, steering and stopping on purpose.</span></li>
-        <li><b>Shapes</b><span>Curves, loops and straight lines, the same strokes that later become letters.</span></li>
-        <li><b>Colours</b><span>Eleven to name, pick and mix. &ldquo;Can the lion be blue?&rdquo; Yes.</span></li>
-        <li><b>Calm</b><span>No ads, no timers, no scores. Nothing to buy. Nothing to lose.</span></li>
-      </ul>
-    </section>
 
-    <section class="zone" aria-labelledby="inside-h">
-      <div class="side-label">
-        <h2 id="inside-h">What&rsquo;s inside</h2>
-        <p>Small on purpose.</p>
+      <div class="chapter">
+        <span class="chapter-no">Chapter 4</span>
+        <h2>What came later</h2>
+        <ul class="beats">
+          <li class="beat"><span class="sticker mint"><svg><use href="#i-dino"/></svg></span><p>The first eight animals are now 32, sorted into land, water, farm, sky and dinosaurs.</p></li>
+          <li class="beat"><span class="sticker coral"><svg><use href="#i-camera"/></svg></span><p>With My Animals, a kid photographs an animal at home, or a toy, and the iPad turns the photo into a dotted outline to trace.</p></li>
+        </ul>
       </div>
-      <ul class="facts">
-        <li><b>8 animals</b><span>Cat, dog, fish, elephant, lion, bird, turtle, butterfly. All drawn from scratch, so there are no licence worries.</span></li>
-        <li><b>Pressure</b><span>Press harder, the line gets thicker, like a real crayon.</span></li>
-        <li><b>Palm-proof</b><span>Once the Pencil touches the screen, hands are ignored for a minute.</span></li>
-        <li><b>11 · 3</b><span>Eleven colours and three crayon sizes, plus an eraser and undo.</span></li>
-        <li><b>Saved</b><span>Each animal remembers its drawing on the iPad. Come back to it later.</span></li>
-        <li><b>Confetti</b><span>The star button. Every finished animal deserves a party.</span></li>
-      </ul>
-    </section>
 
-    <section class="zone prose post-prose">
-      <p>Clear needs two taps, so one stray tap can&rsquo;t wipe out a masterpiece. And if you add it to the iPad&rsquo;s home screen, it opens full screen like a real app, with no browser bars to poke at.</p>
-    </section>
-
-    <section class="zone" aria-labelledby="built-h">
-      <div class="side-label">
-        <h2 id="built-h">How it was built</h2>
-        <p>One morning, with Claude as the engineer.</p>
+      <div class="photo-grid two">
+        <figure class="photo screen tilt-r">
+          <button class="frame" type="button" data-src="photos/03.png" aria-label="Open screenshot: Dinosaurs, obviously.">
+            <img src="photos/03.png" alt="Dinosaur outlines on coloured tiles" loading="lazy">
+            <span class="empty-note">photos/03.png</span>
+          </button>
+          <figcaption>The dinosaur shelf</figcaption>
+        </figure>
+        <figure class="photo screen tilt-l">
+          <button class="frame" type="button" data-src="photos/04.png" aria-label="Open screenshot: Your own animal.">
+            <img src="photos/04.png" alt="A photo of a chicken turned into a traceable outline" loading="lazy">
+            <span class="empty-note">photos/04.png</span>
+          </button>
+          <figcaption>A photo turned into an outline</figcaption>
+        </figure>
       </div>
-      <div class="prose post-prose">
-        <p>I asked Claude to look at what already exists on GitHub for drawing with a Pencil in the browser. The pick was <a href="https://github.com/steveruizok/perfect-freehand">perfect-freehand</a>, a tiny open-source library that turns Pencil pressure into strokes that look hand-drawn. Bigger whiteboard toolkits were far more than a tracing page needs.</p>
-        <p>The rest is plain HTML, CSS and JavaScript, with no build step. The dotted animal sits under a see-through drawing layer, so scribbles never hide the lines. It&rsquo;s hosted on Cloudflare at its own address, <a href="https://kids.sauravsood.com">kids.sauravsood.com</a>, because more kids&rsquo; apps will live there.</p>
-        <p>From the first question to the app going up took about an hour. I made the calls; Claude wrote the code, drew the animals and fixed the one deploy hiccup along the way.</p>
+
+      <div class="chapter">
+        <ul class="beats">
+          <li class="beat"><span class="sticker sun"><svg><use href="#i-book"/></svg></span><p>When a drawing is finished, Animate now puts it in an old nursery-rhyme picture book, and the pages curl as you turn them.</p></li>
+          <li class="beat"><span class="sticker sky"><svg><use href="#i-speaker"/></svg></span><p>A green play button reads each page aloud and turns to the next one.</p></li>
+        </ul>
+      </div>
+
+      <div class="photo-grid two">
+        <figure class="photo screen tilt-l">
+          <button class="frame" type="button" data-src="photos/05.png" aria-label="Open screenshot: Turn the page.">
+            <img src="photos/05.png" alt="A picture book open mid page-turn: Baa, baa, black sheep" loading="lazy">
+            <span class="empty-note">photos/05.png</span>
+          </button>
+          <figcaption>Baa, baa, black sheep, mid page-turn</figcaption>
+        </figure>
+        <figure class="photo screen tilt-r">
+          <button class="frame" type="button" data-src="photos/06.png" aria-label="Open screenshot: Pick a rhyme.">
+            <img src="photos/06.png" alt="A shelf of nursery-rhyme books for the sheep" loading="lazy">
+            <span class="empty-note">photos/06.png</span>
+          </button>
+          <figcaption>Rhymes that suit the sheep</figcaption>
+        </figure>
+      </div>
+
+      <div class="chapter">
+        <span class="chapter-no">The grown-up details</span>
+        <ul class="beats">
+          <li class="beat"><span class="sticker coral"><svg><use href="#i-palm"/></svg></span><p>Once the Pencil touches the screen, the app ignores hands for a minute.</p></li>
+          <li class="beat"><span class="sticker mint"><svg><use href="#i-kids"/></svg></span><p>Several kids can share one iPad, each with their own drawings. Adding a kid needs a grown-up.</p></li>
+          <li class="beat"><span class="sticker chalk"><svg><use href="#i-offline"/></svg></span><p>Drawings are saved, and the app keeps working offline.</p></li>
+        </ul>
       </div>
     </section>
 
     <footer class="zone post-sign">
-      <p class="hand sign">More apps for small people are on the way.</p>
-      <a class="try-it" href="https://kids.sauravsood.com">Open Trace <span aria-hidden="true">↗</span></a>
+      <p class="hand sign">More apps for small kids are on the way</p>
+      <a class="try-it" href="https://kids.sauravsood.com/trace/">Open Trace <span aria-hidden="true">↗</span></a>
     </footer>
   </article>
 </main>
