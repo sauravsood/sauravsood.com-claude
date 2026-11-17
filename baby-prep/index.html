@@ -151,6 +151,7 @@ section{display:flex;flex-direction:column;gap:14px}
 .chip .ic{margin-right:.3em;font-size:.85rem;vertical-align:-1px}
 .chip.must{background:var(--sun);color:var(--sun-ink)}
 .chip.other{border:1.5px solid var(--line);color:var(--muted)}
+.chip.mum{background:var(--trap);color:var(--trap-ink)}
 .item-body{grid-column:2;display:flex;flex-direction:column;gap:6px}
 .note{color:var(--muted);font-size:.95rem}
 .links{display:flex;flex-wrap:wrap;gap:6px 14px;font-weight:700;font-size:.9rem}
@@ -391,9 +392,10 @@ const LIST = [
   {n:"Portable nebuliser", e:"nebuliser", v:"Yes", c:"Get any.", l:[[A,"https://amzn.in/d/0hbSRQDB"]]},
   {n:"Ear buds", e:"swab", v:"Yes", c:"", l:[[A,"https://amzn.in/d/0b1JV3pw"]]},
   {n:"Hair brush", e:"hairbrush", v:"Yes", c:"In case your kid has hair to begin with.", l:[[A,"https://amzn.in/d/04DDDQik"]]},
-  {n:"Rash cream", e:"cream-tube", v:"Yes", c:"Sebamed products.", l:[["Apollo Pharmacy","https://www.apollopharmacy.in/otc/sebamed-baby-diaper-rash-cr-100g"]]},
-  {n:"Lotion", e:"lotion", v:"Yes", c:"Sebamed products.", l:[["Apollo Pharmacy","https://www.apollopharmacy.in/otc/sebamed-baby-lotion-100ml"]]},
-  {n:"Massage oil", e:"oil-bottle", v:"Yes", c:"Sebamed products.", l:[["Apollo Pharmacy","https://www.apollopharmacy.in/otc/sebamed-baby-soothing-massage-oil-150ml"]]}
+  {n:"Rash cream", e:"cream-tube", v:"Yes", c:"Sebamed products.", cl:["Sebamed Baby Diaper Rash Cream","https://www.apollopharmacy.in/otc/sebamed-baby-diaper-rash-cr-100g"], l:[]},
+  {n:"Lotion", e:"lotion", v:"Yes", c:"Sebamed products.", cl:["Sebamed Baby Lotion","https://www.apollopharmacy.in/otc/sebamed-baby-lotion-100ml"], l:[]},
+  {n:"Massage oil", e:"oil-bottle", v:"Yes", c:"Sebamed products.", cl:["Sebamed Baby Soothing Massage Oil","https://www.apollopharmacy.in/otc/sebamed-baby-soothing-massage-oil-150ml"], l:[]},
+  {n:"Maternity diapers", e:"diaper", v:"Yes", mum:1, c:"Disposable postpartum pants for the first couple of weeks after delivery. Pick your size on the page.", l:[["Apollo Pharmacy","https://www.apollopharmacy.in/otc/prowee-pregawear-heavy-discharge-panty-s"]]}
  ]},
  {g:"Play and outings", e:"balloon", items:[
   {n:"Sensory mat plus contrast", e:"play-gym", v:"", c:"", l:[[A,"https://amzn.in/d/0fTTgiMX"]]},
@@ -506,11 +508,14 @@ LIST.forEach((grp,gi)=>{
       else if(isMust(it.v)){ch.className="chip must";ch.appendChild(emo("egg"));ch.appendChild(document.createTextNode("Must for first timers"));}
       else{ch.className="chip other";ch.appendChild(emo("question-mark"));ch.appendChild(document.createTextNode(it.v));}
       head.appendChild(ch);}
+    if(it.mum){const m=document.createElement("span");m.className="chip mum";m.appendChild(emo("user-heart"));m.appendChild(document.createTextNode("For mum"));head.appendChild(m);}
     head.appendChild(emo("sparkles","yay plain"));
     li.appendChild(cb);li.appendChild(head);
     if(it.c||it.l.length){
       const body=document.createElement("div");body.className="item-body";
-      if(it.c){const p=document.createElement("p");p.className="note";p.textContent=it.c;body.appendChild(p);}
+      if(it.c){const p=document.createElement("p");p.className="note";p.textContent=it.c;
+        if(it.cl){const a=document.createElement("a");a.href=it.cl[1];a.target="_blank";a.rel="noopener";a.textContent=it.cl[0]+" ↗";p.appendChild(document.createTextNode(" Try "));p.appendChild(a);p.appendChild(document.createTextNode("."));}
+        body.appendChild(p);}
       if(it.l.length){const d=document.createElement("div");d.className="links";
         it.l.forEach(([t,u])=>{const a=document.createElement("a");a.href=u;a.target="_blank";a.rel="noopener";a.appendChild(emo("shopping-cart"));a.appendChild(document.createTextNode(t+" ↗"));d.appendChild(a);});
         body.appendChild(d);}
