@@ -421,16 +421,13 @@ function setIcon(el,name){
 function emo(name,cls){const s=document.createElement("span");s.className="ic"+(cls?" "+cls:"");s.setAttribute("aria-hidden","true");setIcon(s,name);return s;}
 document.querySelectorAll(".ic[data-i]").forEach(el=>{const n=el.dataset.i;delete el.dataset.i;setIcon(el,n);});
 
-/* ---------- entrance: once per visit ---------- */
+/* ---------- entrance: on every load ---------- */
 (function(){
-  const pop=$("pop"), SEEN="babyprep-pop";
-  let seen=false; try{seen=!!sessionStorage.getItem(SEEN);}catch(e){}
-  if(seen)return;
+  const pop=$("pop");
   const still=matchMedia("(prefers-reduced-motion: reduce)").matches;
   let closing=false;
   function close(burst){
     if(closing)return; closing=true;
-    try{sessionStorage.setItem(SEEN,"1");}catch(e){}
     document.removeEventListener("keydown",onKey);
     const done=()=>{pop.hidden=true;document.documentElement.style.overflow="";};
     if(still||!burst){done();return;}
