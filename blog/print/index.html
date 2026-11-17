@@ -44,6 +44,7 @@
   <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.4.3.5.7.5 1.1v1h6v-1c0-.4.1-.8.5-1.1A6 6 0 0 0 12 3z"/></symbol>
   <symbol id="i-old" viewBox="0 0 24 24"><rect x="6" y="5" width="12" height="15" rx="2"/><path d="M9 9h2M13 9h2M9 12h2M13 12h2"/><path d="M6 16h12"/><path d="M8 5V3M16 5V3M12 5V3"/></symbol>
   <symbol id="i-web" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></symbol>
+  <symbol id="i-party" viewBox="0 0 24 24"><path d="M4 20l4-12 8 8z"/><path d="M6 14l4 4M14 4l1 2M19 5l-2 2M20 10l-2 .5M15 9c1-2 3-2 4-1"/></symbol>
   <symbol id="i-shot" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M6 8h6M6 11h9M6 14h4"/><path d="M15 15l3 3-3 3" /></symbol>
 </svg>
 <main class="court">
@@ -61,7 +62,7 @@
     <header class="zone page-head post-head">
       <p class="eyebrow">Blog · November 2026 · Lab</p>
       <h1>The printer that wouldn&rsquo;t listen</h1>
-      <p class="lede">I wanted my iPhone to print shipping labels. Claude wrote the app in about an hour, and we spent the rest of the day reviving a Raspberry Pi from 2015.</p>
+      <p class="lede">I wanted my iPhone to print shipping labels. Claude wrote the app in about an hour, and we spent the rest of the day reviving a Raspberry Pi from 2015. By evening, labels were printing.</p>
       <a class="try-it" href="https://print.sauravsood.com">print.sauravsood.com <span aria-hidden="true">↗</span></a>
     </header>
 
@@ -213,6 +214,42 @@
       </figure>
 
       <div class="chapter">
+        <span class="chapter-no">Chapter 6</span>
+        <h2>The first label</h2>
+        <ul class="beats">
+          <li class="beat"><span class="sticker sky"><svg><use href="#i-printer"/></svg></span><p>After the reboot, the tunnel came back up. I opened print.sauravsood.com, uploaded a courier label and tapped Print.</p></li>
+          <li class="beat"><span class="sticker sun"><svg><use href="#i-party"/></svg></span><p>The printer fed out the label. My iPhone, which can&rsquo;t talk to a label printer at all, had just printed one through a web page and a Raspberry Pi from 2015.</p></li>
+        </ul>
+      </div>
+
+      <figure class="scene">
+        <svg viewBox="0 0 640 340" role="img" aria-label="Drawing: a phone showing the print page with a label preview and a Print button, and the printer pushing out a finished shipping label">
+          <g fill="none" stroke="#142238" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="40" y="40" width="140" height="260" rx="20" fill="#fff"/>
+            <path d="M92 284h36"/>
+            <circle cx="62" cy="66" r="5" fill="#2f7d5b"/>
+            <path d="M74 66h60"/>
+            <rect x="62" y="86" width="96" height="130" rx="4" fill="#f6f7f1"/>
+            <path d="M74 104h56M74 118h40M74 196v10M80 196v10M87 196v10M92 196v10M99 196v10M105 196v10"/>
+            <rect x="62" y="232" width="96" height="34" rx="17" fill="#d8f03c"/>
+            <path d="M200 170c40-20 80-20 120 0" stroke-dasharray="2 10"/>
+            <path d="M312 160l10 10-14 4"/>
+            <rect x="340" y="40" width="240" height="110" rx="20" fill="#2f5f93"/>
+            <path d="M380 132h160" stroke-width="8"/>
+            <circle cx="550" cy="70" r="8" fill="#d8f03c"/>
+            <path d="M390 132v150c0 10 10 18 22 14l118-34V132z" fill="#fff"/>
+            <path d="M410 162h70M410 182h96M410 202h50"/>
+            <rect x="410" y="218" width="40" height="30" fill="#f6f7f1"/>
+            <path d="M414 268v14M421 266v14M429 264v14M435 262v14M443 260v14M450 258v14M458 256v14M465 254v14M473 252v14"/>
+            <path d="M330 220l-20 6M334 248l-22 14M560 200l22 4M556 230l20 14" stroke="#e2683f"/>
+          </g>
+          <text x="110" y="255" font-family="Martian Mono, monospace" font-size="13" font-weight="600" fill="#142238" text-anchor="middle">Print</text>
+          <text x="262" y="110" font-family="Gochi Hand, cursive" font-size="34" fill="#e2683f" text-anchor="middle" transform="rotate(-8 262 110)">it works!</text>
+        </svg>
+        <figcaption>Tap Print on the phone, and out comes the label</figcaption>
+      </figure>
+
+      <div class="chapter">
         <span class="chapter-no">The running joke</span>
         <ul class="beats">
           <li class="beat"><span class="sticker coral"><svg><use href="#i-camera"/></svg></span><p>For most of the day, my best debugging tool was a phone photo of the Pi&rsquo;s screen. Each problem ended up as a fix in the installer or the README, so the next person setting up a Pi shouldn&rsquo;t run into it.</p></li>
@@ -228,28 +265,13 @@
         </ul>
       </div>
 
-      <figure class="scene">
-        <svg viewBox="0 0 640 300" role="img" aria-label="Drawing: the label printer with a blank shipping label coming out">
-          <g fill="none" stroke="#142238" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="200" y="50" width="240" height="120" rx="20" fill="#2f5f93"/>
-            <path d="M240 150h160" stroke-width="8"/>
-            <circle cx="410" cy="80" r="8" fill="#d8f03c"/>
-            <path d="M250 150v130h140V150" fill="#fff"/>
-            <path d="M270 180h70M270 200h100M270 220h50"/>
-            <path d="M272 250v18M280 250v18M290 250v18M296 250v18M306 250v18M314 250v18M322 250v18M332 250v18"/>
-          </g>
-          <text x="530" y="140" font-family="Gochi Hand, cursive" font-size="34" fill="#e2683f" text-anchor="middle" transform="rotate(-8 530 140)">soon!</text>
-        </svg>
-        <figcaption>The first real label hasn&rsquo;t printed yet.</figcaption>
-      </figure>
-
       <div class="prose post-prose">
         <p>The app is plain Python plus poppler, a PDF tool, so it runs on the old Pi without extra packages. It crops A4 courier sheets down to the 4&times;6 label, shows a preview and sends the job to the printer. The code is open source at <a href="https://github.com/sauravsood/print-bridge">github.com/sauravsood/print-bridge</a>.</p>
       </div>
     </section>
 
     <footer class="zone post-sign">
-      <p class="hand sign">Built in a day with Claude</p>
+      <p class="hand sign">It prints</p>
       <a class="try-it" href="https://github.com/sauravsood/print-bridge">See the code <span aria-hidden="true">↗</span></a>
     </footer>
   </article>
