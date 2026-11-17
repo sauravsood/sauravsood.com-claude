@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K71K5101R8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-K71K5101R8');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/icons/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<title>Print: shipping labels from an iPhone · Saurav Sood</title>
+<meta name="description" content="Print sends courier labels from an iPhone to an Ethernet-only thermal printer, through a 2015 Raspberry Pi. The code took an hour. The hardware took the day.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Gochi+Hand&family=Instrument+Sans:wght@400;600&family=Martian+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="../../assets/css/site.css?v=20261111">
+<link rel="stylesheet" href="../assets/blog.css?v=20261111c">
+</head>
+<body>
+<main class="court">
+  <header class="topbar">
+    <a class="wordmark" href="../../"><span class="dot" aria-hidden="true"></span>sauravsood.com</a>
+    <ul class="nav">
+      <li><a href="../../#life">Life</a></li>
+      <li><a href="../../blog/">Blog</a></li>
+      <li><a href="../../lab/">Lab</a></li>
+    </ul>
+    <button class="lights" id="lights" type="button" aria-pressed="false">Lights on</button>
+  </header>
+
+  <article>
+    <header class="zone page-head post-head">
+      <p class="eyebrow">Blog · November 2026 · Lab</p>
+      <h1>Print</h1>
+      <p class="lede">Shipping labels from my iPhone to a printer that only has an Ethernet port. The code took an hour. The hardware took the rest of the day.</p>
+      <a class="try-it" href="https://print.sauravsood.com">print.sauravsood.com <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <section class="zone prose post-prose">
+      <p>I ship Butter Beings orders from home, on 4×6 inch courier labels. The label printer, a TSC TA220, only has an Ethernet port and speaks its own language. My work laptop can&rsquo;t install drivers. My iPhone can&rsquo;t talk to it at all.</p>
+      <p>So I asked Claude for a web app that could. Open a page, drop in a label PDF, tap Print.</p>
+    </section>
+
+    <section class="zone" aria-labelledby="how-h">
+      <div class="side-label">
+        <h2 id="how-h">How it works</h2>
+        <p>A website can&rsquo;t reach a printer at home. A small box next to it can.</p>
+      </div>
+      <ul class="facts">
+        <li><b>1 · Phone</b><span>Open print.sauravsood.com and log in with a one-time code.</span></li>
+        <li><b>2 · Tunnel</b><span>Cloudflare carries it home. No ports opened on the router.</span></li>
+        <li><b>3 · Pi</b><span>Crops the A4 courier sheet to the label, rotates it, and shows a preview.</span></li>
+        <li><b>4 · Printer</b><span>Pick copies, tap Print. The Pi sends it straight to the printer.</span></li>
+      </ul>
+    </section>
+
+    <section class="zone" aria-labelledby="hurdles-h">
+      <div class="side-label">
+        <h2 id="hurdles-h">The day</h2>
+        <p>Every error pointed somewhere else.</p>
+      </div>
+      <ul class="facts">
+        <li><b>The Pi</b><span>&ldquo;Do I need one?&rdquo; Turns out I had one. From 2015. It wouldn&rsquo;t boot until I pushed the memory card back in.</span></li>
+        <li><b>No PC</b><span>No computer to reflash it, so Claude wrote a script that makes the old Pi install its own replacement.</span></li>
+        <li><b>64 GB = 1 GB</b><span>The new card read as 1 GB. The USB reader was too old for big cards.</span></li>
+        <li><b>19%</b><span>Downloads kept dying. Now they come in 8 MB pieces, retried until they land.</span></li>
+        <li><b>The token</b><span>&ldquo;Not valid base64.&rdquo; I&rsquo;d pasted Cloudflare&rsquo;s whole command, not just the key. The installer now picks it out.</span></li>
+        <li><b>Two networks</b><span>A mesh Wi-Fi behind the fibre router means two networks in one house. I moved the cables. The Pi kept its old address.</span></li>
+      </ul>
+    </section>
+
+    <section class="zone prose post-prose">
+      <p>The best debugging tool all day was a phone photo of the Pi&rsquo;s screen. Each hurdle became a fix in the installer or the instructions, so the next Pi won&rsquo;t hit it.</p>
+    </section>
+
+    <section class="zone" aria-labelledby="learned-h">
+      <div class="side-label">
+        <h2 id="learned-h">What I learned</h2>
+      </div>
+      <ul class="facts">
+        <li><b>Browser</b><span>Can&rsquo;t install anything? Put the smarts on a box you own and give yourself a web page.</span></li>
+        <li><b>Old is fine</b><span>A 2015 Pi is plenty, once it runs a current OS.</span></li>
+        <li><b>Screenshots</b><span>Dashboards change. Write steps for the screen in front of you.</span></li>
+      </ul>
+    </section>
+
+    <section class="zone prose post-prose">
+      <p>It runs on plain Python and one PDF tool, small enough for the old Pi. The code is open source at <a href="https://github.com/sauravsood/print-bridge">github.com/sauravsood/print-bridge</a>, with a one-line install.</p>
+    </section>
+
+    <footer class="zone post-sign">
+      <p class="hand sign">Next up: the first real label.</p>
+      <a class="try-it" href="https://github.com/sauravsood/print-bridge">See the code <span aria-hidden="true">↗</span></a>
+    </footer>
+  </article>
+</main>
+
+<footer class="foot">
+  <span>© 2026 Saurav Sood</span>
+  <ul><li><a href="../../blog/">All posts</a></li><li><a href="../../lab/">Lab</a></li><li><a href="../../">Back to centre court</a></li></ul>
+</footer>
+<script src="../../assets/js/site.js"></script>
+  <script src="https://kids.sauravsood.com/feedback/bubble.js" data-color="#d8f03c" data-ink="#142238" data-accent="#2f5f93" defer></script>
+</body>
+</html>
