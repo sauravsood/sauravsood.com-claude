@@ -1,0 +1,32 @@
+/* Story posts: chapters told with drawn scenes and sticker icons. */
+.story { display: grid; gap: clamp(28px, 5vw, 48px); }
+.chapter { display: grid; gap: 18px; }
+.chapter-no { font-family: var(--mono); font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--ball); }
+.chapter h2 { font-family: var(--display); font-weight: 900; text-transform: uppercase; font-size: clamp(2rem, 6vw, 3.2rem); line-height: .95; margin: 0; color: var(--chalk); }
+
+.beats { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.beat { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 16px; align-items: start; }
+.beat p { margin: 0; font-size: var(--step-1); line-height: 1.5; max-width: 54ch; }
+.beat p b { color: var(--ball); font-weight: 600; }
+
+.sticker { width: 64px; height: 64px; border-radius: 20px; display: grid; place-items: center; transform: rotate(-4deg); box-shadow: 0 4px 0 var(--shadow); }
+.beat:nth-child(even) .sticker { transform: rotate(3deg); }
+.sticker svg { width: 36px; height: 36px; fill: none; stroke: var(--ink); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.sticker.sun { background: var(--ball); }
+.sticker.coral { background: #ffb59c; }
+.sticker.chalk { background: var(--chalk); }
+.sticker.mint { background: #bfe6cf; }
+.sticker.sky { background: #bcd6f4; }
+
+.scene { margin: 0; display: grid; gap: 10px; justify-items: center; }
+.scene svg { width: 100%; max-width: 640px; height: auto; display: block; background: var(--chalk); border-radius: 10px; box-shadow: 0 10px 0 var(--shadow); transform: rotate(-.8deg); }
+.scene.tilt-r svg { transform: rotate(.9deg); }
+.scene figcaption { font-family: var(--hand); font-size: var(--step-1); color: var(--ball); transform: rotate(-1.5deg); text-align: center; }
+
+.aside-joke { font-family: var(--hand); font-size: clamp(1.4rem, 4vw, 2rem); color: var(--ball); transform: rotate(-1.5deg); max-width: 30ch; margin: 0; line-height: 1.2; }
+
+@media (max-width: 520px) {
+  .beat { grid-template-columns: 52px minmax(0, 1fr); gap: 12px; }
+  .sticker { width: 52px; height: 52px; border-radius: 16px; }
+  .sticker svg { width: 30px; height: 30px; }
+}
