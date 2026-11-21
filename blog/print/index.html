@@ -24,7 +24,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Gochi+Hand&family=Instrument+Sans:wght@400;600&family=Martian+Mono:wght@400;600&display=swap">
 <link rel="stylesheet" href="../../assets/css/site.css?v=20261111">
 <link rel="stylesheet" href="../assets/blog.css?v=20261111c">
-<link rel="stylesheet" href="../assets/story.css?v=20261117b">
+<link rel="stylesheet" href="../assets/story.css?v=20261121">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -45,6 +45,9 @@
   <symbol id="i-old" viewBox="0 0 24 24"><rect x="6" y="5" width="12" height="15" rx="2"/><path d="M9 9h2M13 9h2M9 12h2M13 12h2"/><path d="M6 16h12"/><path d="M8 5V3M16 5V3M12 5V3"/></symbol>
   <symbol id="i-web" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></symbol>
   <symbol id="i-party" viewBox="0 0 24 24"><path d="M4 20l4-12 8 8z"/><path d="M6 14l4 4M14 4l1 2M19 5l-2 2M20 10l-2 .5M15 9c1-2 3-2 4-1"/></symbol>
+  <symbol id="i-term" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 10l3 2-3 2M12 15h5"/></symbol>
+  <symbol id="i-plug" viewBox="0 0 24 24"><path d="M9 3v5M15 3v5M6 8h12v3a6 6 0 0 1-12 0zM12 17v4"/></symbol>
+  <symbol id="i-wifi" viewBox="0 0 24 24"><path d="M2 9a15 15 0 0 1 20 0M5.5 12.5a10 10 0 0 1 13 0M9 16a5 5 0 0 1 6 0"/><circle cx="12" cy="19" r=".8" fill="currentColor"/></symbol>
   <symbol id="i-shot" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M6 8h6M6 11h9M6 14h4"/><path d="M15 15l3 3-3 3" /></symbol>
 </svg>
 <main class="court">
@@ -248,6 +251,17 @@
         </svg>
         <figcaption>Tap Print on the phone, and out comes the label</figcaption>
       </figure>
+
+      <div class="chapter">
+        <span class="chapter-no">Chapter 7</span>
+        <h2>Away from home</h2>
+        <ul class="beats">
+          <li class="beat"><span class="sticker coral"><svg><use href="#i-term"/></svg></span><p>Later, I needed the Pi while I was away from home.<span class="err">ssh: connection timed out</span><span class="step"><span class="tag cause">Cause</span>The Pi&rsquo;s address only works on my home Wi-Fi, and I still had just the locked-down laptop and the iPhone.</span><span class="step"><span class="tag fix">Fix</span>The Pi already runs a Cloudflare tunnel for the print page, so I added a second address to it, ssh.sauravsood.com, with browser-based SSH behind the same email code. Now the Pi&rsquo;s terminal opens in a browser tab, with no open ports and nothing installed.</span></p></li>
+          <li class="beat"><span class="sticker sun"><svg><use href="#i-plug"/></svg></span><p><span class="err">Tunnel status: Down</span><span class="step"><span class="tag cause">Cause</span>The Pi itself was offline.</span><span class="step"><span class="tag fix">Fix</span>I switched it off and on again.</span></p></li>
+          <li class="beat"><span class="sticker mint"><svg><use href="#i-wifi"/></svg></span><p><span class="err">Local SSH failing at home, while the tunnel was healthy</span><span class="step"><span class="tag cause">Likely cause</span>Probably power saving on the Pi&rsquo;s USB Wi-Fi adapter.</span><span class="step"><span class="tag fix">Fix</span>Turn Wi-Fi power saving off on the Pi.</span></p></li>
+          <li class="beat"><span class="sticker sky"><svg><use href="#i-map"/></svg></span><p>I did the same for a server on AWS. The full story is in <a href="../terminals/">A terminal in a browser tab</a>.</p></li>
+        </ul>
+      </div>
 
       <div class="chapter">
         <span class="chapter-no">The running joke</span>
