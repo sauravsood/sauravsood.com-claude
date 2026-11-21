@@ -155,7 +155,7 @@
           <li class="beat"><span class="sticker coral"><svg><use href="#i-key"/></svg></span><p>EC2 logs in with keys, so I set a password with <code>sudo passwd ubuntu</code> and turned on password login with a small file, <code>/etc/ssh/sshd_config.d/99-password.conf</code>, holding <code>PasswordAuthentication yes</code>. Then I restarted SSH.</p></li>
           <li class="beat"><span class="sticker sky"><svg><use href="#i-route"/></svg></span><p>I added an <code>ec2</code> route to <code>ssh://localhost:22</code>, plus an Access app with browser SSH and the same email rule. The address shows Cloudflare&rsquo;s login, then an SSH prompt that takes a password or a pasted private key, so the .pem file works too.</p></li>
           <li class="beat"><span class="sticker chalk"><svg><use href="#i-door"/></svg></span><p>Because the tunnel connects outward, port 22 can be closed in the AWS security group. Then the server has no SSH open to the internet at all.</p></li>
-          <li class="beat"><span class="sticker sun"><svg><use href="#i-clock"/></svg></span><p><span class="tag pending">Pending</span>Logging in with the password on ec2.sauravsood.com isn&rsquo;t confirmed yet. I&rsquo;ll update this once it works.</p></li>
+          <li class="beat"><span class="sticker sun"><svg><use href="#i-term"/></svg></span><p><span class="tag fix">Works</span>I opened ec2.sauravsood.com, passed the email code and logged in with the password. The server&rsquo;s terminal came up in the tab.</p></li>
         </ul>
       </div>
 
