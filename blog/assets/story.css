@@ -38,3 +38,6 @@
 .beat .tag { display: inline-block; font-family: var(--mono); font-size: .66rem; letter-spacing: .12em; text-transform: uppercase; border-radius: 3px; padding: 1px 6px; margin-right: 8px; vertical-align: 2px; color: #142238; }
 .beat .tag.cause { background: #bcd6f4; }
 .beat .tag.fix { background: var(--ball); }
+.beat .tag.pending { background: #ffb59c; }
+.beat code, .err code { font-family: var(--mono); font-size: .85em; }
+.beat p { overflow-wrap: anywhere; min-width: 0; }
